@@ -1,0 +1,97 @@
+create table SMZJ.SYS_MANAGER_MENU
+(
+  id             VARCHAR2(32) not null,
+  parent_id      VARCHAR2(32) not null,
+  parent_ids     VARCHAR2(128),
+  name           VARCHAR2(128 CHAR),
+  href           VARCHAR2(256),
+  target         VARCHAR2(16),
+  icon           VARCHAR2(16) default 1,
+  sort           NUMBER default 10000,
+  is_show        CHAR(1),
+  is_activiti    CHAR(1),
+  remarks        VARCHAR2(2048),
+  is_examine     CHAR(1) default 0 not null,
+  examine_by     VARCHAR2(128 CHAR),
+  examine_date   DATE,
+  create_by      VARCHAR2(128 CHAR),
+  create_date    DATE,
+  update_by      VARCHAR2(128 CHAR),
+  update_date    DATE,
+  is_delete      CHAR(1),
+  is_supper_menu CHAR(1) default 0,
+  is_mgr_menu    CHAR(1),
+  all_menu_link  VARCHAR2(2048)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.SYS_MANAGER_MENU
+  is '管理人管理系统菜单表';
+comment on column SMZJ.SYS_MANAGER_MENU.id
+  is '菜单ID';
+comment on column SMZJ.SYS_MANAGER_MENU.parent_id
+  is '父菜单ID';
+comment on column SMZJ.SYS_MANAGER_MENU.parent_ids
+  is '所有的父菜单ID';
+comment on column SMZJ.SYS_MANAGER_MENU.name
+  is '名称';
+comment on column SMZJ.SYS_MANAGER_MENU.href
+  is '链接';
+comment on column SMZJ.SYS_MANAGER_MENU.target
+  is '目标';
+comment on column SMZJ.SYS_MANAGER_MENU.icon
+  is '图标';
+comment on column SMZJ.SYS_MANAGER_MENU.sort
+  is '序号';
+comment on column SMZJ.SYS_MANAGER_MENU.is_show
+  is '是否在菜单中显示';
+comment on column SMZJ.SYS_MANAGER_MENU.is_activiti
+  is '是否同步工作流';
+comment on column SMZJ.SYS_MANAGER_MENU.remarks
+  is '备注信息';
+comment on column SMZJ.SYS_MANAGER_MENU.is_examine
+  is '是否审核（0：未审核，1：审核）';
+comment on column SMZJ.SYS_MANAGER_MENU.examine_by
+  is '审核人';
+comment on column SMZJ.SYS_MANAGER_MENU.examine_date
+  is '审核时间';
+comment on column SMZJ.SYS_MANAGER_MENU.create_by
+  is '创建人';
+comment on column SMZJ.SYS_MANAGER_MENU.create_date
+  is '创建时间';
+comment on column SMZJ.SYS_MANAGER_MENU.update_by
+  is '修改人';
+comment on column SMZJ.SYS_MANAGER_MENU.update_date
+  is '修改时间';
+comment on column SMZJ.SYS_MANAGER_MENU.is_delete
+  is '是否删除（1：是，0：否）';
+comment on column SMZJ.SYS_MANAGER_MENU.is_supper_menu
+  is '是否超管菜单（1：是，0：否）';
+comment on column SMZJ.SYS_MANAGER_MENU.is_mgr_menu
+  is '是否管理员菜单（1：是，0：否）';
+comment on column SMZJ.SYS_MANAGER_MENU.all_menu_link
+  is '所有菜单链接权限';
+alter table SMZJ.SYS_MANAGER_MENU
+  add constraint SYS_MANAGER_MENU_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

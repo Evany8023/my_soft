@@ -1,0 +1,61 @@
+create table SMZJ.BUSI_DOWNLOAD_CENTER
+(
+  id            VARCHAR2(32) not null,
+  file_type     VARCHAR2(20),
+  file_name     VARCHAR2(128 CHAR),
+  file_url      VARCHAR2(500),
+  file_describe VARCHAR2(2048 CHAR),
+  create_date   DATE,
+  is_delete     CHAR(1) default 0,
+  parent_id     VARCHAR2(128 CHAR),
+  sort          NUMBER,
+  update_date   TIMESTAMP(6)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_DOWNLOAD_CENTER
+  is '下载专区表(维护管理人公共文件)';
+comment on column SMZJ.BUSI_DOWNLOAD_CENTER.id
+  is '主键';
+comment on column SMZJ.BUSI_DOWNLOAD_CENTER.file_type
+  is '文件类型';
+comment on column SMZJ.BUSI_DOWNLOAD_CENTER.file_name
+  is '文件名称';
+comment on column SMZJ.BUSI_DOWNLOAD_CENTER.file_url
+  is '文件路径';
+comment on column SMZJ.BUSI_DOWNLOAD_CENTER.file_describe
+  is '文件描述';
+comment on column SMZJ.BUSI_DOWNLOAD_CENTER.create_date
+  is '创建时间';
+comment on column SMZJ.BUSI_DOWNLOAD_CENTER.is_delete
+  is '是否删除（1：已删除，0：未删除）';
+comment on column SMZJ.BUSI_DOWNLOAD_CENTER.parent_id
+  is '父级文件夹名称';
+comment on column SMZJ.BUSI_DOWNLOAD_CENTER.sort
+  is '排序';
+comment on column SMZJ.BUSI_DOWNLOAD_CENTER.update_date
+  is '更新时间';
+alter table SMZJ.BUSI_DOWNLOAD_CENTER
+  add constraint BUSI_DOWNLOAD_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

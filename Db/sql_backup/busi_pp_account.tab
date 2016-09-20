@@ -1,0 +1,89 @@
+create table SMZJ.BUSI_PP_ACCOUNT
+(
+  id              VARCHAR2(32) not null,
+  cp_id           VARCHAR2(32) not null,
+  product_id      VARCHAR2(32),
+  bank_no         VARCHAR2(32),
+  bank_name       VARCHAR2(64),
+  contact_bank_no VARCHAR2(32),
+  acc_name        VARCHAR2(64),
+  acc_no          VARCHAR2(32),
+  acc_type        CHAR(1),
+  balance         NUMBER default 0 not null,
+  apply_date      DATE,
+  sell_no         VARCHAR2(8),
+  is_use          CHAR(1) default 0 not null,
+  is_examine      CHAR(1) default 0 not null,
+  examine_by      VARCHAR2(128 CHAR),
+  examine_date    DATE,
+  create_by       VARCHAR2(128 CHAR),
+  create_date     DATE,
+  update_by       VARCHAR2(128 CHAR),
+  update_date     DATE,
+  is_delete       CHAR(1) default 0 not null,
+  bank_type       VARCHAR2(4),
+  cp_name         VARCHAR2(128 CHAR),
+  product_name    VARCHAR2(128 CHAR)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255;
+comment on table SMZJ.BUSI_PP_ACCOUNT
+  is '私募产品账户表，存储私募产品各阶段账户信息';
+comment on column SMZJ.BUSI_PP_ACCOUNT.id
+  is 'ID';
+comment on column SMZJ.BUSI_PP_ACCOUNT.cp_id
+  is '公司ID';
+comment on column SMZJ.BUSI_PP_ACCOUNT.product_id
+  is '私募产品ID';
+comment on column SMZJ.BUSI_PP_ACCOUNT.bank_no
+  is '开户行编号';
+comment on column SMZJ.BUSI_PP_ACCOUNT.bank_name
+  is '开户行名称';
+comment on column SMZJ.BUSI_PP_ACCOUNT.contact_bank_no
+  is '联行号';
+comment on column SMZJ.BUSI_PP_ACCOUNT.acc_name
+  is '帐户名';
+comment on column SMZJ.BUSI_PP_ACCOUNT.acc_no
+  is '账号';
+comment on column SMZJ.BUSI_PP_ACCOUNT.acc_type
+  is '账户类型';
+comment on column SMZJ.BUSI_PP_ACCOUNT.balance
+  is '余额';
+comment on column SMZJ.BUSI_PP_ACCOUNT.apply_date
+  is '申请日期';
+comment on column SMZJ.BUSI_PP_ACCOUNT.sell_no
+  is '销售代码';
+comment on column SMZJ.BUSI_PP_ACCOUNT.is_use
+  is '是否启用（1：是，0：否）';
+comment on column SMZJ.BUSI_PP_ACCOUNT.is_examine
+  is '是否审核(1:是，0：否)';
+comment on column SMZJ.BUSI_PP_ACCOUNT.examine_by
+  is '审核人';
+comment on column SMZJ.BUSI_PP_ACCOUNT.examine_date
+  is '审核日期';
+comment on column SMZJ.BUSI_PP_ACCOUNT.create_by
+  is '创建人';
+comment on column SMZJ.BUSI_PP_ACCOUNT.create_date
+  is '创建时间';
+comment on column SMZJ.BUSI_PP_ACCOUNT.update_by
+  is '更新人';
+comment on column SMZJ.BUSI_PP_ACCOUNT.update_date
+  is '更新时间';
+comment on column SMZJ.BUSI_PP_ACCOUNT.is_delete
+  is '是否删除（1：是，0：否）';
+comment on column SMZJ.BUSI_PP_ACCOUNT.bank_type
+  is '银行类型';
+comment on column SMZJ.BUSI_PP_ACCOUNT.cp_name
+  is '公司名称';
+comment on column SMZJ.BUSI_PP_ACCOUNT.product_name
+  is '产品名称';
+alter table SMZJ.BUSI_PP_ACCOUNT
+  add constraint BUSI_PP_ACCOUNT_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255;
+

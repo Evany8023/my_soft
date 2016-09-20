@@ -1,0 +1,37 @@
+create table SMZJ.BUSI_COMMENT
+(
+  invest_id VARCHAR2(32) not null,
+  pt_id     VARCHAR2(32) not null
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_COMMENT
+  is '投资人对产品点赞信息表';
+comment on column SMZJ.BUSI_COMMENT.invest_id
+  is '投资人ID';
+comment on column SMZJ.BUSI_COMMENT.pt_id
+  is '产品ID';
+alter table SMZJ.BUSI_COMMENT
+  add constraint BUSI_COMMENT_PK primary key (INVEST_ID, PT_ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

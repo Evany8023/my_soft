@@ -1,0 +1,48 @@
+create table SMZJ.APP_VERSION
+(
+  id             VARCHAR2(32) not null,
+  app_type       CHAR(1),
+  download_path  VARCHAR2(128),
+  version_name   VARCHAR2(128 CHAR),
+  version_no     VARCHAR2(16),
+  app_name       VARCHAR2(128 CHAR),
+  version_desc   VARCHAR2(2048 CHAR),
+  upload_time    DATE,
+  upload_by      VARCHAR2(128 CHAR),
+  use_by         CHAR(1),
+  publish_status CHAR(1)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255;
+comment on table SMZJ.APP_VERSION
+  is 'app版本更新记录';
+comment on column SMZJ.APP_VERSION.app_type
+  is 'app类型（1：android,2:IOS）';
+comment on column SMZJ.APP_VERSION.download_path
+  is '下载地址';
+comment on column SMZJ.APP_VERSION.version_name
+  is '版本名称';
+comment on column SMZJ.APP_VERSION.version_no
+  is '版本号';
+comment on column SMZJ.APP_VERSION.app_name
+  is 'app安装包名称';
+comment on column SMZJ.APP_VERSION.version_desc
+  is '版本说明';
+comment on column SMZJ.APP_VERSION.upload_time
+  is '上传时间';
+comment on column SMZJ.APP_VERSION.upload_by
+  is '上传人';
+comment on column SMZJ.APP_VERSION.use_by
+  is '使用者（1：管理人APP，2：投资人APP）';
+comment on column SMZJ.APP_VERSION.publish_status
+  is '发布状态（1：已经发布，0：未发布或者下架）';
+alter table SMZJ.APP_VERSION
+  add constraint VERSION_PRIMARY_KEY primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255;
+

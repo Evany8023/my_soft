@@ -1,0 +1,28 @@
+create table SMZJ.SYS_MANAGER_LOG_TMP
+(
+  id             VARCHAR2(32) not null,
+  type           CHAR(1) default 1,
+  create_by      VARCHAR2(128 CHAR),
+  create_date    DATE,
+  remote_addr    VARCHAR2(64 CHAR),
+  user_agent     VARCHAR2(128 CHAR),
+  request_uri    VARCHAR2(1024 CHAR),
+  method         VARCHAR2(64 CHAR),
+  params         VARCHAR2(4000 CHAR),
+  exception      VARCHAR2(4000 CHAR),
+  browse_version VARCHAR2(2048 CHAR),
+  creditno       VARCHAR2(128 CHAR),
+  name           VARCHAR2(200 CHAR)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

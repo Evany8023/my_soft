@@ -1,0 +1,246 @@
+create table SMZJ.UT_T_TYPT_03
+(
+  appsheetserialno           VARCHAR2(24),
+  fundcode                   VARCHAR2(10),
+  largeredemptionflag        VARCHAR2(1),
+  transactiondate            VARCHAR2(8),
+  transactiontime            VARCHAR2(6),
+  transactionaccountid       VARCHAR2(17),
+  distributorcode            VARCHAR2(9),
+  applicationvol             NUMBER(16,2),
+  applicationamount          NUMBER(16,2),
+  businesscode               VARCHAR2(3),
+  taaccountid                VARCHAR2(12),
+  discountrateofcommission   NUMBER(5,4),
+  depositacct                VARCHAR2(19),
+  regioncode                 VARCHAR2(4),
+  currencytype               VARCHAR2(3),
+  branchcode                 VARCHAR2(9),
+  originalappsheetno         VARCHAR2(24),
+  originalsubsdate           VARCHAR2(8),
+  individualorinstitution    VARCHAR2(1),
+  validperiod                NUMBER(2),
+  daysredemptioninadvance    NUMBER(5),
+  redemptiondateinadvance    VARCHAR2(8),
+  originalserialno           VARCHAR2(20),
+  dateofperiodicsubs         VARCHAR2(8),
+  taserialno                 VARCHAR2(20),
+  termofperiodicsubs         NUMBER(5),
+  futurebuydate              VARCHAR2(8),
+  targetdistributorcode      VARCHAR2(9),
+  charge                     NUMBER(10,2),
+  targetbranchcode           VARCHAR2(9),
+  targettransactionaccountid VARCHAR2(17),
+  targetregioncode           VARCHAR2(4),
+  dividendratio              NUMBER(16,2),
+  specification              VARCHAR2(60),
+  codeoftargetfund           VARCHAR2(6),
+  totalbackendload           NUMBER(16,2),
+  shareclass                 VARCHAR2(1),
+  originalcfmdate            VARCHAR2(8),
+  detailflag                 VARCHAR2(1),
+  originalappdate            VARCHAR2(8),
+  defdividendmethod          VARCHAR2(1),
+  frozencause                VARCHAR2(1),
+  freezingdeadline           VARCHAR2(8),
+  varietycodeofperiodicsubs  VARCHAR2(5),
+  serialnoofperiodicsubs     VARCHAR2(5),
+  rationtype                 VARCHAR2(1),
+  targettaaccountid          VARCHAR2(12),
+  targetregistrarcode        VARCHAR2(2),
+  netno                      VARCHAR2(9),
+  customerno                 VARCHAR2(12),
+  targetsharetype            VARCHAR2(1),
+  rationprotocolno           VARCHAR2(20),
+  begindateofperiodicsubs    VARCHAR2(8),
+  enddateofperiodicsubs      VARCHAR2(8),
+  senddayofperiodicsubs      NUMBER(2),
+  broker                     VARCHAR2(12),
+  salespromotion             VARCHAR2(3),
+  acceptmethod               VARCHAR2(1),
+  forceredemptiontype        VARCHAR2(1),
+  takeincomeflag             VARCHAR2(1),
+  purposeofpesubs            VARCHAR2(40),
+  frequencyofpesubs          NUMBER(5),
+  periodsubtimeunit          VARCHAR2(1),
+  batchnumofpesubs           NUMBER(16,2),
+  capitalmode                VARCHAR2(2),
+  detailcapticalmode         VARCHAR2(2),
+  backenloaddiscount         NUMBER(5,4),
+  combinenum                 VARCHAR2(6),
+  futuresubscribedate        VARCHAR2(8),
+  tradingmethod              VARCHAR2(8),
+  largebuyflag               VARCHAR2(1),
+  chargetype                 VARCHAR2(1),
+  specifyratefee             NUMBER(9,8),
+  specifyfee                 NUMBER(16,2),
+  oorgno                     VARCHAR2(6),
+  specifiedredemption        VARCHAR2(40),
+  applicationnumber          VARCHAR2(40)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on column SMZJ.UT_T_TYPT_03.appsheetserialno
+  is '申请单编号';
+comment on column SMZJ.UT_T_TYPT_03.fundcode
+  is '基金代码';
+comment on column SMZJ.UT_T_TYPT_03.largeredemptionflag
+  is '巨额赎回处理标志';
+comment on column SMZJ.UT_T_TYPT_03.transactiondate
+  is '交易发生日期';
+comment on column SMZJ.UT_T_TYPT_03.transactiontime
+  is '交易发生时间';
+comment on column SMZJ.UT_T_TYPT_03.transactionaccountid
+  is '投资人基金交易帐号';
+comment on column SMZJ.UT_T_TYPT_03.distributorcode
+  is '销售人代码';
+comment on column SMZJ.UT_T_TYPT_03.applicationvol
+  is '申请基金份数';
+comment on column SMZJ.UT_T_TYPT_03.applicationamount
+  is '申请金额';
+comment on column SMZJ.UT_T_TYPT_03.businesscode
+  is '业务代码';
+comment on column SMZJ.UT_T_TYPT_03.taaccountid
+  is '投资人基金帐号';
+comment on column SMZJ.UT_T_TYPT_03.discountrateofcommission
+  is '销售佣金折扣率';
+comment on column SMZJ.UT_T_TYPT_03.depositacct
+  is '投资人在销售人处用于交易的资金帐号';
+comment on column SMZJ.UT_T_TYPT_03.regioncode
+  is '交易所在地区编号';
+comment on column SMZJ.UT_T_TYPT_03.currencytype
+  is '结算币种';
+comment on column SMZJ.UT_T_TYPT_03.branchcode
+  is '网点号码';
+comment on column SMZJ.UT_T_TYPT_03.originalappsheetno
+  is '原申请单编号';
+comment on column SMZJ.UT_T_TYPT_03.originalsubsdate
+  is '原申购日期';
+comment on column SMZJ.UT_T_TYPT_03.individualorinstitution
+  is '个人/机构标志';
+comment on column SMZJ.UT_T_TYPT_03.validperiod
+  is '交易申请有效天数';
+comment on column SMZJ.UT_T_TYPT_03.daysredemptioninadvance
+  is '预约赎回工作日天数';
+comment on column SMZJ.UT_T_TYPT_03.redemptiondateinadvance
+  is '预约赎回日期';
+comment on column SMZJ.UT_T_TYPT_03.originalserialno
+  is 'TA的原确认流水号';
+comment on column SMZJ.UT_T_TYPT_03.dateofperiodicsubs
+  is '定期定额申购日期';
+comment on column SMZJ.UT_T_TYPT_03.taserialno
+  is 'TA确认交易流水号';
+comment on column SMZJ.UT_T_TYPT_03.termofperiodicsubs
+  is '定期定额申购期限';
+comment on column SMZJ.UT_T_TYPT_03.futurebuydate
+  is '指定申购日期';
+comment on column SMZJ.UT_T_TYPT_03.targetdistributorcode
+  is '对方销售人代码';
+comment on column SMZJ.UT_T_TYPT_03.charge
+  is '手续费';
+comment on column SMZJ.UT_T_TYPT_03.targetbranchcode
+  is '对方网点号';
+comment on column SMZJ.UT_T_TYPT_03.targettransactionaccountid
+  is '对方销售人处投资人基金交易帐号';
+comment on column SMZJ.UT_T_TYPT_03.targetregioncode
+  is '对方所在地区编号';
+comment on column SMZJ.UT_T_TYPT_03.dividendratio
+  is '红利比例';
+comment on column SMZJ.UT_T_TYPT_03.specification
+  is '摘要/说明';
+comment on column SMZJ.UT_T_TYPT_03.codeoftargetfund
+  is '转换时的目标基金代码';
+comment on column SMZJ.UT_T_TYPT_03.totalbackendload
+  is '交易后端收费总额';
+comment on column SMZJ.UT_T_TYPT_03.shareclass
+  is '收费类别';
+comment on column SMZJ.UT_T_TYPT_03.originalcfmdate
+  is 'TA的原确认日期';
+comment on column SMZJ.UT_T_TYPT_03.detailflag
+  is '数据明细标志';
+comment on column SMZJ.UT_T_TYPT_03.originalappdate
+  is '原申请日期';
+comment on column SMZJ.UT_T_TYPT_03.defdividendmethod
+  is '默认分红方式';
+comment on column SMZJ.UT_T_TYPT_03.frozencause
+  is '冻结原因';
+comment on column SMZJ.UT_T_TYPT_03.freezingdeadline
+  is '冻结截止日期';
+comment on column SMZJ.UT_T_TYPT_03.varietycodeofperiodicsubs
+  is '定时定额品种代码';
+comment on column SMZJ.UT_T_TYPT_03.serialnoofperiodicsubs
+  is '定时定额申购序号';
+comment on column SMZJ.UT_T_TYPT_03.rationtype
+  is '定期定额种类';
+comment on column SMZJ.UT_T_TYPT_03.targettaaccountid
+  is '对方基金账号';
+comment on column SMZJ.UT_T_TYPT_03.targetregistrarcode
+  is '对方TA代码';
+comment on column SMZJ.UT_T_TYPT_03.netno
+  is '操作（清算）网点编号';
+comment on column SMZJ.UT_T_TYPT_03.customerno
+  is 'TA客户编号';
+comment on column SMZJ.UT_T_TYPT_03.targetsharetype
+  is '对方基金份额类别';
+comment on column SMZJ.UT_T_TYPT_03.rationprotocolno
+  is '定期定额协议号';
+comment on column SMZJ.UT_T_TYPT_03.begindateofperiodicsubs
+  is '定时定额申购起始日期';
+comment on column SMZJ.UT_T_TYPT_03.enddateofperiodicsubs
+  is '定时定额申购终止日期';
+comment on column SMZJ.UT_T_TYPT_03.senddayofperiodicsubs
+  is '定时定额申购每月发送日';
+comment on column SMZJ.UT_T_TYPT_03.broker
+  is '经纪人';
+comment on column SMZJ.UT_T_TYPT_03.salespromotion
+  is '促销活动代码';
+comment on column SMZJ.UT_T_TYPT_03.acceptmethod
+  is '受理方式';
+comment on column SMZJ.UT_T_TYPT_03.forceredemptiontype
+  is '强制赎回类型';
+comment on column SMZJ.UT_T_TYPT_03.takeincomeflag
+  is '带走收益标志';
+comment on column SMZJ.UT_T_TYPT_03.purposeofpesubs
+  is '定投目的';
+comment on column SMZJ.UT_T_TYPT_03.frequencyofpesubs
+  is '定投频率';
+comment on column SMZJ.UT_T_TYPT_03.periodsubtimeunit
+  is '定投周期单位';
+comment on column SMZJ.UT_T_TYPT_03.batchnumofpesubs
+  is '定投期数';
+comment on column SMZJ.UT_T_TYPT_03.capitalmode
+  is '资金方式';
+comment on column SMZJ.UT_T_TYPT_03.detailcapticalmode
+  is '明细资金方式';
+comment on column SMZJ.UT_T_TYPT_03.backenloaddiscount
+  is '补差费折扣率';
+comment on column SMZJ.UT_T_TYPT_03.combinenum
+  is '组合编号';
+comment on column SMZJ.UT_T_TYPT_03.futuresubscribedate
+  is '指定认购日期';
+comment on column SMZJ.UT_T_TYPT_03.tradingmethod
+  is '使用的交易手段';
+comment on column SMZJ.UT_T_TYPT_03.largebuyflag
+  is '巨额购买处理标志';
+comment on column SMZJ.UT_T_TYPT_03.chargetype
+  is '收费类型';
+comment on column SMZJ.UT_T_TYPT_03.specifyratefee
+  is '指定费率';
+comment on column SMZJ.UT_T_TYPT_03.specifyfee
+  is '指定费用';
+comment on column SMZJ.UT_T_TYPT_03.oorgno
+  is '销售机构';
+comment on column SMZJ.UT_T_TYPT_03.specifiedredemption
+  is '指定赎回';
+comment on column SMZJ.UT_T_TYPT_03.applicationnumber
+  is '原申请数';
+

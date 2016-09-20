@@ -1,0 +1,44 @@
+create table SMZJ.BUSI_TRUST_NETVAL
+(
+  id              VARCHAR2(32) not null,
+  pt_no           VARCHAR2(16),
+  pt_name         VARCHAR2(128 CHAR),
+  trust_man       VARCHAR2(16),
+  pt_publish_date DATE,
+  undisplay_date  VARCHAR2(128),
+  create_date     DATE,
+  update_date     DATE,
+  if_fb           CHAR(1)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255;
+comment on table SMZJ.BUSI_TRUST_NETVAL
+  is '负责人净值';
+comment on column SMZJ.BUSI_TRUST_NETVAL.id
+  is 'id';
+comment on column SMZJ.BUSI_TRUST_NETVAL.pt_no
+  is '产品代码';
+comment on column SMZJ.BUSI_TRUST_NETVAL.pt_name
+  is '产品名称';
+comment on column SMZJ.BUSI_TRUST_NETVAL.trust_man
+  is '托管人';
+comment on column SMZJ.BUSI_TRUST_NETVAL.pt_publish_date
+  is '产品成立日';
+comment on column SMZJ.BUSI_TRUST_NETVAL.undisplay_date
+  is '未披露日期';
+comment on column SMZJ.BUSI_TRUST_NETVAL.create_date
+  is '创建日期';
+comment on column SMZJ.BUSI_TRUST_NETVAL.update_date
+  is '更新日期';
+comment on column SMZJ.BUSI_TRUST_NETVAL.if_fb
+  is '是否非标（1：是，0：否）';
+alter table SMZJ.BUSI_TRUST_NETVAL
+  add constraint TRUST_NETVAL_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255;
+

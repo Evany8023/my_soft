@@ -1,0 +1,115 @@
+create table SMZJ.BUSI_SHARE_DETAIL
+(
+  id                VARCHAR2(32) not null,
+  regist_account    VARCHAR2(32),
+  custom_name       VARCHAR2(128 CHAR),
+  phone             VARCHAR2(20 CHAR),
+  credit_no         VARCHAR2(50 CHAR),
+  confirm_date      DATE,
+  business_type     VARCHAR2(32),
+  confirm_amount    NUMBER,
+  confirm_share     NUMBER,
+  share_balance     NUMBER,
+  pt_no             VARCHAR2(32),
+  apply_no          VARCHAR2(32),
+  confirm_trans     VARCHAR2(32),
+  insti_code        VARCHAR2(16),
+  custom_no         VARCHAR2(50 CHAR),
+  target_code       VARCHAR2(16),
+  buy_unit_net_val  VARCHAR2(8),
+  buy_total_net_val VARCHAR2(8),
+  available         NUMBER,
+  own_share         NUMBER,
+  pt_name           VARCHAR2(128 CHAR),
+  zjlx              VARCHAR2(5 CHAR),
+  insti_name        VARCHAR2(100 CHAR),
+  sourcetype        VARCHAR2(5)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_SHARE_DETAIL
+  is '份额明细表';
+comment on column SMZJ.BUSI_SHARE_DETAIL.id
+  is 'ID';
+comment on column SMZJ.BUSI_SHARE_DETAIL.regist_account
+  is '登记账户';
+comment on column SMZJ.BUSI_SHARE_DETAIL.custom_name
+  is '客户姓名';
+comment on column SMZJ.BUSI_SHARE_DETAIL.phone
+  is '手机号码';
+comment on column SMZJ.BUSI_SHARE_DETAIL.credit_no
+  is '证件号码';
+comment on column SMZJ.BUSI_SHARE_DETAIL.confirm_date
+  is '确认日期';
+comment on column SMZJ.BUSI_SHARE_DETAIL.business_type
+  is '业务类型';
+comment on column SMZJ.BUSI_SHARE_DETAIL.confirm_amount
+  is '确认金额';
+comment on column SMZJ.BUSI_SHARE_DETAIL.confirm_share
+  is '确认份额';
+comment on column SMZJ.BUSI_SHARE_DETAIL.share_balance
+  is '份额余额';
+comment on column SMZJ.BUSI_SHARE_DETAIL.pt_no
+  is '产品代码';
+comment on column SMZJ.BUSI_SHARE_DETAIL.apply_no
+  is '申请单号';
+comment on column SMZJ.BUSI_SHARE_DETAIL.confirm_trans
+  is '确认流水';
+comment on column SMZJ.BUSI_SHARE_DETAIL.insti_code
+  is '机构编码';
+comment on column SMZJ.BUSI_SHARE_DETAIL.custom_no
+  is '客户编号';
+comment on column SMZJ.BUSI_SHARE_DETAIL.target_code
+  is '目标代码';
+comment on column SMZJ.BUSI_SHARE_DETAIL.buy_unit_net_val
+  is '买入单位净值';
+comment on column SMZJ.BUSI_SHARE_DETAIL.buy_total_net_val
+  is '买入累计净值';
+comment on column SMZJ.BUSI_SHARE_DETAIL.available
+  is '可用份额';
+comment on column SMZJ.BUSI_SHARE_DETAIL.own_share
+  is '持有份额';
+comment on column SMZJ.BUSI_SHARE_DETAIL.pt_name
+  is '产品名称';
+comment on column SMZJ.BUSI_SHARE_DETAIL.zjlx
+  is '证件类型';
+comment on column SMZJ.BUSI_SHARE_DETAIL.insti_name
+  is '公司名称';
+comment on column SMZJ.BUSI_SHARE_DETAIL.sourcetype
+  is '0表示直销，1表示代销';
+create index SMZJ.BUSI_SHRE_DETAIL_DJZH_INDEX on SMZJ.BUSI_SHARE_DETAIL (REGIST_ACCOUNT)
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table SMZJ.BUSI_SHARE_DETAIL
+  add constraint BUSI_SHARE_DETAIL_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

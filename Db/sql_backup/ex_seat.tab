@@ -1,0 +1,29 @@
+create table SMZJ.EX_SEAT
+(
+  fcode    VARCHAR2(3) not null,
+  tcode    VARCHAR2(3) not null,
+  extpid   VARCHAR2(2) not null,
+  exmode   VARCHAR2(1) not null,
+  fnmfmt   VARCHAR2(50),
+  oheader  VARCHAR2(1),
+  oitmnm   VARCHAR2(1),
+  oitmnmfl VARCHAR2(1),
+  oreccnt  VARCHAR2(1),
+  osymbol  VARCHAR2(1),
+  oflddef  VARCHAR2(1),
+  extab    VARCHAR2(100),
+  exfmtid  VARCHAR2(10),
+  extabpt  VARCHAR2(100)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

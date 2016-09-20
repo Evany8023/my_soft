@@ -1,0 +1,47 @@
+create table SMZJ.SYS_INVESTOR_LOG
+(
+  id             VARCHAR2(64) not null,
+  type           CHAR(1) default '1',
+  create_by      VARCHAR2(64),
+  create_date    TIMESTAMP(6),
+  remote_addr    VARCHAR2(255),
+  request_uri    VARCHAR2(255),
+  method         VARCHAR2(255),
+  params         CLOB,
+  exception      CLOB,
+  browse_version VARCHAR2(1024)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.SYS_INVESTOR_LOG
+  is '管理人操作日志表';
+comment on column SMZJ.SYS_INVESTOR_LOG.id
+  is '编号';
+comment on column SMZJ.SYS_INVESTOR_LOG.type
+  is '日志类型';
+comment on column SMZJ.SYS_INVESTOR_LOG.create_by
+  is '创建者';
+comment on column SMZJ.SYS_INVESTOR_LOG.create_date
+  is '创建时间';
+comment on column SMZJ.SYS_INVESTOR_LOG.remote_addr
+  is '操作IP地址';
+comment on column SMZJ.SYS_INVESTOR_LOG.request_uri
+  is '请求URI';
+comment on column SMZJ.SYS_INVESTOR_LOG.method
+  is '操作方式';
+comment on column SMZJ.SYS_INVESTOR_LOG.params
+  is '操作提交的数据';
+comment on column SMZJ.SYS_INVESTOR_LOG.exception
+  is '异常信息';
+comment on column SMZJ.SYS_INVESTOR_LOG.browse_version
+  is '浏览器版本';
+

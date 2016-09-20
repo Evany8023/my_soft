@@ -1,0 +1,68 @@
+create table SMZJ.SYS_ADDR_LIST
+(
+  id           VARCHAR2(32) not null,
+  name         VARCHAR2(128 CHAR),
+  office_name  VARCHAR2(64),
+  phone        VARCHAR2(16),
+  office_phone VARCHAR2(16),
+  email        VARCHAR2(64),
+  address      VARCHAR2(256),
+  create_by    VARCHAR2(128 CHAR),
+  create_date  DATE,
+  update_by    VARCHAR2(128 CHAR),
+  update_date  DATE,
+  is_delete    CHAR(1) default 0 not null,
+  remark       VARCHAR2(2048)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.SYS_ADDR_LIST
+  is '托管部通讯录';
+comment on column SMZJ.SYS_ADDR_LIST.name
+  is '姓名';
+comment on column SMZJ.SYS_ADDR_LIST.office_name
+  is '岗位';
+comment on column SMZJ.SYS_ADDR_LIST.phone
+  is '手机号';
+comment on column SMZJ.SYS_ADDR_LIST.office_phone
+  is '办公电话';
+comment on column SMZJ.SYS_ADDR_LIST.email
+  is '邮箱';
+comment on column SMZJ.SYS_ADDR_LIST.address
+  is '邮寄地址';
+comment on column SMZJ.SYS_ADDR_LIST.create_by
+  is '创建人';
+comment on column SMZJ.SYS_ADDR_LIST.create_date
+  is '创建时间';
+comment on column SMZJ.SYS_ADDR_LIST.update_by
+  is '更新人';
+comment on column SMZJ.SYS_ADDR_LIST.update_date
+  is '更新时间';
+comment on column SMZJ.SYS_ADDR_LIST.is_delete
+  is '删除状态';
+comment on column SMZJ.SYS_ADDR_LIST.remark
+  is '备注';
+alter table SMZJ.SYS_ADDR_LIST
+  add constraint SYS_ADDR_LIST_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

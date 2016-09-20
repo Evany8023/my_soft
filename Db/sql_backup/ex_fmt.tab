@@ -1,0 +1,23 @@
+create table SMZJ.EX_FMT
+(
+  exfmtid VARCHAR2(10) not null,
+  itmnm   VARCHAR2(60) not null,
+  itmprc  NUMBER,
+  itmscl  NUMBER,
+  fld     VARCHAR2(60),
+  fldpk   VARCHAR2(1),
+  sn      NUMBER,
+  itmtp   CHAR(1)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

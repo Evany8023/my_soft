@@ -1,0 +1,83 @@
+create table SMZJ.BUSI_BATCH_REDEEM_TMP
+(
+  id               VARCHAR2(32) not null,
+  no               VARCHAR2(32),
+  investor_name    VARCHAR2(128 CHAR),
+  investor_type    VARCHAR2(16),
+  credit_type      VARCHAR2(64),
+  credit_no        VARCHAR2(32),
+  redeem_share     VARCHAR2(32),
+  batch_number     VARCHAR2(100),
+  apply_date       DATE,
+  create_date      DATE,
+  product_id       VARCHAR2(32),
+  company_id       VARCHAR2(32),
+  status           CHAR(1) default 0,
+  credit_type_no   VARCHAR2(4),
+  investor_type_no VARCHAR2(4),
+  product_no       VARCHAR2(16),
+  company_no       VARCHAR2(16),
+  batch_number_id  VARCHAR2(32)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_BATCH_REDEEM_TMP
+  is '批量赎回临时表';
+comment on column SMZJ.BUSI_BATCH_REDEEM_TMP.no
+  is '序号';
+comment on column SMZJ.BUSI_BATCH_REDEEM_TMP.investor_name
+  is '投资人姓名';
+comment on column SMZJ.BUSI_BATCH_REDEEM_TMP.investor_type
+  is '投资人类型';
+comment on column SMZJ.BUSI_BATCH_REDEEM_TMP.credit_type
+  is '证件类型';
+comment on column SMZJ.BUSI_BATCH_REDEEM_TMP.credit_no
+  is '证件号码';
+comment on column SMZJ.BUSI_BATCH_REDEEM_TMP.redeem_share
+  is '赎回份额';
+comment on column SMZJ.BUSI_BATCH_REDEEM_TMP.batch_number
+  is '批次号';
+comment on column SMZJ.BUSI_BATCH_REDEEM_TMP.apply_date
+  is '申请赎回日期';
+comment on column SMZJ.BUSI_BATCH_REDEEM_TMP.create_date
+  is '创建订单时间';
+comment on column SMZJ.BUSI_BATCH_REDEEM_TMP.product_id
+  is '产品ID';
+comment on column SMZJ.BUSI_BATCH_REDEEM_TMP.company_id
+  is '公司ID';
+comment on column SMZJ.BUSI_BATCH_REDEEM_TMP.status
+  is '处理状态（0：未处理，1：已处理）';
+comment on column SMZJ.BUSI_BATCH_REDEEM_TMP.credit_type_no
+  is '证件类型代码';
+comment on column SMZJ.BUSI_BATCH_REDEEM_TMP.investor_type_no
+  is '投资人类型代码';
+comment on column SMZJ.BUSI_BATCH_REDEEM_TMP.product_no
+  is '产品代码';
+comment on column SMZJ.BUSI_BATCH_REDEEM_TMP.company_no
+  is '公司机构代码';
+comment on column SMZJ.BUSI_BATCH_REDEEM_TMP.batch_number_id
+  is '批次号id';
+alter table SMZJ.BUSI_BATCH_REDEEM_TMP
+  add constraint B_R_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

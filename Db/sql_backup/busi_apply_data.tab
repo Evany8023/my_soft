@@ -1,0 +1,80 @@
+create table SMZJ.BUSI_APPLY_DATA
+(
+  id                VARCHAR2(32) not null,
+  pt_sgje           VARCHAR2(32),
+  pt_rgje           VARCHAR2(32),
+  pt_shfe           VARCHAR2(32),
+  create_date       DATE,
+  cp_id             VARCHAR2(32),
+  cp_no             VARCHAR2(16),
+  cp_name           VARCHAR2(128 CHAR),
+  pt_id             VARCHAR2(32),
+  pt_no             VARCHAR2(16),
+  pt_name           VARCHAR2(128 CHAR),
+  ta_status         VARCHAR2(16),
+  pt_status         VARCHAR2(16),
+  ta_pt_compare     VARCHAR2(16),
+  ta_confirm_status VARCHAR2(16),
+  born_date         VARCHAR2(8),
+  apply_date        DATE
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_APPLY_DATA
+  is '申请数据';
+comment on column SMZJ.BUSI_APPLY_DATA.pt_sgje
+  is '申购金额';
+comment on column SMZJ.BUSI_APPLY_DATA.pt_rgje
+  is '认购金额';
+comment on column SMZJ.BUSI_APPLY_DATA.pt_shfe
+  is '赎回份额';
+comment on column SMZJ.BUSI_APPLY_DATA.create_date
+  is '创建日期';
+comment on column SMZJ.BUSI_APPLY_DATA.cp_id
+  is '公司ID';
+comment on column SMZJ.BUSI_APPLY_DATA.cp_no
+  is '机构代码';
+comment on column SMZJ.BUSI_APPLY_DATA.cp_name
+  is '公司名称';
+comment on column SMZJ.BUSI_APPLY_DATA.pt_id
+  is '产品ID';
+comment on column SMZJ.BUSI_APPLY_DATA.pt_no
+  is '产品代码';
+comment on column SMZJ.BUSI_APPLY_DATA.pt_name
+  is '产品名称';
+comment on column SMZJ.BUSI_APPLY_DATA.ta_status
+  is 'TA状态';
+comment on column SMZJ.BUSI_APPLY_DATA.pt_status
+  is '产品状态';
+comment on column SMZJ.BUSI_APPLY_DATA.ta_pt_compare
+  is 'TA，平台 产品参数比较';
+comment on column SMZJ.BUSI_APPLY_DATA.ta_confirm_status
+  is 'TA确认状态';
+comment on column SMZJ.BUSI_APPLY_DATA.born_date
+  is '生成日期';
+comment on column SMZJ.BUSI_APPLY_DATA.apply_date
+  is '申请日期';
+alter table SMZJ.BUSI_APPLY_DATA
+  add constraint APPLY_DATA_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

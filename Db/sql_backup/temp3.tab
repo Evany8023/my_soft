@@ -1,0 +1,22 @@
+create table SMZJ.TEMP3
+(
+  workdate  VARCHAR2(100),
+  mgr_count VARCHAR2(100),
+  count_1   VARCHAR2(100),
+  count_2   VARCHAR2(100),
+  count_3   VARCHAR2(100)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on column SMZJ.TEMP3.workdate
+  is 'ÈÕÆÚ';
+

@@ -1,0 +1,50 @@
+create table SMZJ.BUSI_PHONE_VERIFY_CODE
+(
+  id          VARCHAR2(32) not null,
+  phone       VARCHAR2(16) not null,
+  verify_code VARCHAR2(16) not null,
+  create_date DATE not null,
+  expira_date DATE not null,
+  mt_type     CHAR(1) not null,
+  type        CHAR(1) not null
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on column SMZJ.BUSI_PHONE_VERIFY_CODE.id
+  is 'ID';
+comment on column SMZJ.BUSI_PHONE_VERIFY_CODE.phone
+  is '手机号';
+comment on column SMZJ.BUSI_PHONE_VERIFY_CODE.verify_code
+  is '验证码';
+comment on column SMZJ.BUSI_PHONE_VERIFY_CODE.create_date
+  is '创建时间';
+comment on column SMZJ.BUSI_PHONE_VERIFY_CODE.expira_date
+  is '截止时间';
+comment on column SMZJ.BUSI_PHONE_VERIFY_CODE.mt_type
+  is '验证码归属于（M：管理人，T：投资人）';
+comment on column SMZJ.BUSI_PHONE_VERIFY_CODE.type
+  is '验证码类型(1：注册，2.找回密码，3.更换手机号码)';
+alter table SMZJ.BUSI_PHONE_VERIFY_CODE
+  add constraint BUSI_PHONE_VERIFY_CODE_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

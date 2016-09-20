@@ -1,0 +1,115 @@
+create table SMZJ.BUSI_SHARE_BALANCE
+(
+  id             VARCHAR2(32) not null,
+  pt_no          VARCHAR2(32),
+  pt_name        VARCHAR2(128 CHAR),
+  custom_name    VARCHAR2(128 CHAR),
+  phone          VARCHAR2(20 CHAR),
+  regist_account VARCHAR2(32),
+  credit_no      VARCHAR2(32 CHAR),
+  available      NUMBER,
+  balance        NUMBER,
+  insti_code     VARCHAR2(16),
+  custom_no      VARCHAR2(32 CHAR),
+  unit_net_val   VARCHAR2(16),
+  fund_share     VARCHAR2(16),
+  fund_net_val   VARCHAR2(16),
+  net_val_date   DATE,
+  bonus_way      VARCHAR2(16),
+  unpay_income   VARCHAR2(16),
+  total_income   VARCHAR2(16),
+  apply_no       VARCHAR2(32),
+  zjlx           VARCHAR2(5),
+  insti_name     VARCHAR2(100 CHAR),
+  sourcetype     VARCHAR2(5),
+  pt_id          VARCHAR2(32),
+  sheet_ids      VARCHAR2(200)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_SHARE_BALANCE
+  is '份额余额';
+comment on column SMZJ.BUSI_SHARE_BALANCE.id
+  is 'ID';
+comment on column SMZJ.BUSI_SHARE_BALANCE.pt_no
+  is '产品代码';
+comment on column SMZJ.BUSI_SHARE_BALANCE.pt_name
+  is '产品名称';
+comment on column SMZJ.BUSI_SHARE_BALANCE.custom_name
+  is '客户名称';
+comment on column SMZJ.BUSI_SHARE_BALANCE.phone
+  is '客户手机号码';
+comment on column SMZJ.BUSI_SHARE_BALANCE.regist_account
+  is '登记账号';
+comment on column SMZJ.BUSI_SHARE_BALANCE.credit_no
+  is '证件号码';
+comment on column SMZJ.BUSI_SHARE_BALANCE.available
+  is '可用份额';
+comment on column SMZJ.BUSI_SHARE_BALANCE.balance
+  is '份额余额';
+comment on column SMZJ.BUSI_SHARE_BALANCE.insti_code
+  is '机构编码';
+comment on column SMZJ.BUSI_SHARE_BALANCE.custom_no
+  is '客户编号';
+comment on column SMZJ.BUSI_SHARE_BALANCE.unit_net_val
+  is '单位净值';
+comment on column SMZJ.BUSI_SHARE_BALANCE.fund_share
+  is '资产份额';
+comment on column SMZJ.BUSI_SHARE_BALANCE.fund_net_val
+  is '资产净值';
+comment on column SMZJ.BUSI_SHARE_BALANCE.net_val_date
+  is '净值日期';
+comment on column SMZJ.BUSI_SHARE_BALANCE.bonus_way
+  is '分红方式';
+comment on column SMZJ.BUSI_SHARE_BALANCE.unpay_income
+  is '未付收益';
+comment on column SMZJ.BUSI_SHARE_BALANCE.total_income
+  is '累计收益';
+comment on column SMZJ.BUSI_SHARE_BALANCE.apply_no
+  is '申请单号';
+comment on column SMZJ.BUSI_SHARE_BALANCE.zjlx
+  is '证件类型';
+comment on column SMZJ.BUSI_SHARE_BALANCE.insti_name
+  is '公司名称';
+comment on column SMZJ.BUSI_SHARE_BALANCE.sourcetype
+  is '0表示直销，1表示代销';
+comment on column SMZJ.BUSI_SHARE_BALANCE.pt_id
+  is '产品id';
+comment on column SMZJ.BUSI_SHARE_BALANCE.sheet_ids
+  is '交易流水ID';
+create index SMZJ.BUSI_SHARE_DJZH_INDEX on SMZJ.BUSI_SHARE_BALANCE (REGIST_ACCOUNT)
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table SMZJ.BUSI_SHARE_BALANCE
+  add constraint BUSI_SHARE_BALANCE_ID primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

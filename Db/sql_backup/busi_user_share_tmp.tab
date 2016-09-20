@@ -1,0 +1,15 @@
+create global temporary table SMZJ.BUSI_USER_SHARE_TMP
+(
+  cpid          VARCHAR2(32) not null,
+  fundcode      VARCHAR2(12),
+  fundname      VARCHAR2(100 CHAR),
+  feye          VARCHAR2(30),
+  dwzj          VARCHAR2(20),
+  jzrq          VARCHAR2(8),
+  sz            VARCHAR2(20),
+  source        VARCHAR2(50),
+  registaccount VARCHAR2(20),
+  insti_code    VARCHAR2(20)
+)
+on commit preserve rows;
+

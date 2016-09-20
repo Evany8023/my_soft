@@ -1,0 +1,37 @@
+create table SMZJ.SYS_ROLE_MENU
+(
+  role_id VARCHAR2(32) not null,
+  menu_id VARCHAR2(32) not null
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.SYS_ROLE_MENU
+  is '角色菜单中间表';
+comment on column SMZJ.SYS_ROLE_MENU.role_id
+  is '角色ID';
+comment on column SMZJ.SYS_ROLE_MENU.menu_id
+  is '菜单ID';
+alter table SMZJ.SYS_ROLE_MENU
+  add constraint SYS_ROLE_MENU_PK primary key (ROLE_ID, MENU_ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

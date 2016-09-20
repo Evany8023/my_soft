@@ -1,0 +1,19 @@
+create table SMZJ.T_FUND_OLD_MANAGER
+(
+  name     VARCHAR2(64 CHAR) not null,
+  fundcode VARCHAR2(10 CHAR) not null,
+  time     VARCHAR2(10 CHAR),
+  mark     VARCHAR2(64 CHAR)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

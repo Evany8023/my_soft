@@ -1,0 +1,80 @@
+create table SMZJ.BUSI_YEAR_REPORT
+(
+  id                VARCHAR2(32) not null,
+  product_no        VARCHAR2(50 CHAR),
+  goal              VARCHAR2(4000 CHAR),
+  strategy          VARCHAR2(4000 CHAR),
+  standard          VARCHAR2(4000 CHAR),
+  feature           VARCHAR2(4000 CHAR),
+  brief             VARCHAR2(4000 CHAR),
+  report_period     VARCHAR2(32),
+  introduction      CLOB,
+  product_name      VARCHAR2(100 CHAR),
+  cp_id             VARCHAR2(32),
+  create_by         VARCHAR2(200 CHAR),
+  create_date       DATE,
+  update_by         VARCHAR2(200 CHAR),
+  update_date       DATE,
+  is_delete         CHAR(1) default 0,
+  mgr_id            VARCHAR2(32),
+  acctofficename    VARCHAR2(3000 CHAR),
+  acctofficeaddress VARCHAR2(3000 CHAR),
+  status            CHAR(1),
+  history_status    CHAR(1)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_YEAR_REPORT
+  is '管理人年报信息采集表';
+comment on column SMZJ.BUSI_YEAR_REPORT.id
+  is '年报信息id';
+comment on column SMZJ.BUSI_YEAR_REPORT.product_no
+  is '产品代码';
+comment on column SMZJ.BUSI_YEAR_REPORT.goal
+  is '投资目标';
+comment on column SMZJ.BUSI_YEAR_REPORT.strategy
+  is '投资策略';
+comment on column SMZJ.BUSI_YEAR_REPORT.standard
+  is '业绩比较基准';
+comment on column SMZJ.BUSI_YEAR_REPORT.feature
+  is '风险收益特征';
+comment on column SMZJ.BUSI_YEAR_REPORT.brief
+  is '基金经理（或基金经理小组）简介';
+comment on column SMZJ.BUSI_YEAR_REPORT.report_period
+  is '报告期数';
+comment on column SMZJ.BUSI_YEAR_REPORT.introduction
+  is '管理人对报告期基金投资策略和业绩表现的说明';
+comment on column SMZJ.BUSI_YEAR_REPORT.product_name
+  is '产品名';
+comment on column SMZJ.BUSI_YEAR_REPORT.cp_id
+  is '公司ID';
+comment on column SMZJ.BUSI_YEAR_REPORT.create_by
+  is '创建人';
+comment on column SMZJ.BUSI_YEAR_REPORT.create_date
+  is '创建时间';
+comment on column SMZJ.BUSI_YEAR_REPORT.update_by
+  is '更新人';
+comment on column SMZJ.BUSI_YEAR_REPORT.update_date
+  is '更新时间';
+comment on column SMZJ.BUSI_YEAR_REPORT.is_delete
+  is '是否删除（1：是，0：否）';
+comment on column SMZJ.BUSI_YEAR_REPORT.mgr_id
+  is '管理人ID';
+comment on column SMZJ.BUSI_YEAR_REPORT.acctofficename
+  is '会计师事务所名称';
+comment on column SMZJ.BUSI_YEAR_REPORT.acctofficeaddress
+  is '会计师事务所地址';
+comment on column SMZJ.BUSI_YEAR_REPORT.status
+  is '年报状态(0带编辑,1:待确认,2:已确认)';
+comment on column SMZJ.BUSI_YEAR_REPORT.history_status
+  is '历史年报标识(1是，0否)';
+

@@ -1,0 +1,33 @@
+create table SMZJ.T_FUND_COM_CAT
+(
+  comname VARCHAR2(255),
+  comcode VARCHAR2(255) not null,
+  type    VARCHAR2(255),
+  code    VARCHAR2(255)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table SMZJ.T_FUND_COM_CAT
+  add constraint T_FUND_COM_CAT_KEY primary key (COMCODE)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

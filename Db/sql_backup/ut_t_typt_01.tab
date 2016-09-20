@@ -1,0 +1,114 @@
+create table SMZJ.UT_T_TYPT_01
+(
+  address                       VARCHAR2(120),
+  instrepridcode                VARCHAR2(30),
+  instrepridtype                VARCHAR2(1),
+  instreprname                  VARCHAR2(20),
+  appsheetserialno              VARCHAR2(24),
+  certificatetype               VARCHAR2(1),
+  certificateno                 VARCHAR2(30),
+  investorname                  VARCHAR2(120),
+  transactiondate               VARCHAR2(8),
+  transactiontime               VARCHAR2(6),
+  individualorinstitution       VARCHAR2(1),
+  postcode                      VARCHAR2(6),
+  transactorcertno              VARCHAR2(30),
+  transactorcerttype            VARCHAR2(1),
+  transactorname                VARCHAR2(20),
+  transactionaccountid          VARCHAR2(17),
+  distributorcode               VARCHAR2(9),
+  businesscode                  VARCHAR2(3),
+  acctnooffminclearingagency    VARCHAR2(28),
+  acctnameoffminclearingagency  VARCHAR2(60),
+  clearingagencycode            VARCHAR2(9),
+  investorsbirthday             VARCHAR2(8),
+  depositacct                   VARCHAR2(19),
+  regioncode                    VARCHAR2(4),
+  educationlevel                VARCHAR2(3),
+  emailaddress                  VARCHAR2(40),
+  faxno                         VARCHAR2(24),
+  vocationcode                  VARCHAR2(3),
+  hometelno                     VARCHAR2(22),
+  annualincome                  NUMBER(8),
+  mobiletelno                   VARCHAR2(24),
+  branchcode                    VARCHAR2(9),
+  officetelno                   VARCHAR2(22),
+  accountabbr                   VARCHAR2(12),
+  confidentialdocumentcode      VARCHAR2(8),
+  sex                           VARCHAR2(1),
+  shsecuritiesaccountid         VARCHAR2(10),
+  szsecuritiesaccountid         VARCHAR2(10),
+  taaccountid                   VARCHAR2(12),
+  telno                         VARCHAR2(22),
+  tradingmethod                 VARCHAR2(8),
+  minorflag                     VARCHAR2(1),
+  delivertype                   VARCHAR2(1),
+  transactoridtype              VARCHAR2(1),
+  accountcardid                 VARCHAR2(8),
+  multiacctflag                 VARCHAR2(1),
+  targettransactionaccountid    VARCHAR2(17),
+  acctnofinvesinclearingagency  VARCHAR2(60),
+  acctnoofinvesinclearingagency VARCHAR2(28),
+  clearingagency                VARCHAR2(9),
+  deliverway                    VARCHAR2(8),
+  nationality                   VARCHAR2(3),
+  netno                         VARCHAR2(9),
+  broker                        VARCHAR2(12),
+  corpname                      VARCHAR2(40),
+  certvaliddate                 VARCHAR2(8),
+  insttrancertvaliddate         VARCHAR2(8),
+  instreprcertvaliddate         VARCHAR2(8),
+  clientriskrate                VARCHAR2(1),
+  instreprmanagerange           VARCHAR2(2),
+  controlholder                 VARCHAR2(80),
+  actualcontroller              VARCHAR2(80),
+  marriagestatus                VARCHAR2(1),
+  familynum                     NUMBER(8),
+  penates                       NUMBER(16,2),
+  mediahobby                    VARCHAR2(1),
+  institutiontype               VARCHAR2(1),
+  englishfirstname              VARCHAR2(20),
+  englishfamliyname             VARCHAR2(20),
+  vocation                      VARCHAR2(4),
+  corpoproperty                 VARCHAR2(2),
+  staffnum                      NUMBER(16,2),
+  hobbytype                     VARCHAR2(2),
+  province                      VARCHAR2(6),
+  city                          VARCHAR2(6),
+  county                        VARCHAR2(6),
+  commendperson                 VARCHAR2(40),
+  commendpersontype             VARCHAR2(1),
+  acceptmethod                  VARCHAR2(1),
+  frozencause                   VARCHAR2(1),
+  freezingdeadline              VARCHAR2(8),
+  originalserialno              VARCHAR2(20),
+  originalappsheetno            VARCHAR2(24),
+  oorgno                        VARCHAR2(6),
+  specification                 VARCHAR2(60),
+  partnerattribute              VARCHAR2(80),
+  managementfeesign             VARCHAR2(20),
+  performancefeesign            VARCHAR2(20),
+  contactname                   VARCHAR2(120)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on column SMZJ.UT_T_TYPT_01.specification
+  is '摘要/说明';
+comment on column SMZJ.UT_T_TYPT_01.partnerattribute
+  is '合伙人属性';
+comment on column SMZJ.UT_T_TYPT_01.managementfeesign
+  is '管理费标志';
+comment on column SMZJ.UT_T_TYPT_01.performancefeesign
+  is '业绩费标志';
+comment on column SMZJ.UT_T_TYPT_01.contactname
+  is '联系人名';
+

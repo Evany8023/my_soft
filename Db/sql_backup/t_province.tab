@@ -1,0 +1,37 @@
+create table SMZJ.T_PROVINCE
+(
+  id           NUMBER(19) not null,
+  code         VARCHAR2(255 CHAR),
+  createdate   TIMESTAMP(6),
+  fullpy       VARCHAR2(255 CHAR),
+  provincename VARCHAR2(255 CHAR),
+  simplepy     VARCHAR2(255 CHAR),
+  updatedate   TIMESTAMP(6),
+  country_id   NUMBER(19) not null
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table SMZJ.T_PROVINCE
+  add constraint T_PROVINCE_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

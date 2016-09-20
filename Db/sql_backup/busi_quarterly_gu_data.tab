@@ -1,0 +1,88 @@
+create table SMZJ.BUSI_QUARTERLY_GU_DATA
+(
+  id         VARCHAR2(32) not null,
+  pt_id      VARCHAR2(32),
+  pt_name    VARCHAR2(200 CHAR),
+  pt_no      VARCHAR2(10),
+  cp_id      VARCHAR2(32),
+  cp_name    VARCHAR2(200 CHAR),
+  cp_no      VARCHAR2(10),
+  xgfy       VARCHAR2(50),
+  glf        VARCHAR2(50),
+  tgf        VARCHAR2(50),
+  yyfwf      VARCHAR2(50),
+  qtxgf      VARCHAR2(50),
+  ytcgm      VARCHAR2(50),
+  ytcgmbl    VARCHAR2(50),
+  ljsggm     VARCHAR2(50),
+  jcjjzcjz   VARCHAR2(50),
+  jmjjzcjz   VARCHAR2(50),
+  jdjjlr     VARCHAR2(50),
+  jmjjfh     VARCHAR2(50),
+  year       VARCHAR2(50),
+  quarterly  VARCHAR2(50),
+  xmbh       VARCHAR2(50),
+  marketcode VARCHAR2(50),
+  updatetime TIMESTAMP(6),
+  is_publish VARCHAR2(2)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on column SMZJ.BUSI_QUARTERLY_GU_DATA.pt_id
+  is '产品id';
+comment on column SMZJ.BUSI_QUARTERLY_GU_DATA.pt_name
+  is ' 产品名称';
+comment on column SMZJ.BUSI_QUARTERLY_GU_DATA.pt_no
+  is '产品代码';
+comment on column SMZJ.BUSI_QUARTERLY_GU_DATA.cp_id
+  is '公司ID';
+comment on column SMZJ.BUSI_QUARTERLY_GU_DATA.cp_name
+  is '公司名称';
+comment on column SMZJ.BUSI_QUARTERLY_GU_DATA.cp_no
+  is '公司代码';
+comment on column SMZJ.BUSI_QUARTERLY_GU_DATA.xgfy
+  is '相关费用';
+comment on column SMZJ.BUSI_QUARTERLY_GU_DATA.glf
+  is '管理费';
+comment on column SMZJ.BUSI_QUARTERLY_GU_DATA.tgf
+  is '托管费';
+comment on column SMZJ.BUSI_QUARTERLY_GU_DATA.yyfwf
+  is '运营服务费';
+comment on column SMZJ.BUSI_QUARTERLY_GU_DATA.qtxgf
+  is '其他相关费用';
+comment on column SMZJ.BUSI_QUARTERLY_GU_DATA.ytcgm
+  is '已投出规模';
+comment on column SMZJ.BUSI_QUARTERLY_GU_DATA.ytcgmbl
+  is '已投出规模占实缴比例%';
+comment on column SMZJ.BUSI_QUARTERLY_GU_DATA.ljsggm
+  is '季初基金资产净值';
+comment on column SMZJ.BUSI_QUARTERLY_GU_DATA.jcjjzcjz
+  is '季末基金资产净值';
+comment on column SMZJ.BUSI_QUARTERLY_GU_DATA.jmjjzcjz
+  is '季末基金资产总值';
+comment on column SMZJ.BUSI_QUARTERLY_GU_DATA.jdjjlr
+  is '季度基金利润';
+comment on column SMZJ.BUSI_QUARTERLY_GU_DATA.jmjjfh
+  is '季度基金分红';
+comment on column SMZJ.BUSI_QUARTERLY_GU_DATA.year
+  is '年份';
+comment on column SMZJ.BUSI_QUARTERLY_GU_DATA.quarterly
+  is '季度';
+comment on column SMZJ.BUSI_QUARTERLY_GU_DATA.xmbh
+  is '运营平台项目编号';
+comment on column SMZJ.BUSI_QUARTERLY_GU_DATA.marketcode
+  is '市场代码';
+comment on column SMZJ.BUSI_QUARTERLY_GU_DATA.updatetime
+  is '更新时间';
+comment on column SMZJ.BUSI_QUARTERLY_GU_DATA.is_publish
+  is '是否发布';
+

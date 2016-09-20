@@ -1,0 +1,10 @@
+create global temporary table SMZJ.SYS_TEMP_FBT
+(
+  schema      VARCHAR2(32),
+  object_name VARCHAR2(32),
+  object#     NUMBER,
+  rid         UROWID(4000),
+  action      CHAR(1)
+)
+on commit preserve rows;
+

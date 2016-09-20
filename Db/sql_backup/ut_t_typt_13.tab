@@ -1,0 +1,23 @@
+create table SMZJ.UT_T_TYPT_13
+(
+  fundcode              VARCHAR2(6),
+  distributorcode       VARCHAR2(9),
+  businesscode          VARCHAR2(3),
+  totaltrans            NUMBER(8),
+  aggregationdate       VARCHAR2(8),
+  totalsuccessfulvol    NUMBER(16,2),
+  totalsuccessfulamount NUMBER(16,2),
+  oorgno                VARCHAR2(6)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

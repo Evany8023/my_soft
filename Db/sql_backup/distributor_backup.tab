@@ -1,0 +1,23 @@
+create table SMZJ.DISTRIBUTOR_BACKUP
+(
+  distributorcode VARCHAR2(3),
+  receivepath     VARCHAR2(80),
+  indexfile       VARCHAR2(80),
+  filestatus1     VARCHAR2(80),
+  fileextension   VARCHAR2(80),
+  distributortype VARCHAR2(1),
+  distributorname VARCHAR2(80),
+  filestatus2     VARCHAR2(80)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

@@ -1,0 +1,81 @@
+create table SMZJ.TA_ALL_USER
+(
+  name        VARCHAR2(100 CHAR),
+  dzjh        VARCHAR2(100 CHAR) not null,
+  zjhm        VARCHAR2(100 CHAR),
+  zjlx        VARCHAR2(10 CHAR),
+  create_date TIMESTAMP(6) default sysdate,
+  khbm        VARCHAR2(50 CHAR),
+  id          VARCHAR2(20 CHAR) not null,
+  type        VARCHAR2(20 CHAR) default 'A',
+  gddh        VARCHAR2(50 CHAR),
+  sjhm        VARCHAR2(50 CHAR),
+  dzyj        VARCHAR2(50 CHAR),
+  yzbm        VARCHAR2(50 CHAR),
+  txdz        VARCHAR2(200 CHAR),
+  czhm        VARCHAR2(50 CHAR),
+  frdb        VARCHAR2(100 CHAR),
+  tzrlx       VARCHAR2(100 CHAR),
+  jbrmc       VARCHAR2(100 CHAR),
+  jgbm        VARCHAR2(100 CHAR)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on column SMZJ.TA_ALL_USER.type
+  is 'A ：正常客户，D 删除的客户（销户）';
+comment on column SMZJ.TA_ALL_USER.gddh
+  is '固定电话';
+comment on column SMZJ.TA_ALL_USER.sjhm
+  is '手机号码';
+comment on column SMZJ.TA_ALL_USER.dzyj
+  is '电子邮件';
+comment on column SMZJ.TA_ALL_USER.yzbm
+  is '邮政编码';
+comment on column SMZJ.TA_ALL_USER.txdz
+  is '通讯地址';
+comment on column SMZJ.TA_ALL_USER.czhm
+  is '传真号码';
+comment on column SMZJ.TA_ALL_USER.frdb
+  is '法人代表';
+comment on column SMZJ.TA_ALL_USER.tzrlx
+  is '投资人类型';
+comment on column SMZJ.TA_ALL_USER.jbrmc
+  is '经办人';
+comment on column SMZJ.TA_ALL_USER.jgbm
+  is '机构编码';
+create index SMZJ.TA_DJZH_INDEX on SMZJ.TA_ALL_USER (DZJH, TYPE, JGBM)
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table SMZJ.TA_ALL_USER
+  add constraint TA_ALL_USER_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

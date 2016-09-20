@@ -1,0 +1,43 @@
+create table SMZJ.BUSI_PRODUCT_ADD
+(
+  id          VARCHAR2(32) not null,
+  product_id  VARCHAR2(32),
+  fund_type   CHAR(1) default '0',
+  open_record CHAR(1) default '0'
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_PRODUCT_ADD
+  is '产品信息补充表';
+comment on column SMZJ.BUSI_PRODUCT_ADD.id
+  is '主键id';
+comment on column SMZJ.BUSI_PRODUCT_ADD.product_id
+  is '产品id';
+comment on column SMZJ.BUSI_PRODUCT_ADD.fund_type
+  is '基金类型；0：非货币型基金，1：货币型基金';
+comment on column SMZJ.BUSI_PRODUCT_ADD.open_record
+  is '打开子投母录单，0：否，1：是';
+alter table SMZJ.BUSI_PRODUCT_ADD
+  add constraint BUSI_PRODUCT_ADD_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

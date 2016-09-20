@@ -1,0 +1,118 @@
+create table SMZJ.BUSI_SALE_DATA
+(
+  id                 VARCHAR2(32) not null,
+  no                 VARCHAR2(32),
+  batch_number       VARCHAR2(256 CHAR),
+  investor_name      VARCHAR2(128 CHAR),
+  amount             VARCHAR2(40),
+  investor_type      VARCHAR2(20),
+  credit_type        VARCHAR2(32 CHAR),
+  credit_no          VARCHAR2(32 CHAR),
+  handel_person      VARCHAR2(128 CHAR),
+  legal_person       VARCHAR2(128 CHAR),
+  bank_accunt_no     VARCHAR2(32 CHAR),
+  bank_account_name  VARCHAR2(100 CHAR),
+  open_bank_name     VARCHAR2(128 CHAR),
+  province_name      VARCHAR2(20),
+  city_name          VARCHAR2(20),
+  phone              VARCHAR2(20),
+  status             CHAR(1) default 0,
+  create_by          VARCHAR2(128 CHAR),
+  create_date        DATE,
+  product_id         VARCHAR2(32),
+  company_id         VARCHAR2(32),
+  business_type      VARCHAR2(10),
+  apply_date         DATE,
+  bank_no            VARCHAR2(4),
+  bank_name          VARCHAR2(128 CHAR),
+  business_type_code VARCHAR2(4),
+  credit_type_code   VARCHAR2(4),
+  batch_number_id    VARCHAR2(32),
+  row_no             VARCHAR2(20)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_SALE_DATA
+  is '导入销售数据临时表';
+comment on column SMZJ.BUSI_SALE_DATA.id
+  is '主键';
+comment on column SMZJ.BUSI_SALE_DATA.no
+  is '序号';
+comment on column SMZJ.BUSI_SALE_DATA.batch_number
+  is '批次号';
+comment on column SMZJ.BUSI_SALE_DATA.investor_name
+  is '投资人姓名';
+comment on column SMZJ.BUSI_SALE_DATA.amount
+  is '交易金额（万元）';
+comment on column SMZJ.BUSI_SALE_DATA.investor_type
+  is '投资人类型';
+comment on column SMZJ.BUSI_SALE_DATA.credit_type
+  is '证件类型';
+comment on column SMZJ.BUSI_SALE_DATA.credit_no
+  is '证件号码';
+comment on column SMZJ.BUSI_SALE_DATA.handel_person
+  is '经办人姓名';
+comment on column SMZJ.BUSI_SALE_DATA.legal_person
+  is '法人代表';
+comment on column SMZJ.BUSI_SALE_DATA.bank_accunt_no
+  is '银行账号';
+comment on column SMZJ.BUSI_SALE_DATA.bank_account_name
+  is '银行户名';
+comment on column SMZJ.BUSI_SALE_DATA.open_bank_name
+  is '开户银行名称';
+comment on column SMZJ.BUSI_SALE_DATA.province_name
+  is '省份';
+comment on column SMZJ.BUSI_SALE_DATA.city_name
+  is '城市';
+comment on column SMZJ.BUSI_SALE_DATA.phone
+  is '手机号码';
+comment on column SMZJ.BUSI_SALE_DATA.status
+  is '处理状态（0：未处理，1：已处理）';
+comment on column SMZJ.BUSI_SALE_DATA.create_by
+  is '创建人';
+comment on column SMZJ.BUSI_SALE_DATA.create_date
+  is '创建时间';
+comment on column SMZJ.BUSI_SALE_DATA.product_id
+  is '产品id';
+comment on column SMZJ.BUSI_SALE_DATA.company_id
+  is '私募公司id';
+comment on column SMZJ.BUSI_SALE_DATA.business_type
+  is '业务类型（1：认购，2：申购，3：分红）';
+comment on column SMZJ.BUSI_SALE_DATA.apply_date
+  is '申请日期';
+comment on column SMZJ.BUSI_SALE_DATA.bank_no
+  is '银行编号,';
+comment on column SMZJ.BUSI_SALE_DATA.bank_name
+  is '银行名称';
+comment on column SMZJ.BUSI_SALE_DATA.business_type_code
+  is '业务类型编码';
+comment on column SMZJ.BUSI_SALE_DATA.credit_type_code
+  is '证件类型编码';
+comment on column SMZJ.BUSI_SALE_DATA.batch_number_id
+  is '批次号id';
+comment on column SMZJ.BUSI_SALE_DATA.row_no
+  is '行号';
+alter table SMZJ.BUSI_SALE_DATA
+  add constraint BUSI_SALE_DATA_ID primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

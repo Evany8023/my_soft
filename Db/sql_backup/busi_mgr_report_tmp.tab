@@ -1,0 +1,33 @@
+create table SMZJ.BUSI_MGR_REPORT_TMP
+(
+  id             VARCHAR2(32),
+  report_type    VARCHAR2(10) default 0,
+  report_period  VARCHAR2(32),
+  report_year    VARCHAR2(16),
+  pt_id          VARCHAR2(32),
+  pt_name        VARCHAR2(100),
+  pt_no          VARCHAR2(32),
+  mgr_id         VARCHAR2(32),
+  mgr_name       VARCHAR2(100),
+  mgr_no         VARCHAR2(32),
+  report_title   VARCHAR2(100),
+  report_content VARCHAR2(1000 CHAR),
+  file_name      VARCHAR2(100),
+  file_url       VARCHAR2(100),
+  publish_date   VARCHAR2(100),
+  create_date    DATE,
+  is_delete      CHAR(1) default 0,
+  update_date    DATE
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

@@ -1,0 +1,19 @@
+create table SMZJ.BUSI_ALL_MGR_FUND_VALUE
+(
+  fund_code      VARCHAR2(16),
+  fund_tradedate VARCHAR2(8),
+  fund_id        VARCHAR2(32),
+  create_date    DATE default sysdate
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

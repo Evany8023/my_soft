@@ -1,0 +1,128 @@
+create table SMZJ.BUSI_MANAGER
+(
+  id                      VARCHAR2(32) not null,
+  account                 VARCHAR2(128 CHAR) not null,
+  password                VARCHAR2(32) not null,
+  name                    VARCHAR2(128 CHAR),
+  phone                   VARCHAR2(16),
+  telephone               VARCHAR2(16),
+  email                   VARCHAR2(32),
+  zip_code                VARCHAR2(8),
+  address                 VARCHAR2(128),
+  cp_id                   VARCHAR2(32),
+  cp_name                 VARCHAR2(128 CHAR),
+  job                     VARCHAR2(16),
+  remark                  VARCHAR2(2048 CHAR),
+  is_mgr                  CHAR(1) default 0,
+  is_super_mgr            CHAR(1) default 0,
+  is_examine              CHAR(1) default 0 not null,
+  examine_by              VARCHAR2(128 CHAR),
+  examine_date            DATE,
+  create_by               VARCHAR2(128 CHAR),
+  create_date             DATE,
+  update_by               VARCHAR2(128 CHAR),
+  update_date             DATE,
+  is_delete               CHAR(1) default 0 not null,
+  fax                     VARCHAR2(128 CHAR),
+  login_ip                VARCHAR2(16),
+  login_date              TIMESTAMP(6),
+  reset_psw_date          DATE,
+  is_read_notice          CHAR(1),
+  sign_instructions_count VARCHAR2(10) default 0,
+  instructions_date       DATE,
+  authorize_all           CHAR(1),
+  login_type              CHAR(1) default 0,
+  serial_no               VARCHAR2(40)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on column SMZJ.BUSI_MANAGER.id
+  is '管理人ID';
+comment on column SMZJ.BUSI_MANAGER.account
+  is '管理人登陆账号';
+comment on column SMZJ.BUSI_MANAGER.password
+  is '密码';
+comment on column SMZJ.BUSI_MANAGER.name
+  is '管理人姓名';
+comment on column SMZJ.BUSI_MANAGER.phone
+  is '手机号';
+comment on column SMZJ.BUSI_MANAGER.telephone
+  is '固定电话';
+comment on column SMZJ.BUSI_MANAGER.email
+  is '邮箱';
+comment on column SMZJ.BUSI_MANAGER.zip_code
+  is '邮政编码';
+comment on column SMZJ.BUSI_MANAGER.address
+  is '地址';
+comment on column SMZJ.BUSI_MANAGER.cp_id
+  is '公司ID';
+comment on column SMZJ.BUSI_MANAGER.cp_name
+  is '公司名称';
+comment on column SMZJ.BUSI_MANAGER.job
+  is '职务';
+comment on column SMZJ.BUSI_MANAGER.remark
+  is '备注';
+comment on column SMZJ.BUSI_MANAGER.is_mgr
+  is '是否管理者（1：是，0：否）';
+comment on column SMZJ.BUSI_MANAGER.is_super_mgr
+  is '是否超级管理者（1：是，0：否）';
+comment on column SMZJ.BUSI_MANAGER.is_examine
+  is '是否审核（0：未审核，1：审核）';
+comment on column SMZJ.BUSI_MANAGER.examine_by
+  is '审核人';
+comment on column SMZJ.BUSI_MANAGER.examine_date
+  is '审核日期';
+comment on column SMZJ.BUSI_MANAGER.create_by
+  is '创建人';
+comment on column SMZJ.BUSI_MANAGER.create_date
+  is '创建日期';
+comment on column SMZJ.BUSI_MANAGER.update_by
+  is '更新人';
+comment on column SMZJ.BUSI_MANAGER.update_date
+  is '更新时间';
+comment on column SMZJ.BUSI_MANAGER.is_delete
+  is '是否删除（1：是，0：否）';
+comment on column SMZJ.BUSI_MANAGER.fax
+  is '传真';
+comment on column SMZJ.BUSI_MANAGER.login_ip
+  is '最后一次登陆IP';
+comment on column SMZJ.BUSI_MANAGER.login_date
+  is '最后一次登陆时间';
+comment on column SMZJ.BUSI_MANAGER.reset_psw_date
+  is '修改密码时间';
+comment on column SMZJ.BUSI_MANAGER.is_read_notice
+  is '是否读取过页面通知（0：否，1：是）';
+comment on column SMZJ.BUSI_MANAGER.sign_instructions_count
+  is '说明书阅读次数，到3次后就不再显示';
+comment on column SMZJ.BUSI_MANAGER.instructions_date
+  is '说明书阅读时间';
+comment on column SMZJ.BUSI_MANAGER.authorize_all
+  is '授权该管理员下所有产品(1:是,0:否)';
+comment on column SMZJ.BUSI_MANAGER.login_type
+  is '登录方式（0：用户名+密码，1：UKEY，2：支持两种，3：都不支持）';
+comment on column SMZJ.BUSI_MANAGER.serial_no
+  is '证书序列号';
+alter table SMZJ.BUSI_MANAGER
+  add constraint MANAGER_PRIMARY primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

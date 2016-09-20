@@ -1,0 +1,70 @@
+create table SMZJ.BUSI_PP_LINKMAN
+(
+  id           VARCHAR2(32) not null,
+  pt_id        VARCHAR2(32) not null,
+  name         VARCHAR2(16),
+  phone        VARCHAR2(16),
+  email        VARCHAR2(32),
+  is_examine   CHAR(1) default 0 not null,
+  examine_by   VARCHAR2(50 CHAR),
+  examine_date DATE,
+  create_by    VARCHAR2(50 CHAR),
+  create_date  DATE,
+  update_by    VARCHAR2(50 CHAR),
+  update_date  DATE,
+  is_delete    CHAR(1) default 0 not null
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_PP_LINKMAN
+  is '私募产品联系人表，存储私募产品联系人信息';
+comment on column SMZJ.BUSI_PP_LINKMAN.id
+  is 'ID';
+comment on column SMZJ.BUSI_PP_LINKMAN.pt_id
+  is '私募产品id';
+comment on column SMZJ.BUSI_PP_LINKMAN.name
+  is '联系人姓名';
+comment on column SMZJ.BUSI_PP_LINKMAN.phone
+  is '电话';
+comment on column SMZJ.BUSI_PP_LINKMAN.email
+  is '邮箱';
+comment on column SMZJ.BUSI_PP_LINKMAN.is_examine
+  is '是否审核(1:是，0：否)';
+comment on column SMZJ.BUSI_PP_LINKMAN.examine_by
+  is '审核人';
+comment on column SMZJ.BUSI_PP_LINKMAN.examine_date
+  is '审核日期';
+comment on column SMZJ.BUSI_PP_LINKMAN.create_by
+  is '创建人';
+comment on column SMZJ.BUSI_PP_LINKMAN.create_date
+  is '创建时间';
+comment on column SMZJ.BUSI_PP_LINKMAN.update_by
+  is '更新人';
+comment on column SMZJ.BUSI_PP_LINKMAN.update_date
+  is '更新时间';
+comment on column SMZJ.BUSI_PP_LINKMAN.is_delete
+  is '是否删除（1：是，0：否）';
+alter table SMZJ.BUSI_PP_LINKMAN
+  add constraint BUSI_PP_LINKMAN_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

@@ -1,0 +1,76 @@
+create table SMZJ.BUSI_PRODUCT_QZSH
+(
+  id             VARCHAR2(32) not null,
+  parent_pt_no   VARCHAR2(16),
+  parent_pt_name VARCHAR2(128 CHAR),
+  parent_cp_no   VARCHAR2(16),
+  parent_cp_name VARCHAR2(128 CHAR),
+  son_pt_no      VARCHAR2(16),
+  son_pt_name    VARCHAR2(128 CHAR),
+  apply_amount   VARCHAR2(16),
+  apply_date     DATE,
+  create_date    DATE,
+  export_date    VARCHAR2(16),
+  export_desc    VARCHAR2(32 CHAR),
+  regist_account VARCHAR2(16),
+  cust_no        VARCHAR2(16),
+  parent_cp_id   VARCHAR2(32)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_PRODUCT_QZSH
+  is '强制赎回';
+comment on column SMZJ.BUSI_PRODUCT_QZSH.id
+  is '主键ID';
+comment on column SMZJ.BUSI_PRODUCT_QZSH.parent_pt_no
+  is '母产品代码';
+comment on column SMZJ.BUSI_PRODUCT_QZSH.parent_pt_name
+  is '母产品名称';
+comment on column SMZJ.BUSI_PRODUCT_QZSH.parent_cp_no
+  is '母产品公司机构代码';
+comment on column SMZJ.BUSI_PRODUCT_QZSH.parent_cp_name
+  is '母产品公司名称';
+comment on column SMZJ.BUSI_PRODUCT_QZSH.son_pt_no
+  is '子产品代码';
+comment on column SMZJ.BUSI_PRODUCT_QZSH.son_pt_name
+  is '子产品名称';
+comment on column SMZJ.BUSI_PRODUCT_QZSH.apply_amount
+  is '申请金额';
+comment on column SMZJ.BUSI_PRODUCT_QZSH.apply_date
+  is '申请日期';
+comment on column SMZJ.BUSI_PRODUCT_QZSH.create_date
+  is '创建日期';
+comment on column SMZJ.BUSI_PRODUCT_QZSH.export_date
+  is '导出日期';
+comment on column SMZJ.BUSI_PRODUCT_QZSH.export_desc
+  is '导出描述';
+comment on column SMZJ.BUSI_PRODUCT_QZSH.regist_account
+  is '登记账号';
+comment on column SMZJ.BUSI_PRODUCT_QZSH.cust_no
+  is '客户编号';
+comment on column SMZJ.BUSI_PRODUCT_QZSH.parent_cp_id
+  is '母产品公司ID';
+alter table SMZJ.BUSI_PRODUCT_QZSH
+  add constraint BUSI_PRODUCT_QZSH_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

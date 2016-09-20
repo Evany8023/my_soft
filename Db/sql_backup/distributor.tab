@@ -1,0 +1,39 @@
+create table SMZJ.DISTRIBUTOR
+(
+  distributorcode VARCHAR2(3),
+  receivepath     VARCHAR2(80),
+  indexfile       VARCHAR2(80),
+  filestatus1     VARCHAR2(80),
+  fileextension   VARCHAR2(80),
+  distributortype VARCHAR2(1),
+  distributorname VARCHAR2(80),
+  filestatus2     VARCHAR2(80)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on column SMZJ.DISTRIBUTOR.distributorcode
+  is '销售商代码';
+comment on column SMZJ.DISTRIBUTOR.receivepath
+  is '接收目录';
+comment on column SMZJ.DISTRIBUTOR.indexfile
+  is '索引/数据文件';
+comment on column SMZJ.DISTRIBUTOR.filestatus1
+  is '索引文件状态1(0-未到，1-已到，2-导入成功，3导入失败)';
+comment on column SMZJ.DISTRIBUTOR.fileextension
+  is '文件扩展名';
+comment on column SMZJ.DISTRIBUTOR.distributortype
+  is '销售机构类型(1-代销，2-直销)';
+comment on column SMZJ.DISTRIBUTOR.distributorname
+  is '销售机构名称';
+comment on column SMZJ.DISTRIBUTOR.filestatus2
+  is '索引文件状态2(只针对直销，直销有两个索引)';
+

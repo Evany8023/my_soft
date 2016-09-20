@@ -1,0 +1,107 @@
+create table SMZJ.BUSI_BANK_DATA_TEMP
+(
+  id                VARCHAR2(32) not null,
+  no                VARCHAR2(32),
+  batch_number      VARCHAR2(100),
+  investor_name     VARCHAR2(100 CHAR),
+  investor_type     VARCHAR2(20),
+  credit_type       VARCHAR2(20 CHAR),
+  credit_no         VARCHAR2(32),
+  bank_accunt_no    VARCHAR2(100),
+  bank_account_name VARCHAR2(100 CHAR),
+  open_bank_name    VARCHAR2(100),
+  province_name     VARCHAR2(100),
+  city_name         VARCHAR2(100),
+  status            CHAR(1) default 0,
+  create_by         VARCHAR2(32),
+  create_date       DATE,
+  product_no        VARCHAR2(32),
+  company_id        VARCHAR2(32),
+  apply_date        VARCHAR2(32),
+  bank_no           VARCHAR2(4),
+  bank_name         VARCHAR2(64),
+  credit_type_code  VARCHAR2(10),
+  is_back_account   CHAR(1) default 1 not null,
+  is_delete         CHAR(1) default 0 not null,
+  batch_number_id   VARCHAR2(32),
+  remark            VARCHAR2(100),
+  remark_info       VARCHAR2(100),
+  check_info        VARCHAR2(2048),
+  check_result      CHAR(1) default 0,
+  row_number        VARCHAR2(32),
+  mgr_id            VARCHAR2(32)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_BANK_DATA_TEMP
+  is '导入银行账号数据临时表';
+comment on column SMZJ.BUSI_BANK_DATA_TEMP.id
+  is ' ';
+comment on column SMZJ.BUSI_BANK_DATA_TEMP.no
+  is '序号';
+comment on column SMZJ.BUSI_BANK_DATA_TEMP.batch_number
+  is '批次号';
+comment on column SMZJ.BUSI_BANK_DATA_TEMP.investor_name
+  is '投资人姓名';
+comment on column SMZJ.BUSI_BANK_DATA_TEMP.investor_type
+  is '投资人类型';
+comment on column SMZJ.BUSI_BANK_DATA_TEMP.credit_type
+  is '证件类型';
+comment on column SMZJ.BUSI_BANK_DATA_TEMP.credit_no
+  is '证件号码';
+comment on column SMZJ.BUSI_BANK_DATA_TEMP.bank_accunt_no
+  is '银行账号';
+comment on column SMZJ.BUSI_BANK_DATA_TEMP.bank_account_name
+  is '银行户名';
+comment on column SMZJ.BUSI_BANK_DATA_TEMP.open_bank_name
+  is '开户银行名称';
+comment on column SMZJ.BUSI_BANK_DATA_TEMP.province_name
+  is '省份';
+comment on column SMZJ.BUSI_BANK_DATA_TEMP.city_name
+  is '城市';
+comment on column SMZJ.BUSI_BANK_DATA_TEMP.status
+  is '处理状态（0：未确认，1：已确认）';
+comment on column SMZJ.BUSI_BANK_DATA_TEMP.create_by
+  is '创建人';
+comment on column SMZJ.BUSI_BANK_DATA_TEMP.create_date
+  is '创建时间';
+comment on column SMZJ.BUSI_BANK_DATA_TEMP.product_no
+  is '产品代码';
+comment on column SMZJ.BUSI_BANK_DATA_TEMP.company_id
+  is '私募公司id';
+comment on column SMZJ.BUSI_BANK_DATA_TEMP.apply_date
+  is '申请日期';
+comment on column SMZJ.BUSI_BANK_DATA_TEMP.bank_no
+  is '银行编号';
+comment on column SMZJ.BUSI_BANK_DATA_TEMP.bank_name
+  is '银行名称';
+comment on column SMZJ.BUSI_BANK_DATA_TEMP.credit_type_code
+  is '证件类型编码';
+comment on column SMZJ.BUSI_BANK_DATA_TEMP.is_back_account
+  is '是否赎回分红账号(1：是，0：否)';
+comment on column SMZJ.BUSI_BANK_DATA_TEMP.is_delete
+  is '是否删除(1:已删除，0：未删除)';
+comment on column SMZJ.BUSI_BANK_DATA_TEMP.batch_number_id
+  is '批次号id';
+comment on column SMZJ.BUSI_BANK_DATA_TEMP.remark
+  is '备注';
+comment on column SMZJ.BUSI_BANK_DATA_TEMP.remark_info
+  is '备注信息';
+comment on column SMZJ.BUSI_BANK_DATA_TEMP.check_info
+  is '校验信息';
+comment on column SMZJ.BUSI_BANK_DATA_TEMP.check_result
+  is '校验结果（1：失败，0：成功）';
+comment on column SMZJ.BUSI_BANK_DATA_TEMP.row_number
+  is '这条结果对应excel的行号';
+comment on column SMZJ.BUSI_BANK_DATA_TEMP.mgr_id
+  is '管理人ID';
+

@@ -1,0 +1,96 @@
+create table SMZJ.BUSI_BANK_MATCH
+(
+  id                 VARCHAR2(32) not null,
+  apply_no           VARCHAR2(32),
+  pt_no              VARCHAR2(32),
+  mgr_name           VARCHAR2(32),
+  mgr_id             VARCHAR2(32),
+  raise_bank         VARCHAR2(100 CHAR),
+  raise_account      VARCHAR2(200 CHAR),
+  customer_name      VARCHAR2(100),
+  bank_account_no    VARCHAR2(32),
+  match_result       VARCHAR2(10),
+  batch_number       VARCHAR2(128),
+  create_date        DATE,
+  row_no             VARCHAR2(4),
+  remark             VARCHAR2(128),
+  is_matched         CHAR(1) default 0,
+  pt_name            VARCHAR2(100),
+  account_name       VARCHAR2(100),
+  open_bank_name     VARCHAR2(100),
+  province_id        VARCHAR2(64),
+  province_name      VARCHAR2(50 CHAR),
+  city_id            VARCHAR2(64),
+  city_name          VARCHAR2(50 CHAR),
+  big_amount_bank    VARCHAR2(64),
+  apply_amount       VARCHAR2(64),
+  flag               CHAR(1),
+  pt_id              VARCHAR2(64),
+  transaction_number VARCHAR2(64)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_BANK_MATCH
+  is '银行账户自动匹配';
+comment on column SMZJ.BUSI_BANK_MATCH.apply_no
+  is '申请编号，对应订单编号';
+comment on column SMZJ.BUSI_BANK_MATCH.pt_no
+  is '产品代码';
+comment on column SMZJ.BUSI_BANK_MATCH.mgr_name
+  is '管理人名称';
+comment on column SMZJ.BUSI_BANK_MATCH.mgr_id
+  is '管理人ID';
+comment on column SMZJ.BUSI_BANK_MATCH.raise_bank
+  is '募集户银行';
+comment on column SMZJ.BUSI_BANK_MATCH.raise_account
+  is '募集户账户';
+comment on column SMZJ.BUSI_BANK_MATCH.customer_name
+  is '投资人';
+comment on column SMZJ.BUSI_BANK_MATCH.bank_account_no
+  is '默认赎回分红账号';
+comment on column SMZJ.BUSI_BANK_MATCH.match_result
+  is '匹配结果(0:未匹配；1：完全匹配；N：多条匹配)';
+comment on column SMZJ.BUSI_BANK_MATCH.batch_number
+  is '比对批次';
+comment on column SMZJ.BUSI_BANK_MATCH.create_date
+  is '创建时间';
+comment on column SMZJ.BUSI_BANK_MATCH.row_no
+  is '行号';
+comment on column SMZJ.BUSI_BANK_MATCH.remark
+  is '备注';
+comment on column SMZJ.BUSI_BANK_MATCH.is_matched
+  is '是否已匹配(0:未匹配；1：已匹配)';
+comment on column SMZJ.BUSI_BANK_MATCH.pt_name
+  is '产品名称';
+comment on column SMZJ.BUSI_BANK_MATCH.account_name
+  is '户名';
+comment on column SMZJ.BUSI_BANK_MATCH.open_bank_name
+  is '开户行';
+comment on column SMZJ.BUSI_BANK_MATCH.province_id
+  is '省份ID';
+comment on column SMZJ.BUSI_BANK_MATCH.province_name
+  is '省份名';
+comment on column SMZJ.BUSI_BANK_MATCH.city_id
+  is '城市ID';
+comment on column SMZJ.BUSI_BANK_MATCH.city_name
+  is '城市名';
+comment on column SMZJ.BUSI_BANK_MATCH.big_amount_bank
+  is '大额支付行号';
+comment on column SMZJ.BUSI_BANK_MATCH.apply_amount
+  is '申请金额';
+comment on column SMZJ.BUSI_BANK_MATCH.flag
+  is '标志(1:申请记录；2：流水记录；3:匹配完成)';
+comment on column SMZJ.BUSI_BANK_MATCH.pt_id
+  is '产品ID';
+comment on column SMZJ.BUSI_BANK_MATCH.transaction_number
+  is '交易号';
+

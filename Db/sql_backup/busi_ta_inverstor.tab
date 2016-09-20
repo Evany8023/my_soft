@@ -1,0 +1,34 @@
+create table SMZJ.BUSI_TA_INVERSTOR
+(
+  name VARCHAR2(128 CHAR),
+  zjlx VARCHAR2(2),
+  zlhm VARCHAR2(50),
+  djzh VARCHAR2(15),
+  jgbm VARCHAR2(15)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_TA_INVERSTOR
+  is '购买过产品并且有份额的投资者';
+create index SMZJ.BUSI_TA_IN_INDEX on SMZJ.BUSI_TA_INVERSTOR (ZJLX, ZLHM)
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

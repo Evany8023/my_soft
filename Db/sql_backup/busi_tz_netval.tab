@@ -1,0 +1,61 @@
+create table SMZJ.BUSI_TZ_NETVAL
+(
+  id                  VARCHAR2(32) not null,
+  pt_id               VARCHAR2(32) not null,
+  product_no          VARCHAR2(8),
+  product_name        VARCHAR2(128 CHAR),
+  unit_net_val        VARCHAR2(20 CHAR),
+  total_net_val       VARCHAR2(20 CHAR),
+  net_val_date        DATE,
+  cp_id               VARCHAR2(32),
+  ten_thousand_income VARCHAR2(32),
+  return_rate         VARCHAR2(32)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_TZ_NETVAL
+  is '私募产品对于投资者的净值表';
+comment on column SMZJ.BUSI_TZ_NETVAL.id
+  is 'ID';
+comment on column SMZJ.BUSI_TZ_NETVAL.pt_id
+  is '产品ID';
+comment on column SMZJ.BUSI_TZ_NETVAL.product_no
+  is '产品代码';
+comment on column SMZJ.BUSI_TZ_NETVAL.product_name
+  is '产品名称';
+comment on column SMZJ.BUSI_TZ_NETVAL.unit_net_val
+  is '单位净值';
+comment on column SMZJ.BUSI_TZ_NETVAL.total_net_val
+  is '累计净值';
+comment on column SMZJ.BUSI_TZ_NETVAL.net_val_date
+  is '净值日期';
+comment on column SMZJ.BUSI_TZ_NETVAL.cp_id
+  is '公司id';
+comment on column SMZJ.BUSI_TZ_NETVAL.ten_thousand_income
+  is '每万份收益';
+comment on column SMZJ.BUSI_TZ_NETVAL.return_rate
+  is '七日年化收益率';
+alter table SMZJ.BUSI_TZ_NETVAL
+  add constraint BUSI_TZ_NETVAL primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

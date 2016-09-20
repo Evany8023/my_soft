@@ -1,0 +1,145 @@
+create table SMZJ.BUSI_BIND_BANK_CARD
+(
+  id                     VARCHAR2(32) not null,
+  credit_id              VARCHAR2(32) not null,
+  user_name              VARCHAR2(128 CHAR),
+  bank_no                VARCHAR2(32),
+  bank_name              VARCHAR2(64),
+  open_bank_name         VARCHAR2(128 CHAR),
+  province_id            VARCHAR2(64),
+  province_name          VARCHAR2(50 CHAR),
+  city_id                VARCHAR2(64),
+  city_name              VARCHAR2(50 CHAR),
+  bind_date              DATE,
+  is_examine             CHAR(1) default 0 not null,
+  examine_by             VARCHAR2(128 CHAR),
+  examine_date           DATE,
+  create_by              VARCHAR2(128 CHAR),
+  create_date            DATE,
+  update_by              VARCHAR2(128 CHAR),
+  update_date            DATE,
+  is_delete              CHAR(1) default 0 not null,
+  link_bank_no           VARCHAR2(50 CHAR),
+  account_no             VARCHAR2(50 CHAR),
+  remark                 VARCHAR2(2048 CHAR),
+  is_back_account        CHAR(1) default 1 not null,
+  product_id             VARCHAR2(32),
+  company_id             VARCHAR2(32),
+  apply_date             VARCHAR2(16),
+  is_enable              CHAR(1),
+  apply_no               VARCHAR2(32),
+  old_sys_id             VARCHAR2(16),
+  export_status          CHAR(1) default '0',
+  investor_identify_flag CHAR(1) default '0',
+  bank_card_id           VARCHAR2(32)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_BIND_BANK_CARD
+  is '投资人绑定银行卡';
+comment on column SMZJ.BUSI_BIND_BANK_CARD.id
+  is 'ID';
+comment on column SMZJ.BUSI_BIND_BANK_CARD.credit_id
+  is '证件ID';
+comment on column SMZJ.BUSI_BIND_BANK_CARD.user_name
+  is '持卡人姓名';
+comment on column SMZJ.BUSI_BIND_BANK_CARD.bank_no
+  is '银行编号';
+comment on column SMZJ.BUSI_BIND_BANK_CARD.bank_name
+  is '银行名称';
+comment on column SMZJ.BUSI_BIND_BANK_CARD.open_bank_name
+  is '开户行';
+comment on column SMZJ.BUSI_BIND_BANK_CARD.province_id
+  is '省份ID';
+comment on column SMZJ.BUSI_BIND_BANK_CARD.province_name
+  is '省份名';
+comment on column SMZJ.BUSI_BIND_BANK_CARD.city_id
+  is '城市ID';
+comment on column SMZJ.BUSI_BIND_BANK_CARD.city_name
+  is '城市名';
+comment on column SMZJ.BUSI_BIND_BANK_CARD.bind_date
+  is '绑定日期';
+comment on column SMZJ.BUSI_BIND_BANK_CARD.is_examine
+  is '是否审核（0：未审核，1：审核）';
+comment on column SMZJ.BUSI_BIND_BANK_CARD.examine_by
+  is '审核人';
+comment on column SMZJ.BUSI_BIND_BANK_CARD.examine_date
+  is '审核时间';
+comment on column SMZJ.BUSI_BIND_BANK_CARD.create_by
+  is '创建人';
+comment on column SMZJ.BUSI_BIND_BANK_CARD.create_date
+  is '创建时间';
+comment on column SMZJ.BUSI_BIND_BANK_CARD.update_by
+  is '更新人';
+comment on column SMZJ.BUSI_BIND_BANK_CARD.update_date
+  is '更新时间';
+comment on column SMZJ.BUSI_BIND_BANK_CARD.is_delete
+  is '是否删除（1：是，0：否）';
+comment on column SMZJ.BUSI_BIND_BANK_CARD.link_bank_no
+  is '联行号';
+comment on column SMZJ.BUSI_BIND_BANK_CARD.account_no
+  is '银行卡号';
+comment on column SMZJ.BUSI_BIND_BANK_CARD.remark
+  is '备注';
+comment on column SMZJ.BUSI_BIND_BANK_CARD.is_back_account
+  is '是否分红赎回账户（1：是，0：否）';
+comment on column SMZJ.BUSI_BIND_BANK_CARD.product_id
+  is '产品ID';
+comment on column SMZJ.BUSI_BIND_BANK_CARD.company_id
+  is '私募公司ID';
+comment on column SMZJ.BUSI_BIND_BANK_CARD.apply_date
+  is '申请时间，导出使用，';
+comment on column SMZJ.BUSI_BIND_BANK_CARD.is_enable
+  is '是否可用';
+comment on column SMZJ.BUSI_BIND_BANK_CARD.apply_no
+  is '申请单号';
+comment on column SMZJ.BUSI_BIND_BANK_CARD.old_sys_id
+  is '老系统id';
+comment on column SMZJ.BUSI_BIND_BANK_CARD.export_status
+  is '导出状态（0：未导出，1：已导出，2：导出漏单）';
+comment on column SMZJ.BUSI_BIND_BANK_CARD.investor_identify_flag
+  is '银联验证银行账户信息，0：未验证（默认为0），1：验证通过，2：验证不通过';
+comment on column SMZJ.BUSI_BIND_BANK_CARD.bank_card_id
+  is '银行卡ID';
+create index SMZJ.OLD_SYS_YH_ID_INDEX on SMZJ.BUSI_BIND_BANK_CARD (OLD_SYS_ID)
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table SMZJ.BUSI_BIND_BANK_CARD
+  add constraint BUSI_BIND_BANK_CARD_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table SMZJ.BUSI_BIND_BANK_CARD
+  add constraint BUSI_BANK_COM_FK foreign key (COMPANY_ID)
+  references SMZJ.BUSI_COMPANY (ID);
+alter table SMZJ.BUSI_BIND_BANK_CARD
+  add constraint BUSI_BANK_PRODUCT_FK foreign key (PRODUCT_ID)
+  references SMZJ.BUSI_PRODUCT (ID);
+

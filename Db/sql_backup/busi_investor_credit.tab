@@ -1,0 +1,130 @@
+create table SMZJ.BUSI_INVESTOR_CREDIT
+(
+  id             VARCHAR2(32) not null,
+  investor_id    VARCHAR2(32),
+  credit_type    VARCHAR2(16 CHAR) default 00 not null,
+  credit_no      VARCHAR2(50 CHAR),
+  is_examine     CHAR(1) default 0 not null,
+  examine_by     VARCHAR2(128 CHAR),
+  examine_date   DATE,
+  create_by      VARCHAR2(128 CHAR),
+  create_date    DATE,
+  update_by      VARCHAR2(128 CHAR),
+  update_date    DATE,
+  is_delete      CHAR(1) default 0 not null,
+  name           VARCHAR2(128 CHAR),
+  user_type      CHAR(1) default 1 not null,
+  regist_account VARCHAR2(16),
+  password       VARCHAR2(32 CHAR),
+  is_active      CHAR(1) default 0,
+  custom_no      VARCHAR2(20),
+  legal_person   VARCHAR2(128 CHAR),
+  refrence       CHAR(1),
+  is_bind        CHAR(1) default 0,
+  head_img_url   VARCHAR2(256),
+  reset_psw_date DATE,
+  sourcetype     VARCHAR2(5) default 0,
+  regs           VARCHAR2(100)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_INVESTOR_CREDIT
+  is '投资人证件表';
+comment on column SMZJ.BUSI_INVESTOR_CREDIT.id
+  is '主键id';
+comment on column SMZJ.BUSI_INVESTOR_CREDIT.investor_id
+  is '投资人id';
+comment on column SMZJ.BUSI_INVESTOR_CREDIT.credit_type
+  is '证件类型';
+comment on column SMZJ.BUSI_INVESTOR_CREDIT.credit_no
+  is '证件号码';
+comment on column SMZJ.BUSI_INVESTOR_CREDIT.is_examine
+  is '是否审核（0：未审核，1：审核）';
+comment on column SMZJ.BUSI_INVESTOR_CREDIT.examine_by
+  is '审核人';
+comment on column SMZJ.BUSI_INVESTOR_CREDIT.examine_date
+  is '审核时间';
+comment on column SMZJ.BUSI_INVESTOR_CREDIT.create_by
+  is '创建人';
+comment on column SMZJ.BUSI_INVESTOR_CREDIT.create_date
+  is '创建时间';
+comment on column SMZJ.BUSI_INVESTOR_CREDIT.update_by
+  is '修改人';
+comment on column SMZJ.BUSI_INVESTOR_CREDIT.update_date
+  is '修改时间';
+comment on column SMZJ.BUSI_INVESTOR_CREDIT.is_delete
+  is '是否删除（1：是，0：否）';
+comment on column SMZJ.BUSI_INVESTOR_CREDIT.name
+  is '姓名';
+comment on column SMZJ.BUSI_INVESTOR_CREDIT.user_type
+  is '投资人类型（1：个人，2：机构）';
+comment on column SMZJ.BUSI_INVESTOR_CREDIT.regist_account
+  is '登记账户';
+comment on column SMZJ.BUSI_INVESTOR_CREDIT.password
+  is '用户验证密码';
+comment on column SMZJ.BUSI_INVESTOR_CREDIT.is_active
+  is '是否已经被激活过(1:已激活，0：未激活)';
+comment on column SMZJ.BUSI_INVESTOR_CREDIT.custom_no
+  is '客户编号';
+comment on column SMZJ.BUSI_INVESTOR_CREDIT.legal_person
+  is '法人代表';
+comment on column SMZJ.BUSI_INVESTOR_CREDIT.refrence
+  is '证件来源（1：投资人添加，2：管理人添加，3：客服添加，4：同步）';
+comment on column SMZJ.BUSI_INVESTOR_CREDIT.is_bind
+  is '是否被投资人手机账户绑定（1：是，0：否）';
+comment on column SMZJ.BUSI_INVESTOR_CREDIT.head_img_url
+  is '头像地址';
+comment on column SMZJ.BUSI_INVESTOR_CREDIT.reset_psw_date
+  is '修改密码时间';
+comment on column SMZJ.BUSI_INVESTOR_CREDIT.sourcetype
+  is '0表示直销，1表示代销';
+create index SMZJ.ZHHM_LE_INDEX on SMZJ.BUSI_INVESTOR_CREDIT (CREDIT_NO, CREDIT_TYPE)
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index SMZJ.ZHHM_LE__ACTIVEINDEX on SMZJ.BUSI_INVESTOR_CREDIT (CREDIT_NO, CREDIT_TYPE, IS_ACTIVE)
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table SMZJ.BUSI_INVESTOR_CREDIT
+  add constraint BUSI_INVESTOR_CREDIT_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table SMZJ.BUSI_INVESTOR_CREDIT
+  add constraint BUSI_UNIQUE_INDEX unique (CREDIT_TYPE, CREDIT_NO);
+

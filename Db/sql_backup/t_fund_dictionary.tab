@@ -1,0 +1,19 @@
+create table SMZJ.T_FUND_DICTIONARY
+(
+  id       NUMBER(19) not null,
+  category VARCHAR2(50 CHAR),
+  code     VARCHAR2(50 CHAR),
+  name     VARCHAR2(50 CHAR)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255;
+alter table SMZJ.T_FUND_DICTIONARY
+  add constraint T_FUND_DICTIONARY_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255;
+

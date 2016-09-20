@@ -1,0 +1,75 @@
+create table SMZJ.BUSI_INFO_DOWNLOAD
+(
+  id             VARCHAR2(32) not null,
+  report_type    CHAR(1) default 0,
+  report_period  VARCHAR2(32),
+  report_year    VARCHAR2(16),
+  pt_id          VARCHAR2(32),
+  pt_name        VARCHAR2(1000),
+  pt_no          VARCHAR2(32),
+  mgr_id         VARCHAR2(32),
+  mgr_name       VARCHAR2(1000),
+  mgr_no         VARCHAR2(32),
+  report_title   VARCHAR2(1000),
+  report_content LONG,
+  file_name      VARCHAR2(1000),
+  file_url       VARCHAR2(1000),
+  publish_date   DATE,
+  create_date    DATE,
+  is_delete      CHAR(1) default 0,
+  update_date    DATE,
+  is_send        CHAR(1) default '0',
+  work_day       VARCHAR2(8)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_INFO_DOWNLOAD
+  is '管理人报表(维护管理人月报，季报，年报)';
+comment on column SMZJ.BUSI_INFO_DOWNLOAD.id
+  is '主键';
+comment on column SMZJ.BUSI_INFO_DOWNLOAD.report_type
+  is '披露类型 （1：月报，2：季报，3：年报）';
+comment on column SMZJ.BUSI_INFO_DOWNLOAD.report_period
+  is '披露年份';
+comment on column SMZJ.BUSI_INFO_DOWNLOAD.pt_id
+  is '产品ID';
+comment on column SMZJ.BUSI_INFO_DOWNLOAD.pt_name
+  is '产品名称';
+comment on column SMZJ.BUSI_INFO_DOWNLOAD.pt_no
+  is '产品代码';
+comment on column SMZJ.BUSI_INFO_DOWNLOAD.mgr_id
+  is '管理机构ID';
+comment on column SMZJ.BUSI_INFO_DOWNLOAD.mgr_name
+  is '管理机构名称';
+comment on column SMZJ.BUSI_INFO_DOWNLOAD.mgr_no
+  is '管理机构代码';
+comment on column SMZJ.BUSI_INFO_DOWNLOAD.report_title
+  is '报表标题';
+comment on column SMZJ.BUSI_INFO_DOWNLOAD.report_content
+  is '报表内容';
+comment on column SMZJ.BUSI_INFO_DOWNLOAD.file_name
+  is '文件名称';
+comment on column SMZJ.BUSI_INFO_DOWNLOAD.file_url
+  is '文件路径';
+comment on column SMZJ.BUSI_INFO_DOWNLOAD.publish_date
+  is '发布时间';
+comment on column SMZJ.BUSI_INFO_DOWNLOAD.create_date
+  is '创建时间';
+comment on column SMZJ.BUSI_INFO_DOWNLOAD.is_delete
+  is '是否删除（1：已删除，0：未删除）';
+comment on column SMZJ.BUSI_INFO_DOWNLOAD.update_date
+  is '更新时间';
+comment on column SMZJ.BUSI_INFO_DOWNLOAD.is_send
+  is '是否发送给投资者，默认否';
+comment on column SMZJ.BUSI_INFO_DOWNLOAD.work_day
+  is '这个x报的最后一个工作日';
+

@@ -1,0 +1,8 @@
+create sequence SMZJ.SYNC_TASK_SEQ
+minvalue 1
+maxvalue 9999999999999999999999999999
+start with 243107355
+increment by 1
+cache 20
+cycle;
+

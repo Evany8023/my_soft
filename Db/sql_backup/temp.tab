@@ -1,0 +1,26 @@
+create table SMZJ.TEMP
+(
+  cardno    VARCHAR2(100),
+  certtype  VARCHAR2(100),
+  certno    VARCHAR2(100),
+  usrname   VARCHAR2(100),
+  dctype    VARCHAR2(100),
+  cardphone VARCHAR2(100),
+  signature VARCHAR2(100),
+  respcode  VARCHAR2(100),
+  bankname  VARCHAR2(100)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.TEMP
+  is '认证失败客户';
+

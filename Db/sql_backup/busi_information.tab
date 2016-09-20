@@ -1,0 +1,74 @@
+create table SMZJ.BUSI_INFORMATION
+(
+  id           VARCHAR2(32) not null,
+  title        VARCHAR2(128),
+  summary      VARCHAR2(256),
+  publish_date DATE,
+  is_examine   CHAR(1) default 0 not null,
+  examine_by   VARCHAR2(128 CHAR),
+  examine_date DATE,
+  create_by    VARCHAR2(128 CHAR),
+  create_date  DATE,
+  update_by    VARCHAR2(128 CHAR),
+  update_date  DATE,
+  is_delete    CHAR(1) default 0 not null,
+  is_publish   CHAR(1) default 0,
+  type         CHAR(1) default 0 not null,
+  content      LONG
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_INFORMATION
+  is '私募资讯';
+comment on column SMZJ.BUSI_INFORMATION.title
+  is '标题';
+comment on column SMZJ.BUSI_INFORMATION.summary
+  is '概述';
+comment on column SMZJ.BUSI_INFORMATION.publish_date
+  is '发布时间';
+comment on column SMZJ.BUSI_INFORMATION.is_examine
+  is '是否审核（1：审核，0：未审核）';
+comment on column SMZJ.BUSI_INFORMATION.examine_by
+  is '审核人';
+comment on column SMZJ.BUSI_INFORMATION.examine_date
+  is '审核时间';
+comment on column SMZJ.BUSI_INFORMATION.create_by
+  is '创建人';
+comment on column SMZJ.BUSI_INFORMATION.create_date
+  is '创建时间';
+comment on column SMZJ.BUSI_INFORMATION.update_by
+  is '更新人';
+comment on column SMZJ.BUSI_INFORMATION.update_date
+  is '更新时间';
+comment on column SMZJ.BUSI_INFORMATION.is_delete
+  is '是否删除（1：删除，0：未删除）';
+comment on column SMZJ.BUSI_INFORMATION.is_publish
+  is '是否发布(1:是,0：否)';
+comment on column SMZJ.BUSI_INFORMATION.type
+  is '类型（0、行业特点；1、认识私募；2、玩转私募）';
+comment on column SMZJ.BUSI_INFORMATION.content
+  is '内容';
+alter table SMZJ.BUSI_INFORMATION
+  add constraint INFMATION_KEY primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

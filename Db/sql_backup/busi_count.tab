@@ -1,0 +1,37 @@
+create table SMZJ.BUSI_COUNT
+(
+  type  NUMBER not null,
+  count NUMBER
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_COUNT
+  is '记录已入驻的产品和公司总数';
+comment on column SMZJ.BUSI_COUNT.type
+  is '1：公司；2：产品';
+comment on column SMZJ.BUSI_COUNT.count
+  is '已入驻数量';
+alter table SMZJ.BUSI_COUNT
+  add constraint BUSI_COM_PRO_PK primary key (TYPE)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

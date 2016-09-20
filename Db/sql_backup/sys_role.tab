@@ -1,0 +1,61 @@
+create table SMZJ.SYS_ROLE
+(
+  id          VARCHAR2(32) not null,
+  name        VARCHAR2(32),
+  create_by   VARCHAR2(128 CHAR),
+  create_date DATE,
+  update_by   VARCHAR2(128 CHAR),
+  update_date DATE,
+  remarks     VARCHAR2(2048),
+  del_flag    CHAR(1) default 0 not null
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.SYS_ROLE
+  is '客服系统角色表';
+comment on column SMZJ.SYS_ROLE.id
+  is 'ID';
+comment on column SMZJ.SYS_ROLE.name
+  is '角色名';
+comment on column SMZJ.SYS_ROLE.create_by
+  is '创建者
+';
+comment on column SMZJ.SYS_ROLE.create_date
+  is '创建日期
+';
+comment on column SMZJ.SYS_ROLE.update_by
+  is '更新者
+';
+comment on column SMZJ.SYS_ROLE.update_date
+  is '更新日期
+';
+comment on column SMZJ.SYS_ROLE.remarks
+  is '备注信息
+';
+comment on column SMZJ.SYS_ROLE.del_flag
+  is '删除标示
+';
+alter table SMZJ.SYS_ROLE
+  add constraint SYS_ROLE_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

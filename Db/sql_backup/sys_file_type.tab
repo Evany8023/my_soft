@@ -1,0 +1,76 @@
+create table SMZJ.SYS_FILE_TYPE
+(
+  id             VARCHAR2(32) not null,
+  cls            VARCHAR2(64),
+  label          VARCHAR2(256),
+  value          VARCHAR2(256),
+  type           VARCHAR2(64),
+  description    VARCHAR2(1024),
+  sort           NUMBER,
+  create_by      VARCHAR2(128 CHAR),
+  create_date    DATE,
+  update_by      VARCHAR2(128 CHAR),
+  update_date    DATE,
+  remarks        VARCHAR2(2048),
+  del_flag       CHAR(1) default 0,
+  is_upload_file CHAR(1) default 1,
+  operator       CHAR(1) default 3
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.SYS_FILE_TYPE
+  is '存储文件类型信息';
+comment on column SMZJ.SYS_FILE_TYPE.id
+  is 'ID';
+comment on column SMZJ.SYS_FILE_TYPE.cls
+  is '阶段分类（只对产品）';
+comment on column SMZJ.SYS_FILE_TYPE.label
+  is '标签值';
+comment on column SMZJ.SYS_FILE_TYPE.value
+  is '数据值';
+comment on column SMZJ.SYS_FILE_TYPE.type
+  is '类型（产品，投资人、管理人，公司）';
+comment on column SMZJ.SYS_FILE_TYPE.description
+  is '描述';
+comment on column SMZJ.SYS_FILE_TYPE.sort
+  is '排序';
+comment on column SMZJ.SYS_FILE_TYPE.create_by
+  is '创建者';
+comment on column SMZJ.SYS_FILE_TYPE.create_date
+  is '创建日期';
+comment on column SMZJ.SYS_FILE_TYPE.update_by
+  is '更新者';
+comment on column SMZJ.SYS_FILE_TYPE.update_date
+  is '更新日期';
+comment on column SMZJ.SYS_FILE_TYPE.remarks
+  is '备注';
+comment on column SMZJ.SYS_FILE_TYPE.del_flag
+  is '删除标示（0：未删除，1：删除）';
+comment on column SMZJ.SYS_FILE_TYPE.is_upload_file
+  is '是否需要上传文件 1:是 0：否';
+comment on column SMZJ.SYS_FILE_TYPE.operator
+  is '指定文件上传类型 1:托管人，2 管理人，3 双方都要上传';
+alter table SMZJ.SYS_FILE_TYPE
+  add constraint FILE_CLS_KEY primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

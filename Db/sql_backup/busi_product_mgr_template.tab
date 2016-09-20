@@ -1,0 +1,65 @@
+create table SMZJ.BUSI_PRODUCT_MGR_TEMPLATE
+(
+  id             VARCHAR2(32) not null,
+  name           VARCHAR2(100 CHAR),
+  phone          VARCHAR2(50 CHAR),
+  email          VARCHAR2(50 CHAR),
+  fax            VARCHAR2(50 CHAR),
+  regist_address VARCHAR2(500 CHAR),
+  office_address VARCHAR2(500 CHAR),
+  postcode       VARCHAR2(20),
+  legal_person   VARCHAR2(100 CHAR),
+  cp_id          VARCHAR2(32),
+  mgr_id         VARCHAR2(32),
+  create_by      VARCHAR2(200 CHAR),
+  create_date    DATE,
+  update_by      VARCHAR2(200 CHAR),
+  update_date    DATE,
+  is_delete      CHAR(1) default 0
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_PRODUCT_MGR_TEMPLATE
+  is '管理人信息采集模板表';
+comment on column SMZJ.BUSI_PRODUCT_MGR_TEMPLATE.id
+  is '模板主键ID';
+comment on column SMZJ.BUSI_PRODUCT_MGR_TEMPLATE.name
+  is '信息披露负责人姓名';
+comment on column SMZJ.BUSI_PRODUCT_MGR_TEMPLATE.phone
+  is '信息披露负责人联系电话';
+comment on column SMZJ.BUSI_PRODUCT_MGR_TEMPLATE.email
+  is '信息披露负责人电子邮箱';
+comment on column SMZJ.BUSI_PRODUCT_MGR_TEMPLATE.fax
+  is '传真';
+comment on column SMZJ.BUSI_PRODUCT_MGR_TEMPLATE.regist_address
+  is '注册地址';
+comment on column SMZJ.BUSI_PRODUCT_MGR_TEMPLATE.office_address
+  is '办公地址';
+comment on column SMZJ.BUSI_PRODUCT_MGR_TEMPLATE.postcode
+  is '邮编';
+comment on column SMZJ.BUSI_PRODUCT_MGR_TEMPLATE.legal_person
+  is '法人代表';
+comment on column SMZJ.BUSI_PRODUCT_MGR_TEMPLATE.cp_id
+  is '公司ID';
+comment on column SMZJ.BUSI_PRODUCT_MGR_TEMPLATE.mgr_id
+  is '管理人ID';
+comment on column SMZJ.BUSI_PRODUCT_MGR_TEMPLATE.create_by
+  is '创建人';
+comment on column SMZJ.BUSI_PRODUCT_MGR_TEMPLATE.create_date
+  is '创建时间';
+comment on column SMZJ.BUSI_PRODUCT_MGR_TEMPLATE.update_by
+  is '更新人';
+comment on column SMZJ.BUSI_PRODUCT_MGR_TEMPLATE.update_date
+  is '更新时间';
+comment on column SMZJ.BUSI_PRODUCT_MGR_TEMPLATE.is_delete
+  is '是否删除（1：是，0：否）';
+

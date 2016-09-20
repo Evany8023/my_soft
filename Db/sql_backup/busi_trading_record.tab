@@ -1,0 +1,68 @@
+create table SMZJ.BUSI_TRADING_RECORD
+(
+  id              VARCHAR2(32) not null,
+  trading_date    VARCHAR2(32),
+  trading_time    VARCHAR2(32),
+  borrow          NUMBER default 0 not null,
+  loan            NUMBER default 0 not null,
+  currency        VARCHAR2(10),
+  name            VARCHAR2(10),
+  account         VARCHAR2(32),
+  bank_type       VARCHAR2(16),
+  remark          VARCHAR2(255),
+  virtual_no      VARCHAR2(32),
+  virtual_name    VARCHAR2(255),
+  record_id       VARCHAR2(32),
+  record_type     VARCHAR2(32),
+  record_no       VARCHAR2(16),
+  pt_id           VARCHAR2(32) not null,
+  bank_account_no VARCHAR2(32) not null
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255;
+comment on table SMZJ.BUSI_TRADING_RECORD
+  is '账户流水记录';
+comment on column SMZJ.BUSI_TRADING_RECORD.id
+  is 'ID';
+comment on column SMZJ.BUSI_TRADING_RECORD.trading_date
+  is '交易日期';
+comment on column SMZJ.BUSI_TRADING_RECORD.trading_time
+  is '交易时间';
+comment on column SMZJ.BUSI_TRADING_RECORD.borrow
+  is '借';
+comment on column SMZJ.BUSI_TRADING_RECORD.loan
+  is '贷';
+comment on column SMZJ.BUSI_TRADING_RECORD.currency
+  is '币种';
+comment on column SMZJ.BUSI_TRADING_RECORD.name
+  is '收付方名称';
+comment on column SMZJ.BUSI_TRADING_RECORD.account
+  is '收付方账号';
+comment on column SMZJ.BUSI_TRADING_RECORD.bank_type
+  is '银行类型';
+comment on column SMZJ.BUSI_TRADING_RECORD.remark
+  is '交易摘要';
+comment on column SMZJ.BUSI_TRADING_RECORD.virtual_no
+  is '虚拟户编号';
+comment on column SMZJ.BUSI_TRADING_RECORD.virtual_name
+  is '虚拟户户名';
+comment on column SMZJ.BUSI_TRADING_RECORD.record_id
+  is '记账标识';
+comment on column SMZJ.BUSI_TRADING_RECORD.record_type
+  is '记账方式';
+comment on column SMZJ.BUSI_TRADING_RECORD.record_no
+  is '记账流水号';
+comment on column SMZJ.BUSI_TRADING_RECORD.pt_id
+  is '产品id';
+comment on column SMZJ.BUSI_TRADING_RECORD.bank_account_no
+  is '产品账户';
+alter table SMZJ.BUSI_TRADING_RECORD
+  add constraint BUSI_TRADING_RECORD_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255;
+

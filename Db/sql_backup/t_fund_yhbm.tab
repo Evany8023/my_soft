@@ -1,0 +1,32 @@
+create table SMZJ.T_FUND_YHBM
+(
+  name      VARCHAR2(50 CHAR) not null,
+  code      VARCHAR2(5 CHAR),
+  full_name VARCHAR2(50 CHAR)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table SMZJ.T_FUND_YHBM
+  add constraint T_FUND_YHBM_PK primary key (NAME)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

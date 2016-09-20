@@ -1,0 +1,190 @@
+create table SMZJ.BUSI_SHEET
+(
+  id                       VARCHAR2(32) not null,
+  sheet_no                 VARCHAR2(32) not null,
+  pt_id                    VARCHAR2(32) not null,
+  pt_no                    VARCHAR2(16),
+  dt_id                    VARCHAR2(32),
+  bank_card_id             VARCHAR2(32),
+  sheet_create_time        DATE,
+  amount                   NUMBER,
+  manager_contract_status  CHAR(1) default '0' not null,
+  investor_contract_status CHAR(1) default '0' not null,
+  trustee_contract_status  CHAR(1) default '0' not null,
+  fund_is_receive          CHAR(1) default '0' not null,
+  investor_message         VARCHAR2(1024),
+  status                   CHAR(1) default '0' not null,
+  is_examine               CHAR(1) default '0' not null,
+  examine_by               VARCHAR2(128 CHAR),
+  examine_date             DATE,
+  create_by                VARCHAR2(128 CHAR),
+  create_date              DATE,
+  update_by                VARCHAR2(128 CHAR),
+  update_date              DATE,
+  is_delete                CHAR(1) default '0' not null,
+  business_type            VARCHAR2(4) default '022' not null,
+  company_id               VARCHAR2(32),
+  credit_id                VARCHAR2(32),
+  manager_fund_confirm     CHAR(1) default '0',
+  remark                   VARCHAR2(1000 CHAR),
+  apply_amount             VARCHAR2(16),
+  apply_share              VARCHAR2(16),
+  bonus_way                VARCHAR2(16),
+  bonus_rate               VARCHAR2(16),
+  procedure_fee            VARCHAR2(16),
+  design_redeem            VARCHAR2(16),
+  original_apply_no        VARCHAR2(16),
+  huge_sum_redeem          VARCHAR2(16),
+  original_apply_count     VARCHAR2(16),
+  old_sys_id               VARCHAR2(16),
+  export_status            CHAR(1) default '0',
+  ta_status                VARCHAR2(256) default '未导入TA',
+  ta_status_info           VARCHAR2(1024),
+  confirm_status           CHAR(1) default '0',
+  is_simple                CHAR(1) default '0',
+  investor_identify_flag   CHAR(1) default '1',
+  calm_or_repeat           CHAR(2) default '00',
+  last_cacel_time          DATE
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_SHEET
+  is '订单表，存储管投资人，投资产品等相关信息';
+comment on column SMZJ.BUSI_SHEET.id
+  is 'ID';
+comment on column SMZJ.BUSI_SHEET.sheet_no
+  is '订单编号';
+comment on column SMZJ.BUSI_SHEET.pt_id
+  is '产品ID';
+comment on column SMZJ.BUSI_SHEET.pt_no
+  is '产品编号';
+comment on column SMZJ.BUSI_SHEET.dt_id
+  is '投资人详情ID';
+comment on column SMZJ.BUSI_SHEET.bank_card_id
+  is '银行卡ID';
+comment on column SMZJ.BUSI_SHEET.sheet_create_time
+  is '下单时间';
+comment on column SMZJ.BUSI_SHEET.amount
+  is '购买金额';
+comment on column SMZJ.BUSI_SHEET.manager_contract_status
+  is '管理人合同签订状态（0：未签约，1：已签约）';
+comment on column SMZJ.BUSI_SHEET.investor_contract_status
+  is '投资人合同签订状态（0：未签约，1：已签约）';
+comment on column SMZJ.BUSI_SHEET.trustee_contract_status
+  is '托管人合同签订状态（0：未签约，1：已签约）';
+comment on column SMZJ.BUSI_SHEET.fund_is_receive
+  is '款项是否达到（0：未收到，1：已收到）';
+comment on column SMZJ.BUSI_SHEET.investor_message
+  is '客户留言';
+comment on column SMZJ.BUSI_SHEET.status
+  is '订单状态（0：待确认，1：已确认，2：拒绝）';
+comment on column SMZJ.BUSI_SHEET.is_examine
+  is '是否审核（0：未审核，1：审核）';
+comment on column SMZJ.BUSI_SHEET.examine_by
+  is '审核人';
+comment on column SMZJ.BUSI_SHEET.examine_date
+  is '审核日期';
+comment on column SMZJ.BUSI_SHEET.create_by
+  is '创建人';
+comment on column SMZJ.BUSI_SHEET.create_date
+  is '创建日期';
+comment on column SMZJ.BUSI_SHEET.update_by
+  is '更新人';
+comment on column SMZJ.BUSI_SHEET.update_date
+  is '更新时间';
+comment on column SMZJ.BUSI_SHEET.is_delete
+  is '是否删除（1：是，0：否）';
+comment on column SMZJ.BUSI_SHEET.business_type
+  is '业务类型';
+comment on column SMZJ.BUSI_SHEET.company_id
+  is '私募公司ID';
+comment on column SMZJ.BUSI_SHEET.credit_id
+  is '证件ID';
+comment on column SMZJ.BUSI_SHEET.manager_fund_confirm
+  is '款项是否确认（0：未确认，1：已确认）';
+comment on column SMZJ.BUSI_SHEET.remark
+  is '备注';
+comment on column SMZJ.BUSI_SHEET.apply_amount
+  is '申请金额';
+comment on column SMZJ.BUSI_SHEET.apply_share
+  is '申请份额';
+comment on column SMZJ.BUSI_SHEET.bonus_way
+  is '分红方式';
+comment on column SMZJ.BUSI_SHEET.bonus_rate
+  is '红利比例';
+comment on column SMZJ.BUSI_SHEET.procedure_fee
+  is '手续费用';
+comment on column SMZJ.BUSI_SHEET.design_redeem
+  is '指定赎回';
+comment on column SMZJ.BUSI_SHEET.original_apply_no
+  is '原申请单号';
+comment on column SMZJ.BUSI_SHEET.huge_sum_redeem
+  is '巨额赎回';
+comment on column SMZJ.BUSI_SHEET.original_apply_count
+  is '原申请数';
+comment on column SMZJ.BUSI_SHEET.old_sys_id
+  is '老系统ID';
+comment on column SMZJ.BUSI_SHEET.export_status
+  is '导出状态（0：未导出，1：已导出，2：导出漏单）';
+comment on column SMZJ.BUSI_SHEET.ta_status
+  is 'TA状态';
+comment on column SMZJ.BUSI_SHEET.ta_status_info
+  is '当TA状态为数据不符时，记录详细信息';
+comment on column SMZJ.BUSI_SHEET.confirm_status
+  is '确认状态（0：未确认，1：已确认，2：TA确认）';
+comment on column SMZJ.BUSI_SHEET.is_simple
+  is '是否简易版订单';
+comment on column SMZJ.BUSI_SHEET.investor_identify_flag
+  is '定单状态 1：待冷静回访 2：待身份验证；3：待预检，4：待提交TA； 5：TA已确认 ；6：废单 身份校验不通过 7:废单匹配失败 8：废单（TA处理不通过）';
+comment on column SMZJ.BUSI_SHEET.calm_or_repeat
+  is '00 待冷静待回访 01 待冷静已经回访 10已冷静没有回访  11冷静并回访过';
+comment on column SMZJ.BUSI_SHEET.last_cacel_time
+  is '最迟撤单时间';
+create index SMZJ.IUX_SHEET_NO on SMZJ.BUSI_SHEET (SHEET_NO)
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index SMZJ.OLD_SYS_ID_INDEX on SMZJ.BUSI_SHEET (OLD_SYS_ID)
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table SMZJ.BUSI_SHEET
+  add constraint BUSI_SHEET_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

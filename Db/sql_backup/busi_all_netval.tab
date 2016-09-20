@@ -1,0 +1,15 @@
+create table SMZJ.BUSI_ALL_NETVAL
+(
+  id              VARCHAR2(32) not null,
+  fundcode        VARCHAR2(40 CHAR),
+  rq              VARCHAR2(40 CHAR),
+  nav             VARCHAR2(40 CHAR),
+  accumulativenav VARCHAR2(40 CHAR),
+  mwfsy           VARCHAR2(40 CHAR),
+  qrnhsyl         VARCHAR2(40 CHAR)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255;
+

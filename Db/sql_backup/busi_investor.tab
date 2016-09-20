@@ -1,0 +1,141 @@
+create table SMZJ.BUSI_INVESTOR
+(
+  id              VARCHAR2(32) not null,
+  phone           VARCHAR2(16) not null,
+  password        VARCHAR2(32) not null,
+  name            VARCHAR2(128 CHAR),
+  user_type       CHAR(1) default 1 not null,
+  telephone       VARCHAR2(16),
+  email           VARCHAR2(32),
+  zip_code        VARCHAR2(8),
+  address         VARCHAR2(128),
+  handle_person   VARCHAR2(128 CHAR),
+  legal_person    VARCHAR2(128 CHAR),
+  is_confirm      CHAR(1) default 0,
+  bank_card_count NUMBER default 0 not null,
+  product_count   NUMBER default 0 not null,
+  product_val     NUMBER,
+  remark          VARCHAR2(2048 CHAR),
+  head_img_url    VARCHAR2(256),
+  is_examine      CHAR(1) default 0 not null,
+  examine_by      VARCHAR2(128 CHAR),
+  examine_date    DATE,
+  create_by       VARCHAR2(128 CHAR),
+  create_date     DATE,
+  update_by       VARCHAR2(128 CHAR),
+  update_date     DATE,
+  is_delete       CHAR(1) default 0,
+  fax             VARCHAR2(16),
+  cp_name         VARCHAR2(128 CHAR),
+  login_ip        VARCHAR2(16),
+  login_date      DATE,
+  regist_date     DATE,
+  regist_way      VARCHAR2(8),
+  reset_psw_date  DATE
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_INVESTOR
+  is '投资人信息表，存储投资人信息';
+comment on column SMZJ.BUSI_INVESTOR.id
+  is '投资人ID';
+comment on column SMZJ.BUSI_INVESTOR.phone
+  is '手机号(登陆用户名)';
+comment on column SMZJ.BUSI_INVESTOR.password
+  is '密码';
+comment on column SMZJ.BUSI_INVESTOR.name
+  is '姓名';
+comment on column SMZJ.BUSI_INVESTOR.user_type
+  is '投资人类型（1：个人，2：机构）';
+comment on column SMZJ.BUSI_INVESTOR.telephone
+  is '固定电话';
+comment on column SMZJ.BUSI_INVESTOR.email
+  is '邮箱';
+comment on column SMZJ.BUSI_INVESTOR.zip_code
+  is '邮政编码';
+comment on column SMZJ.BUSI_INVESTOR.address
+  is '地址';
+comment on column SMZJ.BUSI_INVESTOR.handle_person
+  is '经办人';
+comment on column SMZJ.BUSI_INVESTOR.legal_person
+  is '法定代表人';
+comment on column SMZJ.BUSI_INVESTOR.is_confirm
+  is '是否实名认证（1：是，0：否）';
+comment on column SMZJ.BUSI_INVESTOR.bank_card_count
+  is '绑定银行卡数量';
+comment on column SMZJ.BUSI_INVESTOR.product_count
+  is '持有产品数量';
+comment on column SMZJ.BUSI_INVESTOR.product_val
+  is '持有市值';
+comment on column SMZJ.BUSI_INVESTOR.remark
+  is '备注';
+comment on column SMZJ.BUSI_INVESTOR.head_img_url
+  is '头像地址';
+comment on column SMZJ.BUSI_INVESTOR.is_examine
+  is '是否审核（0：未审核，1：审核）';
+comment on column SMZJ.BUSI_INVESTOR.examine_by
+  is '审核人';
+comment on column SMZJ.BUSI_INVESTOR.examine_date
+  is '审核时间';
+comment on column SMZJ.BUSI_INVESTOR.create_by
+  is '创建人';
+comment on column SMZJ.BUSI_INVESTOR.create_date
+  is '创建时间';
+comment on column SMZJ.BUSI_INVESTOR.update_by
+  is '修改人';
+comment on column SMZJ.BUSI_INVESTOR.update_date
+  is '修改时间';
+comment on column SMZJ.BUSI_INVESTOR.is_delete
+  is '是否删除（1：是，0：否）';
+comment on column SMZJ.BUSI_INVESTOR.fax
+  is '传真';
+comment on column SMZJ.BUSI_INVESTOR.cp_name
+  is '公司名称';
+comment on column SMZJ.BUSI_INVESTOR.login_ip
+  is '最后一次登陆IP';
+comment on column SMZJ.BUSI_INVESTOR.login_date
+  is '最后一次登陆时间';
+comment on column SMZJ.BUSI_INVESTOR.regist_date
+  is '注册时间';
+comment on column SMZJ.BUSI_INVESTOR.regist_way
+  is '注册途径（app，web）';
+comment on column SMZJ.BUSI_INVESTOR.reset_psw_date
+  is '修改密码时间';
+alter table SMZJ.BUSI_INVESTOR
+  add constraint TZ_INVEST_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table SMZJ.BUSI_INVESTOR
+  add constraint INVESTOR_PHONE_UNIQUE unique (PHONE)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

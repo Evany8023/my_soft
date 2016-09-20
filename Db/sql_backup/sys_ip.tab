@@ -1,0 +1,47 @@
+create table SMZJ.SYS_IP
+(
+  id          VARCHAR2(32) not null,
+  ip          VARCHAR2(16),
+  create_by   VARCHAR2(128 CHAR),
+  create_date DATE,
+  update_by   VARCHAR2(128 CHAR),
+  update_date DATE
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.SYS_IP
+  is '管理人系统IP白名单';
+comment on column SMZJ.SYS_IP.ip
+  is '白名单IP';
+comment on column SMZJ.SYS_IP.create_by
+  is '创建人';
+comment on column SMZJ.SYS_IP.create_date
+  is '创建时间';
+comment on column SMZJ.SYS_IP.update_by
+  is '更新人';
+comment on column SMZJ.SYS_IP.update_date
+  is '更新时间';
+alter table SMZJ.SYS_IP
+  add constraint IP_KEY primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

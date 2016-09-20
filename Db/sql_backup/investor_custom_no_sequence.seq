@@ -1,0 +1,7 @@
+create sequence SMZJ.INVESTOR_CUSTOM_NO_SEQUENCE
+minvalue 100000
+maxvalue 99999999999999999999
+start with 39463478352
+increment by 1
+cache 10;
+

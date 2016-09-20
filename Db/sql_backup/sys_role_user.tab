@@ -1,0 +1,37 @@
+create table SMZJ.SYS_ROLE_USER
+(
+  role_id VARCHAR2(32) not null,
+  user_id VARCHAR2(32) not null
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.SYS_ROLE_USER
+  is '角色用户中间表';
+comment on column SMZJ.SYS_ROLE_USER.role_id
+  is '角色ID';
+comment on column SMZJ.SYS_ROLE_USER.user_id
+  is '用户ID';
+alter table SMZJ.SYS_ROLE_USER
+  add constraint SYS_ROLE_USER_PK primary key (ROLE_ID, USER_ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

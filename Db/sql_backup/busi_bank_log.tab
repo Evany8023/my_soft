@@ -1,0 +1,71 @@
+create table SMZJ.BUSI_BANK_LOG
+(
+  id                     VARCHAR2(100),
+  mgr_account            VARCHAR2(100),
+  mgr_ip                 VARCHAR2(100),
+  update_date            DATE,
+  product_id             VARCHAR2(32),
+  investor_type          CHAR(1),
+  credit_type            VARCHAR2(100),
+  credit_no              VARCHAR2(100),
+  credit_name            VARCHAR2(100),
+  action                 CHAR(1),
+  pre_accountno          VARCHAR2(100),
+  pre_bankname           VARCHAR2(100),
+  pre_accountname        VARCHAR2(100),
+  after_accountno        VARCHAR2(100),
+  after_bankname         VARCHAR2(100),
+  after_accountname      VARCHAR2(100),
+  investor_identify_flag CHAR(1),
+  is_fund_control        CHAR(1)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_BANK_LOG
+  is '新增修改客户银行账户日志表';
+comment on column SMZJ.BUSI_BANK_LOG.id
+  is '主键id';
+comment on column SMZJ.BUSI_BANK_LOG.mgr_account
+  is '管理人账号';
+comment on column SMZJ.BUSI_BANK_LOG.mgr_ip
+  is '管理人ip';
+comment on column SMZJ.BUSI_BANK_LOG.update_date
+  is '新增/变更时间';
+comment on column SMZJ.BUSI_BANK_LOG.product_id
+  is '产品ID';
+comment on column SMZJ.BUSI_BANK_LOG.investor_type
+  is '投资人类型';
+comment on column SMZJ.BUSI_BANK_LOG.credit_type
+  is '证件类型';
+comment on column SMZJ.BUSI_BANK_LOG.credit_no
+  is '证件号码';
+comment on column SMZJ.BUSI_BANK_LOG.credit_name
+  is '投资人姓名';
+comment on column SMZJ.BUSI_BANK_LOG.action
+  is '新增：0，修改：1';
+comment on column SMZJ.BUSI_BANK_LOG.pre_accountno
+  is '修改前银行账号';
+comment on column SMZJ.BUSI_BANK_LOG.pre_bankname
+  is '修改前银行开户行';
+comment on column SMZJ.BUSI_BANK_LOG.pre_accountname
+  is '修改前银行户名';
+comment on column SMZJ.BUSI_BANK_LOG.after_accountno
+  is '修改后银行账号';
+comment on column SMZJ.BUSI_BANK_LOG.after_bankname
+  is '修改后银行开户行';
+comment on column SMZJ.BUSI_BANK_LOG.after_accountname
+  is '修改后银行户名';
+comment on column SMZJ.BUSI_BANK_LOG.investor_identify_flag
+  is '银联验证银行账户信息，0：未验证（默认为0），1：验证通过，2：验证不通过';
+comment on column SMZJ.BUSI_BANK_LOG.is_fund_control
+  is '是否资金监管';
+

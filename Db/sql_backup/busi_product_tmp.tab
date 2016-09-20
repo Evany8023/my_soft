@@ -1,0 +1,100 @@
+create table SMZJ.BUSI_PRODUCT_TMP
+(
+  id                    VARCHAR2(32) not null,
+  cp_id                 VARCHAR2(32),
+  cp_name               VARCHAR2(128 CHAR),
+  name                  VARCHAR2(64),
+  product_no            VARCHAR2(16),
+  product_type          VARCHAR2(8),
+  trusteeship_insti     VARCHAR2(32),
+  regist_insti          VARCHAR2(32),
+  publish_date          DATE,
+  exist_limit_time      VARCHAR2(16),
+  invest_scole          VARCHAR2(2048),
+  mgr_net_period        NUMBER,
+  invest_net_period     NUMBER,
+  public_net_period     NUMBER,
+  publish_status        VARCHAR2(2),
+  is_master_code        CHAR(1),
+  parent_id             VARCHAR2(32),
+  is_grade              CHAR(1),
+  is_pre_sheet          CHAR(1),
+  is_display            CHAR(1),
+  is_close_master_net   CHAR(1),
+  is_display_mgr        CHAR(1),
+  mgr_info              VARCHAR2(2048),
+  advisor_info          VARCHAR2(2048),
+  org_form              VARCHAR2(16),
+  legal_person          VARCHAR2(16),
+  invest_size           NUMBER,
+  start_price           NUMBER,
+  plus_start_price      NUMBER,
+  close_time            NUMBER,
+  open_time             NUMBER default 1,
+  cost_rate             NUMBER,
+  redeem_cost_rate      NUMBER,
+  summary               VARCHAR2(2048),
+  invest_policy         VARCHAR2(2048),
+  invest_limit          VARCHAR2(2048),
+  predict_line          CHAR(2),
+  risk_char             VARCHAR2(8) default 2,
+  income_char           VARCHAR2(8) default 2,
+  manage_cost           NUMBER default 0,
+  trusteeship_cost      NUMBER default 0,
+  run_service_cost      NUMBER default 0,
+  min_service_cost      NUMBER default 0,
+  min_cost_info         VARCHAR2(128),
+  achiev_reward_way     CHAR(4) default 0,
+  achiev_reward_rate    NUMBER,
+  income_distr_cls      CHAR(4) default 0,
+  service_require       CHAR(4) default 0,
+  broker_agency         VARCHAR2(32),
+  broker_agency_info    VARCHAR2(64),
+  currency              VARCHAR2(8),
+  keep_record_no        VARCHAR2(32),
+  net_unit              VARCHAR2(8),
+  specific_service      VARCHAR2(2048),
+  agree_count           NUMBER default 0,
+  is_examine            CHAR(1) default 0,
+  examine_by            VARCHAR2(128 CHAR),
+  examine_date          DATE,
+  create_by             VARCHAR2(128 CHAR),
+  create_date           DATE,
+  update_by             VARCHAR2(128 CHAR),
+  update_date           DATE,
+  is_delete             CHAR(1) default 0,
+  predict_publish_date  DATE,
+  redeem_hold_time      NUMBER,
+  income_distr_instruct VARCHAR2(1024),
+  predict_line_exp      VARCHAR2(1024),
+  trusteeship_cls       CHAR(2) default 0,
+  achiev_compare_rate   NUMBER default 0,
+  publish_person        VARCHAR2(2),
+  is_netval_curve       VARCHAR2(2)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table SMZJ.BUSI_PRODUCT_TMP
+  add constraint PT_TMP_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

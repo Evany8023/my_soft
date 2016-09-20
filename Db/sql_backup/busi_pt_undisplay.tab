@@ -1,0 +1,56 @@
+create table SMZJ.BUSI_PT_UNDISPLAY
+(
+  id                VARCHAR2(32) not null,
+  pt_id             VARCHAR2(32),
+  pt_no             VARCHAR2(16),
+  pt_name           VARCHAR2(128 CHAR),
+  pt_publish_date   DATE,
+  cp_id             VARCHAR2(32),
+  cp_name           VARCHAR2(128 CHAR),
+  netval_date       DATE,
+  netval_syn_period NUMBER,
+  delay_day         NUMBER,
+  trust_man         VARCHAR2(128 CHAR),
+  pt_type           VARCHAR2(128 CHAR),
+  create_date       DATE
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255;
+comment on table SMZJ.BUSI_PT_UNDISPLAY
+  is '未披露产品';
+comment on column SMZJ.BUSI_PT_UNDISPLAY.id
+  is '';
+comment on column SMZJ.BUSI_PT_UNDISPLAY.pt_id
+  is '产品id';
+comment on column SMZJ.BUSI_PT_UNDISPLAY.pt_no
+  is '产品代码';
+comment on column SMZJ.BUSI_PT_UNDISPLAY.pt_name
+  is '产品名称';
+comment on column SMZJ.BUSI_PT_UNDISPLAY.pt_publish_date
+  is '产品成立日期';
+comment on column SMZJ.BUSI_PT_UNDISPLAY.cp_id
+  is '公司id';
+comment on column SMZJ.BUSI_PT_UNDISPLAY.cp_name
+  is '公司名称';
+comment on column SMZJ.BUSI_PT_UNDISPLAY.netval_date
+  is '净值日期';
+comment on column SMZJ.BUSI_PT_UNDISPLAY.netval_syn_period
+  is '净值同步周期';
+comment on column SMZJ.BUSI_PT_UNDISPLAY.delay_day
+  is '延迟天数';
+comment on column SMZJ.BUSI_PT_UNDISPLAY.trust_man
+  is '托管人';
+comment on column SMZJ.BUSI_PT_UNDISPLAY.pt_type
+  is '产品类型';
+comment on column SMZJ.BUSI_PT_UNDISPLAY.create_date
+  is '创建时间';
+alter table SMZJ.BUSI_PT_UNDISPLAY
+  add constraint UNDISPLAY_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255;
+

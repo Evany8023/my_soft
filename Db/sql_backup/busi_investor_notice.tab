@@ -1,0 +1,34 @@
+create table SMZJ.BUSI_INVESTOR_NOTICE
+(
+  id          VARCHAR2(32) not null,
+  notice_id   VARCHAR2(32) not null,
+  investor_id VARCHAR2(32),
+  cp_id       VARCHAR2(32),
+  insti_code  VARCHAR2(16),
+  count       NUMBER default 1,
+  create_date DATE,
+  modify_date DATE
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255;
+comment on table SMZJ.BUSI_INVESTOR_NOTICE
+  is '投资人消息通知中间表';
+comment on column SMZJ.BUSI_INVESTOR_NOTICE.id
+  is '主键ID';
+comment on column SMZJ.BUSI_INVESTOR_NOTICE.notice_id
+  is '消息通知ID';
+comment on column SMZJ.BUSI_INVESTOR_NOTICE.investor_id
+  is '投资人ID';
+comment on column SMZJ.BUSI_INVESTOR_NOTICE.cp_id
+  is '公司id';
+comment on column SMZJ.BUSI_INVESTOR_NOTICE.insti_code
+  is '机构编码';
+comment on column SMZJ.BUSI_INVESTOR_NOTICE.count
+  is '消息点击次数';
+comment on column SMZJ.BUSI_INVESTOR_NOTICE.create_date
+  is '创建日期';
+comment on column SMZJ.BUSI_INVESTOR_NOTICE.modify_date
+  is '修改日期';
+

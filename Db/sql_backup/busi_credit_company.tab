@@ -1,0 +1,78 @@
+create table SMZJ.BUSI_CREDIT_COMPANY
+(
+  credit_id              VARCHAR2(32) not null,
+  company_id             VARCHAR2(32) not null,
+  insti_code             VARCHAR2(20),
+  insti_name             VARCHAR2(100),
+  sourcetype             VARCHAR2(5) default 0,
+  sqrq                   TIMESTAMP(6),
+  create_date            TIMESTAMP(6) default sysdate,
+  reset                  VARCHAR2(2) default 0,
+  resettime              TIMESTAMP(6),
+  is_active              VARCHAR2(2) default 0,
+  actvietime             TIMESTAMP(6),
+  password               VARCHAR2(64),
+  modifypasstime         TIMESTAMP(6),
+  aliasname              VARCHAR2(64),
+  ismustsetpass          VARCHAR2(2) default 0,
+  initial_pwd            VARCHAR2(64),
+  unencrypted_initialpwd VARCHAR2(64)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_CREDIT_COMPANY
+  is '投资开户资料和公司中间表';
+comment on column SMZJ.BUSI_CREDIT_COMPANY.credit_id
+  is '证件ID';
+comment on column SMZJ.BUSI_CREDIT_COMPANY.company_id
+  is '公司ID';
+comment on column SMZJ.BUSI_CREDIT_COMPANY.insti_code
+  is '机构编码';
+comment on column SMZJ.BUSI_CREDIT_COMPANY.insti_name
+  is '机构名称';
+comment on column SMZJ.BUSI_CREDIT_COMPANY.sourcetype
+  is '销售渠道，0表直销，1表代销';
+comment on column SMZJ.BUSI_CREDIT_COMPANY.sqrq
+  is '开户日期';
+comment on column SMZJ.BUSI_CREDIT_COMPANY.reset
+  is '是否重置 0：否 ，1：是';
+comment on column SMZJ.BUSI_CREDIT_COMPANY.is_active
+  is '是否激活 0 ：未激活 1：已激活';
+comment on column SMZJ.BUSI_CREDIT_COMPANY.actvietime
+  is '激活时间';
+comment on column SMZJ.BUSI_CREDIT_COMPANY.password
+  is '密码';
+comment on column SMZJ.BUSI_CREDIT_COMPANY.modifypasstime
+  is '修改密码时间';
+comment on column SMZJ.BUSI_CREDIT_COMPANY.aliasname
+  is '别名';
+comment on column SMZJ.BUSI_CREDIT_COMPANY.ismustsetpass
+  is '是否必须要设置别名 0：否，1：是';
+comment on column SMZJ.BUSI_CREDIT_COMPANY.initial_pwd
+  is '初始密码';
+comment on column SMZJ.BUSI_CREDIT_COMPANY.unencrypted_initialpwd
+  is '未加密的初始密码';
+alter table SMZJ.BUSI_CREDIT_COMPANY
+  add constraint BUSI_CREDIT_COMPANY_PK primary key (CREDIT_ID, COMPANY_ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+
