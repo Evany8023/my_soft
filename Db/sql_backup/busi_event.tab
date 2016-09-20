@@ -1,0 +1,91 @@
+create table SMZJ.BUSI_EVENT
+(
+  id             VARCHAR2(32) not null,
+  pt_id          VARCHAR2(32) not null,
+  event_type     VARCHAR2(2),
+  apply_way      VARCHAR2(2),
+  event_date     DATE,
+  amount         NUMBER,
+  remark         VARCHAR2(2048 CHAR),
+  is_examine     CHAR(1) default 0 not null,
+  examine_by     VARCHAR2(128 CHAR),
+  examine_date   DATE,
+  create_by      VARCHAR2(128 CHAR),
+  create_date    DATE,
+  update_by      VARCHAR2(128 CHAR),
+  update_date    DATE,
+  is_delete      CHAR(1) default 0 not null,
+  publish_person VARCHAR2(2),
+  pdf_url        VARCHAR2(500),
+  examine_result CHAR(1),
+  examine_mark   VARCHAR2(500),
+  pdf_name       VARCHAR2(500)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_EVENT
+  is '私募事件表，存储私募事件信息';
+comment on column SMZJ.BUSI_EVENT.id
+  is 'ID';
+comment on column SMZJ.BUSI_EVENT.pt_id
+  is '产品ID';
+comment on column SMZJ.BUSI_EVENT.event_type
+  is '事件类型';
+comment on column SMZJ.BUSI_EVENT.apply_way
+  is '申请方式';
+comment on column SMZJ.BUSI_EVENT.event_date
+  is '事件时间';
+comment on column SMZJ.BUSI_EVENT.amount
+  is '募集资金';
+comment on column SMZJ.BUSI_EVENT.remark
+  is '备注';
+comment on column SMZJ.BUSI_EVENT.is_examine
+  is '是否审核(1:是，0：否)';
+comment on column SMZJ.BUSI_EVENT.examine_by
+  is '审核人';
+comment on column SMZJ.BUSI_EVENT.examine_date
+  is '审核时间';
+comment on column SMZJ.BUSI_EVENT.create_by
+  is '创建人';
+comment on column SMZJ.BUSI_EVENT.create_date
+  is '创建时间';
+comment on column SMZJ.BUSI_EVENT.update_by
+  is '更新人';
+comment on column SMZJ.BUSI_EVENT.update_date
+  is '更新时间';
+comment on column SMZJ.BUSI_EVENT.is_delete
+  is '是否删除（1：是，0：否）';
+comment on column SMZJ.BUSI_EVENT.publish_person
+  is '发布人（S:托管部，M:管理人）';
+comment on column SMZJ.BUSI_EVENT.pdf_url
+  is '附件地址';
+comment on column SMZJ.BUSI_EVENT.examine_result
+  is '审核结果(1:通过,0:拒绝)';
+comment on column SMZJ.BUSI_EVENT.examine_mark
+  is '审核结果说明';
+comment on column SMZJ.BUSI_EVENT.pdf_name
+  is '附件名';
+alter table SMZJ.BUSI_EVENT
+  add constraint BUSI_PP_EVENT_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

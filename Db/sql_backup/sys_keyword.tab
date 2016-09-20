@@ -1,0 +1,31 @@
+create table SMZJ.SYS_KEYWORD
+(
+  id       VARCHAR2(32 CHAR) not null,
+  key_word VARCHAR2(128 CHAR)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table SMZJ.SYS_KEYWORD
+  add constraint SYS_KEYWORD_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

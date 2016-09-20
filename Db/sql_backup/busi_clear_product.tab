@@ -1,0 +1,41 @@
+create table SMZJ.BUSI_CLEAR_PRODUCT
+(
+  id              VARCHAR2(32) not null,
+  cp_id           VARCHAR2(32),
+  name            VARCHAR2(80 CHAR),
+  product_no      VARCHAR2(16),
+  product_type    VARCHAR2(16 CHAR),
+  wind_up_date    VARCHAR2(32),
+  wind_up_net_val VARCHAR2(16),
+  sync_date       VARCHAR2(32)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_CLEAR_PRODUCT
+  is '已清盘产品表，同步产品信息';
+comment on column SMZJ.BUSI_CLEAR_PRODUCT.id
+  is '产品ID';
+comment on column SMZJ.BUSI_CLEAR_PRODUCT.cp_id
+  is '私募公司ID';
+comment on column SMZJ.BUSI_CLEAR_PRODUCT.name
+  is '产品名称';
+comment on column SMZJ.BUSI_CLEAR_PRODUCT.product_no
+  is '产品代码';
+comment on column SMZJ.BUSI_CLEAR_PRODUCT.product_type
+  is '产品类型';
+comment on column SMZJ.BUSI_CLEAR_PRODUCT.wind_up_date
+  is '清盘时间';
+comment on column SMZJ.BUSI_CLEAR_PRODUCT.wind_up_net_val
+  is '清盘净值';
+comment on column SMZJ.BUSI_CLEAR_PRODUCT.sync_date
+  is '同步这条数据的时间';
+

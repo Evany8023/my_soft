@@ -1,0 +1,22 @@
+create table SMZJ.BUSI_PTCOM_TA_COM
+(
+  pt_comcode  VARCHAR2(50 CHAR),
+  pt_comname  VARCHAR2(100 CHAR),
+  ta_comcode  VARCHAR2(50 CHAR),
+  ta_comname  VARCHAR2(100 CHAR),
+  create_date TIMESTAMP(6) default sysdate,
+  pt_comid    VARCHAR2(32 CHAR),
+  source      VARCHAR2(5 CHAR)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

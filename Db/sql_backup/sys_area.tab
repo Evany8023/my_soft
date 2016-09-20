@@ -1,0 +1,68 @@
+create table SMZJ.SYS_AREA
+(
+  id          VARCHAR2(64) not null,
+  parent_id   VARCHAR2(64) not null,
+  parent_ids  VARCHAR2(2000) not null,
+  code        VARCHAR2(100),
+  name        VARCHAR2(128 CHAR) not null,
+  type        CHAR(1),
+  create_by   VARCHAR2(128 CHAR),
+  create_date TIMESTAMP(6),
+  update_by   VARCHAR2(128 CHAR),
+  update_date TIMESTAMP(6),
+  remarks     VARCHAR2(255),
+  del_flag    CHAR(1) default '0' not null
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255;
+comment on table SMZJ.SYS_AREA
+  is '区域表';
+comment on column SMZJ.SYS_AREA.id
+  is '编号';
+comment on column SMZJ.SYS_AREA.parent_id
+  is '父级编号';
+comment on column SMZJ.SYS_AREA.parent_ids
+  is '所有父级编号';
+comment on column SMZJ.SYS_AREA.code
+  is '区域编码';
+comment on column SMZJ.SYS_AREA.name
+  is '区域名称';
+comment on column SMZJ.SYS_AREA.type
+  is '区域类型';
+comment on column SMZJ.SYS_AREA.create_by
+  is '创建者';
+comment on column SMZJ.SYS_AREA.create_date
+  is '创建时间';
+comment on column SMZJ.SYS_AREA.update_by
+  is '更新者';
+comment on column SMZJ.SYS_AREA.update_date
+  is '更新时间';
+comment on column SMZJ.SYS_AREA.remarks
+  is '备注信息';
+comment on column SMZJ.SYS_AREA.del_flag
+  is '删除标记';
+create index SMZJ.SYS_AREA_DEL_FLAG on SMZJ.SYS_AREA (DEL_FLAG)
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255;
+create index SMZJ.SYS_AREA_PARENT_ID on SMZJ.SYS_AREA (PARENT_ID)
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255;
+create index SMZJ.SYS_AREA_PARENT_IDS on SMZJ.SYS_AREA (PARENT_IDS)
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255;
+alter table SMZJ.SYS_AREA
+  add primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255;
+

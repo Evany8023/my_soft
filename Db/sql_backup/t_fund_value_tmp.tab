@@ -1,0 +1,40 @@
+create table SMZJ.T_FUND_VALUE_TMP
+(
+  fund_code            VARCHAR2(16),
+  fund_tradedate       VARCHAR2(16),
+  type                 INTEGER,
+  fund_id              VARCHAR2(32 CHAR),
+  cp_id                VARCHAR2(32 CHAR),
+  fund_name            VARCHAR2(100 CHAR),
+  create_date          DATE default sysdate,
+  status               INTEGER default 1,
+  fund_tradedate_fisrt VARCHAR2(16),
+  rq_type              INTEGER default 1,
+  id                   VARCHAR2(32) not null
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table SMZJ.T_FUND_VALUE_TMP
+  add constraint T_FUND_TEMP_KEY primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

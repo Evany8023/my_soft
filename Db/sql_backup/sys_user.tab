@@ -1,0 +1,118 @@
+create table SMZJ.SYS_USER
+(
+  id             VARCHAR2(64) not null,
+  login_name     VARCHAR2(128) not null,
+  password       VARCHAR2(100) not null,
+  no             VARCHAR2(100),
+  name           VARCHAR2(100) not null,
+  email          VARCHAR2(200),
+  phone          VARCHAR2(200),
+  mobile         VARCHAR2(200),
+  login_ip       VARCHAR2(100),
+  login_date     DATE,
+  create_by      VARCHAR2(128 CHAR),
+  create_date    DATE,
+  update_by      VARCHAR2(128 CHAR),
+  update_date    DATE,
+  remarks        VARCHAR2(255),
+  del_flag       CHAR(1) default '0' not null,
+  reset_psw_date DATE
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.SYS_USER
+  is '用户表';
+comment on column SMZJ.SYS_USER.id
+  is '编号';
+comment on column SMZJ.SYS_USER.login_name
+  is '登录名';
+comment on column SMZJ.SYS_USER.password
+  is '密码';
+comment on column SMZJ.SYS_USER.no
+  is '工号';
+comment on column SMZJ.SYS_USER.name
+  is '姓名';
+comment on column SMZJ.SYS_USER.email
+  is '邮箱';
+comment on column SMZJ.SYS_USER.phone
+  is '电话';
+comment on column SMZJ.SYS_USER.mobile
+  is '手机';
+comment on column SMZJ.SYS_USER.login_ip
+  is '最后登陆IP';
+comment on column SMZJ.SYS_USER.login_date
+  is '最后登陆时间';
+comment on column SMZJ.SYS_USER.create_by
+  is '创建者';
+comment on column SMZJ.SYS_USER.create_date
+  is '创建时间';
+comment on column SMZJ.SYS_USER.update_by
+  is '更新者';
+comment on column SMZJ.SYS_USER.update_date
+  is '更新时间';
+comment on column SMZJ.SYS_USER.remarks
+  is '备注信息';
+comment on column SMZJ.SYS_USER.del_flag
+  is '删除标记';
+comment on column SMZJ.SYS_USER.reset_psw_date
+  is '修改密码时间';
+create index SMZJ.SYS_USER_DEL_FLAG on SMZJ.SYS_USER (DEL_FLAG)
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index SMZJ.SYS_USER_LOGIN_NAME on SMZJ.SYS_USER (LOGIN_NAME)
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index SMZJ.SYS_USER_UPDATE_DATE on SMZJ.SYS_USER (UPDATE_DATE)
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table SMZJ.SYS_USER
+  add primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

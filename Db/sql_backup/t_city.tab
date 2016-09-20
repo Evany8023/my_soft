@@ -1,0 +1,41 @@
+create table SMZJ.T_CITY
+(
+  id          NUMBER(19) not null,
+  cityname    VARCHAR2(255 CHAR),
+  code        VARCHAR2(255 CHAR),
+  createdate  TIMESTAMP(6),
+  fullpy      VARCHAR2(255 CHAR),
+  simplepy    VARCHAR2(255 CHAR),
+  telcode     VARCHAR2(255 CHAR),
+  updatedate  TIMESTAMP(6),
+  zipcode     VARCHAR2(255 CHAR),
+  province_id NUMBER(19) not null,
+  discity     NUMBER(1),
+  pcityid     NUMBER(19)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table SMZJ.T_CITY
+  add constraint T_CITY_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

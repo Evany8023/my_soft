@@ -1,0 +1,38 @@
+create table SMZJ.BUSI_MANAGER_PROTOCOL
+(
+  id              VARCHAR2(100),
+  cp_id           VARCHAR2(100),
+  cp_code         VARCHAR2(100),
+  cp_name         VARCHAR2(100),
+  mgr_ip          VARCHAR2(100),
+  mgr_id          VARCHAR2(100),
+  mgr_account     VARCHAR2(100),
+  is_sign         CHAR(1) default 0,
+  sign_date       TIMESTAMP(6),
+  protocol_number VARCHAR2(100)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255;
+comment on column SMZJ.BUSI_MANAGER_PROTOCOL.id
+  is '主键id';
+comment on column SMZJ.BUSI_MANAGER_PROTOCOL.cp_id
+  is '公司id';
+comment on column SMZJ.BUSI_MANAGER_PROTOCOL.cp_code
+  is '公司代码';
+comment on column SMZJ.BUSI_MANAGER_PROTOCOL.cp_name
+  is '公司名称';
+comment on column SMZJ.BUSI_MANAGER_PROTOCOL.mgr_ip
+  is '管理人ip';
+comment on column SMZJ.BUSI_MANAGER_PROTOCOL.mgr_id
+  is '管理人id';
+comment on column SMZJ.BUSI_MANAGER_PROTOCOL.mgr_account
+  is '管理人账号';
+comment on column SMZJ.BUSI_MANAGER_PROTOCOL.is_sign
+  is '是否签署';
+comment on column SMZJ.BUSI_MANAGER_PROTOCOL.sign_date
+  is '签署时间';
+comment on column SMZJ.BUSI_MANAGER_PROTOCOL.protocol_number
+  is '协议编号';
+

@@ -1,0 +1,25 @@
+create table SMZJ.BUSI_FUND_STATS
+(
+  id          NUMBER(19) not null,
+  fund_code   VARCHAR2(10 CHAR),
+  fund_name   VARCHAR2(100 CHAR),
+  com_code    VARCHAR2(10 CHAR),
+  com_name    VARCHAR2(100 CHAR),
+  rs          NUMBER(19),
+  gm          NUMBER(19),
+  rq          VARCHAR2(10 CHAR),
+  create_date TIMESTAMP(6),
+  cpid        VARCHAR2(32 CHAR)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

@@ -1,0 +1,47 @@
+create table SMZJ.SYNC_TRADE_DATA
+(
+  pt_no            VARCHAR2(32),
+  pt_name          VARCHAR2(80),
+  unit_net_val     NUMBER,
+  apply_all_amount NUMBER,
+  confirm_share    NUMBER,
+  open_date        VARCHAR2(10),
+  busi_date        VARCHAR2(10),
+  hope_ransom      NUMBER,
+  hope_busi_money  NUMBER,
+  sync_date        VARCHAR2(20)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.SYNC_TRADE_DATA
+  is '净值数据同步表';
+comment on column SMZJ.SYNC_TRADE_DATA.pt_no
+  is '产品代码';
+comment on column SMZJ.SYNC_TRADE_DATA.pt_name
+  is '产品名称';
+comment on column SMZJ.SYNC_TRADE_DATA.unit_net_val
+  is '单位净值';
+comment on column SMZJ.SYNC_TRADE_DATA.apply_all_amount
+  is '申购确认总金额';
+comment on column SMZJ.SYNC_TRADE_DATA.confirm_share
+  is '赎回确认总份额';
+comment on column SMZJ.SYNC_TRADE_DATA.open_date
+  is '开放日期';
+comment on column SMZJ.SYNC_TRADE_DATA.busi_date
+  is '交收日期';
+comment on column SMZJ.SYNC_TRADE_DATA.hope_ransom
+  is '预估赎回金额';
+comment on column SMZJ.SYNC_TRADE_DATA.hope_busi_money
+  is '预交准备交收资金';
+comment on column SMZJ.SYNC_TRADE_DATA.sync_date
+  is '同步数据日期';
+

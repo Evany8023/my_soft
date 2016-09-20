@@ -1,0 +1,103 @@
+create table SMZJ.SYS_DICT
+(
+  id          VARCHAR2(32) not null,
+  label       VARCHAR2(256) not null,
+  value       VARCHAR2(256) not null,
+  type        VARCHAR2(256) not null,
+  description VARCHAR2(256),
+  sort        NUMBER not null,
+  create_by   VARCHAR2(128 CHAR),
+  create_date DATE,
+  update_by   VARCHAR2(128 CHAR),
+  update_date DATE,
+  remarks     VARCHAR2(255),
+  del_flag    CHAR(1) default '0' not null
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.SYS_DICT
+  is '字典表';
+comment on column SMZJ.SYS_DICT.id
+  is '编号';
+comment on column SMZJ.SYS_DICT.label
+  is '标签名';
+comment on column SMZJ.SYS_DICT.value
+  is '数据值';
+comment on column SMZJ.SYS_DICT.type
+  is '类型';
+comment on column SMZJ.SYS_DICT.description
+  is '描述';
+comment on column SMZJ.SYS_DICT.sort
+  is '排序（升序）';
+comment on column SMZJ.SYS_DICT.create_by
+  is '创建者';
+comment on column SMZJ.SYS_DICT.create_date
+  is '创建时间';
+comment on column SMZJ.SYS_DICT.update_by
+  is '更新者';
+comment on column SMZJ.SYS_DICT.update_date
+  is '更新时间';
+comment on column SMZJ.SYS_DICT.remarks
+  is '备注信息';
+comment on column SMZJ.SYS_DICT.del_flag
+  is '删除标记';
+create index SMZJ.SYS_DICT_DEL_FLAG on SMZJ.SYS_DICT (DEL_FLAG)
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index SMZJ.SYS_DICT_LABEL on SMZJ.SYS_DICT (LABEL)
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index SMZJ.SYS_DICT_VALUE on SMZJ.SYS_DICT (VALUE)
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table SMZJ.SYS_DICT
+  add primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

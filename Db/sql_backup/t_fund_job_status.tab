@@ -1,0 +1,18 @@
+create table SMZJ.T_FUND_JOB_STATUS
+(
+  job_en_name VARCHAR2(100),
+  job_cn_name VARCHAR2(100),
+  job_status  INTEGER default 0
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

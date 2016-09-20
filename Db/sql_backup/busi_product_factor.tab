@@ -1,0 +1,172 @@
+create table SMZJ.BUSI_PRODUCT_FACTOR
+(
+  id                    VARCHAR2(32) not null,
+  cp_name               VARCHAR2(128 CHAR) not null,
+  name                  VARCHAR2(128 CHAR),
+  product_type          VARCHAR2(8),
+  predict_publish_date  DATE,
+  exist_limit_time      VARCHAR2(50 CHAR),
+  invest_scole          VARCHAR2(1024 CHAR),
+  is_grade              CHAR(1),
+  mgr_info              VARCHAR2(2048 CHAR),
+  advisor_info          VARCHAR2(2048 CHAR),
+  invest_size           VARCHAR2(256 CHAR),
+  start_price           VARCHAR2(256 CHAR),
+  plus_start_price      VARCHAR2(256 CHAR),
+  close_time            VARCHAR2(256 CHAR),
+  open_time             VARCHAR2(256 CHAR),
+  cost_rate             VARCHAR2(256 CHAR),
+  redeem_cost_rate      VARCHAR2(253 CHAR),
+  invest_policy         VARCHAR2(2048 CHAR),
+  invest_limit          VARCHAR2(2048 CHAR),
+  predict_line_exp      VARCHAR2(128 CHAR),
+  income_char           VARCHAR2(8) default 2,
+  manage_cost           NUMBER default 0,
+  trusteeship_cost      NUMBER default 0,
+  min_service_cost      NUMBER default 0,
+  achiev_reward_way     VARCHAR2(1024 CHAR) default 0,
+  income_distr_cls      VARCHAR2(1024 CHAR) default 0,
+  service_require       CHAR(1) default 0,
+  broker_agency         VARCHAR2(32),
+  broker_agency_info    VARCHAR2(2048 CHAR),
+  specific_service      VARCHAR2(2048),
+  is_examine            CHAR(1) default 0,
+  examine_by            VARCHAR2(128 CHAR),
+  examine_date          DATE,
+  create_by             VARCHAR2(128 CHAR),
+  create_date           DATE,
+  update_by             VARCHAR2(128 CHAR),
+  update_date           DATE,
+  is_delete             CHAR(1) default 0,
+  apply_purchase_rate   VARCHAR2(128 CHAR),
+  run_service_cost      NUMBER default 0,
+  other_fee             VARCHAR2(128 CHAR),
+  invest_target         VARCHAR2(128 CHAR),
+  broker_agency_linkman VARCHAR2(2048 CHAR),
+  cp_id                 VARCHAR2(32) not null,
+  publish_status        CHAR(1) default 0 not null,
+  risk_char             CHAR(1),
+  is_display_mgr        CHAR(1)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_PRODUCT_FACTOR
+  is '私募产品要素表，存储私募产品要素信息';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.id
+  is '产品ID';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.cp_name
+  is '私募公司名称(管理人名称)';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.name
+  is '产品名称';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.product_type
+  is '产品类型';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.predict_publish_date
+  is '基金预计成立日';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.exist_limit_time
+  is '存续期限';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.invest_scole
+  is '投资范围';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.is_grade
+  is '是否分级(0:管理型产品，1：结构化产品)';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.mgr_info
+  is '投资经理信息';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.advisor_info
+  is '投顾信息';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.invest_size
+  is '投资规模';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.start_price
+  is '认申购起点';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.plus_start_price
+  is '追加申购起点';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.close_time
+  is '封闭期';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.open_time
+  is '开放日';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.cost_rate
+  is '认购费率';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.redeem_cost_rate
+  is '赎回费率';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.invest_policy
+  is '投资策略';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.invest_limit
+  is '投资限制';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.predict_line_exp
+  is '止损线、预警线';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.income_char
+  is '收益特征（0：低，1：中，2：高）';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.manage_cost
+  is '管理费率';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.trusteeship_cost
+  is '托管费率';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.min_service_cost
+  is '保底托管及运营服务费';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.achiev_reward_way
+  is '业绩报酬计提方式';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.income_distr_cls
+  is '收益分配方式';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.service_require
+  is '服务需求';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.broker_agency
+  is '经纪商选择';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.broker_agency_info
+  is '经纪商说明';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.specific_service
+  is '个性服务';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.is_examine
+  is '是否审核(1:是，0：否)';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.examine_by
+  is '审核人';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.examine_date
+  is '审核日期';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.create_by
+  is '创建人';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.create_date
+  is '创建时间';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.update_by
+  is '更新人';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.update_date
+  is '更新时间';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.is_delete
+  is '是否删除（1：是，0：否）';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.apply_purchase_rate
+  is '申购费率';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.run_service_cost
+  is '运营服务费率';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.other_fee
+  is '其他费用';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.invest_target
+  is '投资目标';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.broker_agency_linkman
+  is '经纪商联系人';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.cp_id
+  is '公司iD';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.publish_status
+  is '发行状态';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.risk_char
+  is '风险特征';
+comment on column SMZJ.BUSI_PRODUCT_FACTOR.is_display_mgr
+  is '是否显示投顾信息';
+alter table SMZJ.BUSI_PRODUCT_FACTOR
+  add constraint BUSI_PRODUCT_FACTOR_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

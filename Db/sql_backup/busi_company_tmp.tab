@@ -1,0 +1,71 @@
+create table SMZJ.BUSI_COMPANY_TMP
+(
+  id           VARCHAR2(32) not null,
+  cp_name      VARCHAR2(128 CHAR),
+  cp_type      VARCHAR2(10),
+  insti_code   VARCHAR2(16),
+  introduce    CLOB,
+  is_delete    CHAR(1) default 0 not null,
+  idea         VARCHAR2(2048),
+  is_examine   CHAR(1) default 0,
+  examine_by   VARCHAR2(128 CHAR),
+  examine_date DATE,
+  create_by    VARCHAR2(128 CHAR),
+  create_date  DATE,
+  update_by    VARCHAR2(128 CHAR),
+  update_date  DATE
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on column SMZJ.BUSI_COMPANY_TMP.id
+  is '公司ID';
+comment on column SMZJ.BUSI_COMPANY_TMP.cp_name
+  is '公司名称';
+comment on column SMZJ.BUSI_COMPANY_TMP.cp_type
+  is '公司类型';
+comment on column SMZJ.BUSI_COMPANY_TMP.insti_code
+  is '机构代码';
+comment on column SMZJ.BUSI_COMPANY_TMP.introduce
+  is '详细介绍';
+comment on column SMZJ.BUSI_COMPANY_TMP.is_delete
+  is '是否删除（1：是，0：否）';
+comment on column SMZJ.BUSI_COMPANY_TMP.idea
+  is '理念';
+comment on column SMZJ.BUSI_COMPANY_TMP.is_examine
+  is '是否审核（0：未审核，1：审核）';
+comment on column SMZJ.BUSI_COMPANY_TMP.examine_by
+  is '审核人';
+comment on column SMZJ.BUSI_COMPANY_TMP.examine_date
+  is '审核日期';
+comment on column SMZJ.BUSI_COMPANY_TMP.create_by
+  is '创建人';
+comment on column SMZJ.BUSI_COMPANY_TMP.create_date
+  is '创建日期';
+comment on column SMZJ.BUSI_COMPANY_TMP.update_by
+  is '更新人';
+comment on column SMZJ.BUSI_COMPANY_TMP.update_date
+  is '更新日期';
+alter table SMZJ.BUSI_COMPANY_TMP
+  add constraint CP_TMP_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

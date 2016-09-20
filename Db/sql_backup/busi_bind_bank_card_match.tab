@@ -1,0 +1,62 @@
+create table SMZJ.BUSI_BIND_BANK_CARD_MATCH
+(
+  id              VARCHAR2(32) not null,
+  credit_id       VARCHAR2(32) not null,
+  user_name       VARCHAR2(128 CHAR),
+  bank_no         VARCHAR2(32),
+  bank_name       VARCHAR2(64),
+  open_bank_name  VARCHAR2(128 CHAR),
+  province_id     VARCHAR2(64),
+  province_name   VARCHAR2(50 CHAR),
+  city_id         VARCHAR2(64),
+  city_name       VARCHAR2(50 CHAR),
+  bind_date       DATE,
+  is_examine      CHAR(1),
+  examine_by      VARCHAR2(16),
+  examine_date    DATE,
+  create_by       VARCHAR2(32),
+  create_date     DATE,
+  update_by       VARCHAR2(32),
+  update_date     DATE,
+  is_delete       CHAR(1) default 0,
+  link_bank_no    VARCHAR2(50 CHAR),
+  account_no      VARCHAR2(50 CHAR),
+  remark          VARCHAR2(1000 CHAR),
+  is_back_account CHAR(1),
+  product_id      VARCHAR2(32),
+  company_id      VARCHAR2(32),
+  apply_date      VARCHAR2(16),
+  apply_no        VARCHAR2(32),
+  sheet_no        VARCHAR2(32),
+  old_sys_id      VARCHAR2(32),
+  export_status   CHAR(1),
+  match_status    CHAR(1) default 1,
+  confirm_status  CHAR(1) default 0,
+  confirm_date    DATE,
+  confirm_by      VARCHAR2(50),
+  credit_type     VARCHAR2(20)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_BIND_BANK_CARD_MATCH
+  is '银行账号匹配表可删除';
+comment on column SMZJ.BUSI_BIND_BANK_CARD_MATCH.match_status
+  is '匹配状态 0:未匹配,1:唯一匹配,N:多条匹配';
+comment on column SMZJ.BUSI_BIND_BANK_CARD_MATCH.confirm_status
+  is '更新确认状态1表示确认';
+comment on column SMZJ.BUSI_BIND_BANK_CARD_MATCH.confirm_date
+  is '确认时间';
+comment on column SMZJ.BUSI_BIND_BANK_CARD_MATCH.confirm_by
+  is '确认人';
+comment on column SMZJ.BUSI_BIND_BANK_CARD_MATCH.credit_type
+  is '证件类型';
+

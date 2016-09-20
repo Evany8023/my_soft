@@ -1,0 +1,76 @@
+create table SMZJ.BUSI_PP_FILE
+(
+  id             VARCHAR2(32) not null,
+  pt_id          VARCHAR2(32) not null,
+  file_name      VARCHAR2(128 CHAR),
+  file_type      VARCHAR2(32),
+  file_url       VARCHAR2(128),
+  is_examine     CHAR(1) default 0 not null,
+  examine_by     VARCHAR2(128 CHAR),
+  examine_date   DATE,
+  create_by      VARCHAR2(128 CHAR),
+  create_date    DATE,
+  update_by      VARCHAR2(128 CHAR),
+  update_date    DATE,
+  is_delete      CHAR(1) default 0 not null,
+  publish_person VARCHAR2(2),
+  reject_reason  VARCHAR2(2048 CHAR)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_PP_FILE
+  is '私募产品文件表，存储私募产品文件信息';
+comment on column SMZJ.BUSI_PP_FILE.id
+  is 'ID';
+comment on column SMZJ.BUSI_PP_FILE.pt_id
+  is '私募产品ID';
+comment on column SMZJ.BUSI_PP_FILE.file_name
+  is '文件名';
+comment on column SMZJ.BUSI_PP_FILE.file_type
+  is '文件类型';
+comment on column SMZJ.BUSI_PP_FILE.file_url
+  is '图片地址';
+comment on column SMZJ.BUSI_PP_FILE.is_examine
+  is '是否审核(1:是，0：否)';
+comment on column SMZJ.BUSI_PP_FILE.examine_by
+  is '审核人';
+comment on column SMZJ.BUSI_PP_FILE.examine_date
+  is '审核日期';
+comment on column SMZJ.BUSI_PP_FILE.create_by
+  is '创建人';
+comment on column SMZJ.BUSI_PP_FILE.create_date
+  is '创建时间';
+comment on column SMZJ.BUSI_PP_FILE.update_by
+  is '更新人';
+comment on column SMZJ.BUSI_PP_FILE.update_date
+  is '更新时间';
+comment on column SMZJ.BUSI_PP_FILE.is_delete
+  is '是否删除（1：是，0：否）';
+comment on column SMZJ.BUSI_PP_FILE.publish_person
+  is '发布人（M：管理人发布，S：托管部上传）';
+comment on column SMZJ.BUSI_PP_FILE.reject_reason
+  is '驳回原因';
+alter table SMZJ.BUSI_PP_FILE
+  add constraint BUSI_PP_FILE_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

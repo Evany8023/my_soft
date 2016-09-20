@@ -1,0 +1,101 @@
+create table SMZJ.BUSI_MESSAGE_NOTICE
+(
+  id              VARCHAR2(32) not null,
+  notice_object   CHAR(1) default 0,
+  notice_scope    CHAR(1),
+  notice_method   CHAR(1),
+  notice_location CHAR(1) default 0,
+  effective_date  DATE,
+  end_date        DATE,
+  total_count     NUMBER,
+  status          CHAR(1),
+  is_delete       CHAR(1),
+  content         CLOB,
+  sort            NUMBER(11),
+  notice_type     VARCHAR2(32),
+  cp_id           VARCHAR2(32),
+  notice_name     VARCHAR2(500),
+  notice_date     DATE,
+  create_by       VARCHAR2(100),
+  create_date     DATE,
+  update_by       VARCHAR2(100),
+  update_date     DATE,
+  notice_no       VARCHAR2(32),
+  examine_by      VARCHAR2(100),
+  examine_type    CHAR(1),
+  examine_date    DATE
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_MESSAGE_NOTICE
+  is '消息通知表';
+comment on column SMZJ.BUSI_MESSAGE_NOTICE.id
+  is '主键ID';
+comment on column SMZJ.BUSI_MESSAGE_NOTICE.notice_object
+  is '通知对象(0:全部,1:管理人,2:投资人)';
+comment on column SMZJ.BUSI_MESSAGE_NOTICE.notice_scope
+  is '通知范围(0:全部,1:某公司（支持模输入关键字糊匹配),2:某公司及其下的投资人)';
+comment on column SMZJ.BUSI_MESSAGE_NOTICE.notice_method
+  is '通知方式(0:限定时间,1:限定次数,2:限定时间次数)';
+comment on column SMZJ.BUSI_MESSAGE_NOTICE.notice_location
+  is '通知位置(0:首页弹窗,1:右下角提醒)';
+comment on column SMZJ.BUSI_MESSAGE_NOTICE.effective_date
+  is '生效日期';
+comment on column SMZJ.BUSI_MESSAGE_NOTICE.end_date
+  is '结束日期';
+comment on column SMZJ.BUSI_MESSAGE_NOTICE.total_count
+  is '通知次数';
+comment on column SMZJ.BUSI_MESSAGE_NOTICE.status
+  is '审核状态(1:未审核,2:已审核,3:已发布,4:已结束,5:审核未通过)';
+comment on column SMZJ.BUSI_MESSAGE_NOTICE.is_delete
+  is '是否删除(0:未删除,1:已删除,2:待删除)';
+comment on column SMZJ.BUSI_MESSAGE_NOTICE.content
+  is '消息通知内容';
+comment on column SMZJ.BUSI_MESSAGE_NOTICE.sort
+  is '消息展示顺序，从1开始，值越小显示在越前面';
+comment on column SMZJ.BUSI_MESSAGE_NOTICE.notice_type
+  is '通知类型(添加到字典表noticeType1:协会快讯,2:法律法规,3:协议签署,4:功能改造等)';
+comment on column SMZJ.BUSI_MESSAGE_NOTICE.cp_id
+  is '通知范围为管理人或管理人下的投资人时不为空';
+comment on column SMZJ.BUSI_MESSAGE_NOTICE.notice_name
+  is '通知名称';
+comment on column SMZJ.BUSI_MESSAGE_NOTICE.notice_date
+  is '通知日期(发布日期)';
+comment on column SMZJ.BUSI_MESSAGE_NOTICE.create_by
+  is '创建人';
+comment on column SMZJ.BUSI_MESSAGE_NOTICE.create_date
+  is '创建日期';
+comment on column SMZJ.BUSI_MESSAGE_NOTICE.update_by
+  is '修改人';
+comment on column SMZJ.BUSI_MESSAGE_NOTICE.update_date
+  is '修改日期';
+comment on column SMZJ.BUSI_MESSAGE_NOTICE.notice_no
+  is '通知编号';
+comment on column SMZJ.BUSI_MESSAGE_NOTICE.examine_by
+  is '通知审核人';
+comment on column SMZJ.BUSI_MESSAGE_NOTICE.examine_type
+  is '通知审核类型)(0:新通知发布审核,1:删除动作审核)';
+comment on column SMZJ.BUSI_MESSAGE_NOTICE.examine_date
+  is '审核时间';
+create unique index SMZJ.INDEX_MESSAGE_ID on SMZJ.BUSI_MESSAGE_NOTICE (ID)
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

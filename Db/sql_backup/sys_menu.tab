@@ -1,0 +1,115 @@
+create table SMZJ.SYS_MENU
+(
+  id          VARCHAR2(64) not null,
+  parent_id   VARCHAR2(64) not null,
+  parent_ids  VARCHAR2(2000) not null,
+  name        VARCHAR2(100) not null,
+  href        VARCHAR2(255),
+  power       VARCHAR2(2048),
+  icon        VARCHAR2(100),
+  sort        NUMBER(10) not null,
+  is_show     CHAR(1) not null,
+  create_by   VARCHAR2(128 CHAR),
+  create_date TIMESTAMP(6),
+  update_by   VARCHAR2(128 CHAR),
+  update_date TIMESTAMP(6),
+  remarks     VARCHAR2(255),
+  is_delete   CHAR(1) default '0' not null,
+  explain     VARCHAR2(2048)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.SYS_MENU
+  is '菜单表';
+comment on column SMZJ.SYS_MENU.id
+  is '编号';
+comment on column SMZJ.SYS_MENU.parent_id
+  is '父级编号';
+comment on column SMZJ.SYS_MENU.parent_ids
+  is '所有父级编号';
+comment on column SMZJ.SYS_MENU.name
+  is '菜单名称';
+comment on column SMZJ.SYS_MENU.href
+  is '链接';
+comment on column SMZJ.SYS_MENU.power
+  is '权限路径';
+comment on column SMZJ.SYS_MENU.icon
+  is '图标';
+comment on column SMZJ.SYS_MENU.sort
+  is '排序（升序）';
+comment on column SMZJ.SYS_MENU.is_show
+  is '是否在菜单中显示';
+comment on column SMZJ.SYS_MENU.create_by
+  is '创建者';
+comment on column SMZJ.SYS_MENU.create_date
+  is '创建时间';
+comment on column SMZJ.SYS_MENU.update_by
+  is '更新者';
+comment on column SMZJ.SYS_MENU.update_date
+  is '更新时间';
+comment on column SMZJ.SYS_MENU.remarks
+  is '备注信息';
+comment on column SMZJ.SYS_MENU.is_delete
+  is '删除标记';
+comment on column SMZJ.SYS_MENU.explain
+  is '说明';
+create index SMZJ.SYS_MENU_DEL_FLAG on SMZJ.SYS_MENU (IS_DELETE)
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index SMZJ.SYS_MENU_PARENT_ID on SMZJ.SYS_MENU (PARENT_ID)
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index SMZJ.SYS_MENU_PARENT_IDS on SMZJ.SYS_MENU (PARENT_IDS)
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table SMZJ.SYS_MENU
+  add primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

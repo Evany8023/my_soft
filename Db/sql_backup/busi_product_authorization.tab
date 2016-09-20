@@ -1,0 +1,43 @@
+create table SMZJ.BUSI_PRODUCT_AUTHORIZATION
+(
+  id         VARCHAR2(32) not null,
+  product_id VARCHAR2(35) not null,
+  mgr_id     VARCHAR2(35) not null,
+  cp_id      VARCHAR2(35) not null
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_PRODUCT_AUTHORIZATION
+  is '管理人产品授权关系表';
+comment on column SMZJ.BUSI_PRODUCT_AUTHORIZATION.id
+  is '主键';
+comment on column SMZJ.BUSI_PRODUCT_AUTHORIZATION.product_id
+  is '产品ID';
+comment on column SMZJ.BUSI_PRODUCT_AUTHORIZATION.mgr_id
+  is '管理人账号ID';
+comment on column SMZJ.BUSI_PRODUCT_AUTHORIZATION.cp_id
+  is '公司ID';
+alter table SMZJ.BUSI_PRODUCT_AUTHORIZATION
+  add constraint BUSI_PRODUCT_AUTHORIZATION_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

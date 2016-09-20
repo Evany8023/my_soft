@@ -1,0 +1,35 @@
+create table SMZJ.T_FUND_INFO_TEMP_CAT
+(
+  fund_code VARCHAR2(255) not null,
+  fund_name VARCHAR2(255),
+  fund_type VARCHAR2(255),
+   «∑Ò—πµ•      NUMBER,
+  com_code  VARCHAR2(255),
+  com_name  VARCHAR2(255)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table SMZJ.T_FUND_INFO_TEMP_CAT
+  add constraint T_FUND_INFO_TEMP_CAT_PK primary key (FUND_CODE)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

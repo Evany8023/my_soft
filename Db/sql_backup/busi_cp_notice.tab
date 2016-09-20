@@ -1,0 +1,62 @@
+create table SMZJ.BUSI_CP_NOTICE
+(
+  id             VARCHAR2(32) not null,
+  cp_id          VARCHAR2(32) not null,
+  cp_name        VARCHAR2(128 CHAR),
+  title          VARCHAR2(128 CHAR),
+  summary        VARCHAR2(128 CHAR),
+  content        VARCHAR2(2048 CHAR),
+  is_examine     CHAR(1) default '0' not null,
+  examine_by     VARCHAR2(128 CHAR),
+  examine_date   DATE,
+  create_by      VARCHAR2(128 CHAR),
+  create_date    DATE,
+  update_by      VARCHAR2(128 CHAR),
+  update_date    DATE,
+  is_delete      CHAR(1) default 0 not null,
+  publish_person VARCHAR2(2)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255;
+comment on table SMZJ.BUSI_CP_NOTICE
+  is '私募公司公告表，存储公司公告信息';
+comment on column SMZJ.BUSI_CP_NOTICE.id
+  is 'ID';
+comment on column SMZJ.BUSI_CP_NOTICE.cp_id
+  is '公司ID';
+comment on column SMZJ.BUSI_CP_NOTICE.cp_name
+  is '公司名称';
+comment on column SMZJ.BUSI_CP_NOTICE.title
+  is '标题';
+comment on column SMZJ.BUSI_CP_NOTICE.summary
+  is '概述';
+comment on column SMZJ.BUSI_CP_NOTICE.content
+  is '内容';
+comment on column SMZJ.BUSI_CP_NOTICE.is_examine
+  is '是否审核（0：未审核，1：审核，2：审核不通过）';
+comment on column SMZJ.BUSI_CP_NOTICE.examine_by
+  is '审核人';
+comment on column SMZJ.BUSI_CP_NOTICE.examine_date
+  is '审核日期';
+comment on column SMZJ.BUSI_CP_NOTICE.create_by
+  is '创建人';
+comment on column SMZJ.BUSI_CP_NOTICE.create_date
+  is '创建时间';
+comment on column SMZJ.BUSI_CP_NOTICE.update_by
+  is '更新人';
+comment on column SMZJ.BUSI_CP_NOTICE.update_date
+  is '更新时间';
+comment on column SMZJ.BUSI_CP_NOTICE.is_delete
+  is '是否删除（1：是，0：否）';
+comment on column SMZJ.BUSI_CP_NOTICE.publish_person
+  is '发布人（M：管理人发布，S：托管部发布）';
+alter table SMZJ.BUSI_CP_NOTICE
+  add constraint BUSI_CP_NOTICE_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255;
+

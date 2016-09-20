@@ -1,0 +1,49 @@
+create table SMZJ.BUSI_ACTIVE_INFO_LOG
+(
+  id               VARCHAR2(64) not null,
+  credit_id        VARCHAR2(100),
+  cp_id            VARCHAR2(64),
+  cp_name          VARCHAR2(100),
+  insti_code       VARCHAR2(32),
+  mgr_account_name VARCHAR2(64),
+  mgr_ip           VARCHAR2(32),
+  credit_type      VARCHAR2(10),
+  credit_no        VARCHAR2(100),
+  customer_name    VARCHAR2(100),
+  active_date      TIMESTAMP(6),
+  create_by        VARCHAR2(64)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on column SMZJ.BUSI_ACTIVE_INFO_LOG.credit_id
+  is '证件ID';
+comment on column SMZJ.BUSI_ACTIVE_INFO_LOG.cp_id
+  is '公司ID';
+comment on column SMZJ.BUSI_ACTIVE_INFO_LOG.cp_name
+  is '公司名称';
+comment on column SMZJ.BUSI_ACTIVE_INFO_LOG.insti_code
+  is '管理人代码';
+comment on column SMZJ.BUSI_ACTIVE_INFO_LOG.mgr_account_name
+  is '管理人账号名';
+comment on column SMZJ.BUSI_ACTIVE_INFO_LOG.mgr_ip
+  is '管理人IP';
+comment on column SMZJ.BUSI_ACTIVE_INFO_LOG.credit_type
+  is '投资人证件类型';
+comment on column SMZJ.BUSI_ACTIVE_INFO_LOG.credit_no
+  is '投资人证件号码';
+comment on column SMZJ.BUSI_ACTIVE_INFO_LOG.customer_name
+  is '投资人名称';
+comment on column SMZJ.BUSI_ACTIVE_INFO_LOG.active_date
+  is '激活时间';
+comment on column SMZJ.BUSI_ACTIVE_INFO_LOG.create_by
+  is '创建人';
+

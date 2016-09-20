@@ -1,0 +1,33 @@
+create table SMZJ.BUSI_TRADE_PRODUCT_COM
+(
+  pt_no    VARCHAR2(20),
+  comcode  VARCHAR2(200),
+  pt_name  VARCHAR2(20),
+  com_name VARCHAR2(200)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_TRADE_PRODUCT_COM
+  is '同步产品和代销机构的关系';
+create index SMZJ.BUSI_DX_TA_COM_PRODUCT on SMZJ.BUSI_TRADE_PRODUCT_COM (PT_NO, COMCODE)
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

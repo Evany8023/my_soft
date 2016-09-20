@@ -1,0 +1,73 @@
+create table SMZJ.BUSI_MGR_TASK
+(
+  id           VARCHAR2(32) not null,
+  status       VARCHAR2(2) default 0,
+  cp_id        VARCHAR2(32),
+  type         VARCHAR2(4),
+  title        VARCHAR2(512),
+  send_time    DATE,
+  send_id      VARCHAR2(32),
+  receive_id   VARCHAR2(32),
+  send_type    VARCHAR2(2),
+  receive_type VARCHAR2(2),
+  relation_id  VARCHAR2(32),
+  send_name    VARCHAR2(128 CHAR),
+  pt_id        VARCHAR2(32),
+  pt_name      VARCHAR2(128 CHAR)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_MGR_TASK
+  is '待办任务处理表';
+comment on column SMZJ.BUSI_MGR_TASK.id
+  is 'ID';
+comment on column SMZJ.BUSI_MGR_TASK.status
+  is '状态（1：已读，0：未读，2:已取消）';
+comment on column SMZJ.BUSI_MGR_TASK.cp_id
+  is '私募公司ID';
+comment on column SMZJ.BUSI_MGR_TASK.type
+  is '类型（1：预约处理，2：款项处理，3：文件合同处理,4、产品发布）';
+comment on column SMZJ.BUSI_MGR_TASK.title
+  is '标题(姓名+类型+事物)';
+comment on column SMZJ.BUSI_MGR_TASK.send_time
+  is '发送时间';
+comment on column SMZJ.BUSI_MGR_TASK.send_id
+  is '发送人ID';
+comment on column SMZJ.BUSI_MGR_TASK.receive_id
+  is '接受人id';
+comment on column SMZJ.BUSI_MGR_TASK.send_type
+  is '发送人类型（1：投资人，2：管理人。3：客服）';
+comment on column SMZJ.BUSI_MGR_TASK.receive_type
+  is '接受人类型（1：投资人，2：管理人。3：客服）';
+comment on column SMZJ.BUSI_MGR_TASK.relation_id
+  is '关联处理记录ID（订单ID，文件ID等）';
+comment on column SMZJ.BUSI_MGR_TASK.send_name
+  is '发送人';
+comment on column SMZJ.BUSI_MGR_TASK.pt_id
+  is '产品ID';
+comment on column SMZJ.BUSI_MGR_TASK.pt_name
+  is '产品名称';
+alter table SMZJ.BUSI_MGR_TASK
+  add constraint BUSI_ORDER_MSG_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

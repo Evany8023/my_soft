@@ -1,0 +1,64 @@
+create table SMZJ.SYS_MANAGER_LOG
+(
+  id             VARCHAR2(32) not null,
+  type           CHAR(1) default 1,
+  create_by      VARCHAR2(128 CHAR),
+  create_date    DATE,
+  remote_addr    VARCHAR2(64 CHAR),
+  user_agent     VARCHAR2(128 CHAR),
+  request_uri    VARCHAR2(1024 CHAR),
+  method         VARCHAR2(64 CHAR),
+  params         VARCHAR2(4000 CHAR),
+  exception      VARCHAR2(4000 CHAR),
+  browse_version VARCHAR2(2048 CHAR)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.SYS_MANAGER_LOG
+  is '管理人后台操作日志表。';
+comment on column SMZJ.SYS_MANAGER_LOG.id
+  is 'ID';
+comment on column SMZJ.SYS_MANAGER_LOG.type
+  is '日志类型';
+comment on column SMZJ.SYS_MANAGER_LOG.create_by
+  is '创建者';
+comment on column SMZJ.SYS_MANAGER_LOG.create_date
+  is '创建时间';
+comment on column SMZJ.SYS_MANAGER_LOG.remote_addr
+  is '操作IP地址';
+comment on column SMZJ.SYS_MANAGER_LOG.user_agent
+  is '用户代理';
+comment on column SMZJ.SYS_MANAGER_LOG.request_uri
+  is '请求URI';
+comment on column SMZJ.SYS_MANAGER_LOG.method
+  is '操作方式';
+comment on column SMZJ.SYS_MANAGER_LOG.params
+  is '操作提交的数据';
+comment on column SMZJ.SYS_MANAGER_LOG.exception
+  is '异常信息';
+comment on column SMZJ.SYS_MANAGER_LOG.browse_version
+  is '浏览器版本';
+alter table SMZJ.SYS_MANAGER_LOG
+  add constraint SYS_MANAGER_LOG_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

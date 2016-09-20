@@ -1,0 +1,65 @@
+create table SMZJ.BUSI_SETTLEMENT_ESTIMATE
+(
+  id                       VARCHAR2(32) not null,
+  pt_id                    VARCHAR2(32),
+  pt_no                    VARCHAR2(16),
+  pt_name                  VARCHAR2(80),
+  business_type            VARCHAR2(4),
+  apply_date               VARCHAR2(10),
+  apply_all_amount         NUMBER,
+  apply_all_share          NUMBER,
+  latest_net_val_date      VARCHAR2(10),
+  latest_net_val           NUMBER,
+  estimate_sh_share        NUMBER,
+  estimate_settlement_date VARCHAR2(10),
+  insti_code               VARCHAR2(50),
+  insti_name               VARCHAR2(100),
+  cp_id                    VARCHAR2(32),
+  create_date              DATE default sysdate
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_SETTLEMENT_ESTIMATE
+  is '交收预估数据';
+comment on column SMZJ.BUSI_SETTLEMENT_ESTIMATE.id
+  is '主键ID';
+comment on column SMZJ.BUSI_SETTLEMENT_ESTIMATE.pt_id
+  is '产品id';
+comment on column SMZJ.BUSI_SETTLEMENT_ESTIMATE.pt_no
+  is '产品代码';
+comment on column SMZJ.BUSI_SETTLEMENT_ESTIMATE.pt_name
+  is '产品名称';
+comment on column SMZJ.BUSI_SETTLEMENT_ESTIMATE.business_type
+  is '交易类型';
+comment on column SMZJ.BUSI_SETTLEMENT_ESTIMATE.apply_date
+  is '申请日期';
+comment on column SMZJ.BUSI_SETTLEMENT_ESTIMATE.apply_all_amount
+  is '申请总金额';
+comment on column SMZJ.BUSI_SETTLEMENT_ESTIMATE.apply_all_share
+  is '申请总份额';
+comment on column SMZJ.BUSI_SETTLEMENT_ESTIMATE.latest_net_val_date
+  is '最近净值日期';
+comment on column SMZJ.BUSI_SETTLEMENT_ESTIMATE.latest_net_val
+  is '净值日净值';
+comment on column SMZJ.BUSI_SETTLEMENT_ESTIMATE.estimate_sh_share
+  is '预估赎回金额';
+comment on column SMZJ.BUSI_SETTLEMENT_ESTIMATE.estimate_settlement_date
+  is '预估交收日期';
+comment on column SMZJ.BUSI_SETTLEMENT_ESTIMATE.insti_code
+  is '销售渠道机构编码';
+comment on column SMZJ.BUSI_SETTLEMENT_ESTIMATE.insti_name
+  is '销售渠道名称';
+comment on column SMZJ.BUSI_SETTLEMENT_ESTIMATE.cp_id
+  is '公司id';
+comment on column SMZJ.BUSI_SETTLEMENT_ESTIMATE.create_date
+  is '插入数据时间';
+

@@ -1,0 +1,25 @@
+create table SMZJ.T_FUND_LOG_GGG
+(
+  id              VARCHAR2(50 CHAR),
+  browser_version VARCHAR2(500 CHAR),
+  login_account   VARCHAR2(255 CHAR),
+  login_ip        VARCHAR2(50 CHAR),
+  login_name      VARCHAR2(100 CHAR),
+  oper_content    VARCHAR2(2000 CHAR),
+  oper_params     VARCHAR2(1024 CHAR),
+  oper_result     VARCHAR2(255 CHAR),
+  oper_url        VARCHAR2(255 CHAR),
+  oper_time       TIMESTAMP(6)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

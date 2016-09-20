@@ -1,0 +1,38 @@
+create table SMZJ.BUSI_NOTICE_TYPE
+(
+  id               VARCHAR2(32) not null,
+  is_delete        CHAR(1),
+  create_by        VARCHAR2(100),
+  create_date      DATE,
+  update_by        VARCHAR2(100),
+  update_date      DATE,
+  notice_type_name VARCHAR2(500)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_NOTICE_TYPE
+  is '消息通知表';
+comment on column SMZJ.BUSI_NOTICE_TYPE.id
+  is '主键ID';
+comment on column SMZJ.BUSI_NOTICE_TYPE.is_delete
+  is '是否删除(0:有效,1:无效)';
+comment on column SMZJ.BUSI_NOTICE_TYPE.create_by
+  is '创建人';
+comment on column SMZJ.BUSI_NOTICE_TYPE.create_date
+  is '创建日期';
+comment on column SMZJ.BUSI_NOTICE_TYPE.update_by
+  is '修改人';
+comment on column SMZJ.BUSI_NOTICE_TYPE.update_date
+  is '修改日期';
+comment on column SMZJ.BUSI_NOTICE_TYPE.notice_type_name
+  is '通知类型名称';
+

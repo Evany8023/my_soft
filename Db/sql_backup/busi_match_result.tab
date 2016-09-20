@@ -1,0 +1,45 @@
+create table SMZJ.BUSI_MATCH_RESULT
+(
+  id           VARCHAR2(32) not null,
+  credit_no    VARCHAR2(32),
+  custom_name  VARCHAR2(128 CHAR),
+  sheet_amount VARCHAR2(16),
+  total_amount VARCHAR2(16),
+  borrow       VARCHAR2(16),
+  load         VARCHAR2(16),
+  result       VARCHAR2(8),
+  pt_id        VARCHAR2(32),
+  remark       VARCHAR2(2048)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255;
+comment on column SMZJ.BUSI_MATCH_RESULT.id
+  is 'ID';
+comment on column SMZJ.BUSI_MATCH_RESULT.credit_no
+  is '证件号码';
+comment on column SMZJ.BUSI_MATCH_RESULT.custom_name
+  is '客户姓名';
+comment on column SMZJ.BUSI_MATCH_RESULT.sheet_amount
+  is '订单金额';
+comment on column SMZJ.BUSI_MATCH_RESULT.total_amount
+  is '汇总金额';
+comment on column SMZJ.BUSI_MATCH_RESULT.borrow
+  is '借方金额';
+comment on column SMZJ.BUSI_MATCH_RESULT.load
+  is '贷方金额';
+comment on column SMZJ.BUSI_MATCH_RESULT.result
+  is '匹配结果';
+comment on column SMZJ.BUSI_MATCH_RESULT.pt_id
+  is '产品ID';
+comment on column SMZJ.BUSI_MATCH_RESULT.remark
+  is '备注';
+alter table SMZJ.BUSI_MATCH_RESULT
+  add constraint MATCH_RESULT_KEY primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255;
+

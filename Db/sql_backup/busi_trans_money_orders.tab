@@ -1,0 +1,92 @@
+create table SMZJ.BUSI_TRANS_MONEY_ORDERS
+(
+  id               VARCHAR2(32) not null,
+  pt_id            VARCHAR2(32),
+  mgr_id           VARCHAR2(32),
+  trans_type       VARCHAR2(4),
+  trans_use        VARCHAR2(4),
+  trans_out_type   VARCHAR2(4),
+  trans_out_no     VARCHAR2(32),
+  trans_out_name   VARCHAR2(64),
+  trans_out_bank   VARCHAR2(64),
+  trans_in_type    VARCHAR2(4),
+  trans_in_no      VARCHAR2(32),
+  trans_in_name    VARCHAR2(128 CHAR),
+  trans_in_bank    VARCHAR2(64),
+  trans_out_amount NUMBER,
+  trans_time       DATE,
+  receive_time     DATE,
+  is_examine       CHAR(1) default 0 not null,
+  examine_by       VARCHAR2(128 CHAR),
+  examine_date     DATE,
+  create_by        VARCHAR2(128 CHAR),
+  create_date      DATE,
+  update_by        VARCHAR2(128 CHAR),
+  update_date      DATE,
+  is_delete        CHAR(1) default 0 not null,
+  cp_id            VARCHAR2(32)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255;
+comment on table SMZJ.BUSI_TRANS_MONEY_ORDERS
+  is '管理人划款指令表，存储管理人划款指令信息';
+comment on column SMZJ.BUSI_TRANS_MONEY_ORDERS.id
+  is 'ID';
+comment on column SMZJ.BUSI_TRANS_MONEY_ORDERS.pt_id
+  is '产品ID';
+comment on column SMZJ.BUSI_TRANS_MONEY_ORDERS.mgr_id
+  is '转帐人ID';
+comment on column SMZJ.BUSI_TRANS_MONEY_ORDERS.trans_type
+  is '划款指令类型';
+comment on column SMZJ.BUSI_TRANS_MONEY_ORDERS.trans_use
+  is '资金用途';
+comment on column SMZJ.BUSI_TRANS_MONEY_ORDERS.trans_out_type
+  is '转出账户类型';
+comment on column SMZJ.BUSI_TRANS_MONEY_ORDERS.trans_out_no
+  is '转出账户账号';
+comment on column SMZJ.BUSI_TRANS_MONEY_ORDERS.trans_out_name
+  is '转出账户名称';
+comment on column SMZJ.BUSI_TRANS_MONEY_ORDERS.trans_out_bank
+  is '转出账户开户行';
+comment on column SMZJ.BUSI_TRANS_MONEY_ORDERS.trans_in_type
+  is '转入账号类型';
+comment on column SMZJ.BUSI_TRANS_MONEY_ORDERS.trans_in_no
+  is '转入账户号';
+comment on column SMZJ.BUSI_TRANS_MONEY_ORDERS.trans_in_name
+  is '转入账户名称';
+comment on column SMZJ.BUSI_TRANS_MONEY_ORDERS.trans_in_bank
+  is '转入账户开户行';
+comment on column SMZJ.BUSI_TRANS_MONEY_ORDERS.trans_out_amount
+  is '转出金额';
+comment on column SMZJ.BUSI_TRANS_MONEY_ORDERS.trans_time
+  is '划款时间';
+comment on column SMZJ.BUSI_TRANS_MONEY_ORDERS.receive_time
+  is '到账时间';
+comment on column SMZJ.BUSI_TRANS_MONEY_ORDERS.is_examine
+  is '是否审核（0：未审核，1：审核）';
+comment on column SMZJ.BUSI_TRANS_MONEY_ORDERS.examine_by
+  is '审核人';
+comment on column SMZJ.BUSI_TRANS_MONEY_ORDERS.examine_date
+  is '审核日期';
+comment on column SMZJ.BUSI_TRANS_MONEY_ORDERS.create_by
+  is '创建人';
+comment on column SMZJ.BUSI_TRANS_MONEY_ORDERS.create_date
+  is '创建日期';
+comment on column SMZJ.BUSI_TRANS_MONEY_ORDERS.update_by
+  is '更新人';
+comment on column SMZJ.BUSI_TRANS_MONEY_ORDERS.update_date
+  is '更新时间';
+comment on column SMZJ.BUSI_TRANS_MONEY_ORDERS.is_delete
+  is '是否删除（1：是，0：否）';
+comment on column SMZJ.BUSI_TRANS_MONEY_ORDERS.cp_id
+  is '公司ID';
+alter table SMZJ.BUSI_TRANS_MONEY_ORDERS
+  add constraint BUSI_TRANS_MONEY_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255;
+

@@ -1,0 +1,71 @@
+create table SMZJ.BUSI_MGR_NOTICE
+(
+  id          VARCHAR2(32) not null,
+  notice_id   VARCHAR2(32) not null,
+  mgr_id      VARCHAR2(32),
+  cp_id       VARCHAR2(32),
+  count       NUMBER default 1,
+  create_date DATE,
+  modify_date DATE,
+  remote_addr VARCHAR2(255),
+  mgr_account VARCHAR2(100),
+  notice_no   VARCHAR2(32)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_MGR_NOTICE
+  is '管理人消息通知中间表';
+comment on column SMZJ.BUSI_MGR_NOTICE.id
+  is '主键ID';
+comment on column SMZJ.BUSI_MGR_NOTICE.notice_id
+  is '消息通知ID';
+comment on column SMZJ.BUSI_MGR_NOTICE.mgr_id
+  is '管理人ID';
+comment on column SMZJ.BUSI_MGR_NOTICE.cp_id
+  is '公司id';
+comment on column SMZJ.BUSI_MGR_NOTICE.count
+  is '消息点击次数';
+comment on column SMZJ.BUSI_MGR_NOTICE.create_date
+  is '创建日期';
+comment on column SMZJ.BUSI_MGR_NOTICE.modify_date
+  is '修改日期';
+comment on column SMZJ.BUSI_MGR_NOTICE.remote_addr
+  is '管理人IP';
+comment on column SMZJ.BUSI_MGR_NOTICE.mgr_account
+  is '管理人账号';
+comment on column SMZJ.BUSI_MGR_NOTICE.notice_no
+  is '通知编号';
+create index SMZJ.INDEX_MGR_NOTICE on SMZJ.BUSI_MGR_NOTICE (NOTICE_ID)
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create unique index SMZJ.INDEX_MGR_NOTICE_ID on SMZJ.BUSI_MGR_NOTICE (ID)
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

@@ -1,0 +1,22 @@
+create table SMZJ.BUSI_PUBLIC_NETVAL_DATE_TMP
+(
+  pt_id       VARCHAR2(32),
+  pt_no       VARCHAR2(16),
+  born_date   DATE,
+  create_date DATE
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255;
+comment on table SMZJ.BUSI_PUBLIC_NETVAL_DATE_TMP
+  is '净值日期表';
+comment on column SMZJ.BUSI_PUBLIC_NETVAL_DATE_TMP.pt_id
+  is '产品ID';
+comment on column SMZJ.BUSI_PUBLIC_NETVAL_DATE_TMP.pt_no
+  is '产品代码';
+comment on column SMZJ.BUSI_PUBLIC_NETVAL_DATE_TMP.born_date
+  is '生产日期';
+comment on column SMZJ.BUSI_PUBLIC_NETVAL_DATE_TMP.create_date
+  is '创建日期';
+

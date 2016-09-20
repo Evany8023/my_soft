@@ -1,0 +1,161 @@
+create table SMZJ.BUSI_COMPANY
+(
+  id                  VARCHAR2(32) not null,
+  cp_name             VARCHAR2(128 CHAR),
+  cp_type             VARCHAR2(10),
+  insti_code          VARCHAR2(16),
+  org_insti_code      VARCHAR2(16),
+  regist_date         DATE,
+  city_id             VARCHAR2(32),
+  city_name           VARCHAR2(16),
+  cp_addr             VARCHAR2(255),
+  regist_cptl         NUMBER,
+  is_sheet            CHAR(1) default 0,
+  logo_url            VARCHAR2(128),
+  introduce           CLOB,
+  is_examine          CHAR(1) default 0 not null,
+  examine_by          VARCHAR2(128 CHAR),
+  examine_date        DATE,
+  create_by           VARCHAR2(128 CHAR),
+  create_date         DATE,
+  update_by           VARCHAR2(128 CHAR),
+  update_date         DATE,
+  is_delete           CHAR(1) default 0 not null,
+  cp_ow               VARCHAR2(255),
+  regist_no           VARCHAR2(16),
+  linkman             VARCHAR2(255),
+  telephone           VARCHAR2(16),
+  fax                 VARCHAR2(16),
+  email               VARCHAR2(64),
+  idea                VARCHAR2(2048),
+  province_id         VARCHAR2(32),
+  province_name       VARCHAR2(32),
+  legal_person        VARCHAR2(128 CHAR),
+  ispublish           CHAR(1) default 0,
+  is_quick            CHAR(1) default 1,
+  common_menu         CHAR(1) default 1,
+  simmple_menu        CHAR(1) default 0,
+  ht_ec_contract      CHAR(1),
+  report_file_suffixs VARCHAR2(255),
+  ht_products_ld      CHAR(1),
+  is_fund_control     CHAR(1) default '0'
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_COMPANY
+  is '私募公司表,存储私募公司的详细信息';
+comment on column SMZJ.BUSI_COMPANY.id
+  is '公司ID';
+comment on column SMZJ.BUSI_COMPANY.cp_name
+  is '公司名称';
+comment on column SMZJ.BUSI_COMPANY.cp_type
+  is '公司类型';
+comment on column SMZJ.BUSI_COMPANY.insti_code
+  is '机构代码';
+comment on column SMZJ.BUSI_COMPANY.org_insti_code
+  is '组织机构代码';
+comment on column SMZJ.BUSI_COMPANY.regist_date
+  is '公司注册时间';
+comment on column SMZJ.BUSI_COMPANY.city_id
+  is '注册地城市ID';
+comment on column SMZJ.BUSI_COMPANY.city_name
+  is '注册城市名称';
+comment on column SMZJ.BUSI_COMPANY.cp_addr
+  is '公司地址';
+comment on column SMZJ.BUSI_COMPANY.regist_cptl
+  is '注册资本';
+comment on column SMZJ.BUSI_COMPANY.is_sheet
+  is '是否停止录单（1：是，0：否）';
+comment on column SMZJ.BUSI_COMPANY.logo_url
+  is '公司标识图片地址';
+comment on column SMZJ.BUSI_COMPANY.introduce
+  is '介绍';
+comment on column SMZJ.BUSI_COMPANY.is_examine
+  is '是否审核（0：未审核，1：审核）';
+comment on column SMZJ.BUSI_COMPANY.examine_by
+  is '审核人';
+comment on column SMZJ.BUSI_COMPANY.examine_date
+  is '审核日期';
+comment on column SMZJ.BUSI_COMPANY.create_by
+  is '创建人';
+comment on column SMZJ.BUSI_COMPANY.create_date
+  is '创建时间';
+comment on column SMZJ.BUSI_COMPANY.update_by
+  is '更新人';
+comment on column SMZJ.BUSI_COMPANY.update_date
+  is '更新时间';
+comment on column SMZJ.BUSI_COMPANY.is_delete
+  is '是否删除（1：是，0：否）';
+comment on column SMZJ.BUSI_COMPANY.cp_ow
+  is '公司网站';
+comment on column SMZJ.BUSI_COMPANY.regist_no
+  is '基金业协会登记号';
+comment on column SMZJ.BUSI_COMPANY.linkman
+  is '联系人';
+comment on column SMZJ.BUSI_COMPANY.telephone
+  is '固定电话';
+comment on column SMZJ.BUSI_COMPANY.fax
+  is '传真';
+comment on column SMZJ.BUSI_COMPANY.email
+  is '邮箱';
+comment on column SMZJ.BUSI_COMPANY.idea
+  is '理念';
+comment on column SMZJ.BUSI_COMPANY.province_id
+  is '注册地省ID';
+comment on column SMZJ.BUSI_COMPANY.province_name
+  is '注册地省名称';
+comment on column SMZJ.BUSI_COMPANY.legal_person
+  is '法人代表';
+comment on column SMZJ.BUSI_COMPANY.ispublish
+  is '是否披露。0披露，1 不披露';
+comment on column SMZJ.BUSI_COMPANY.is_quick
+  is '是否开启快速赎回，0开启，1管理，默认1';
+comment on column SMZJ.BUSI_COMPANY.common_menu
+  is '普通菜单（0：不显示，1：显示）';
+comment on column SMZJ.BUSI_COMPANY.simmple_menu
+  is '简易菜单（0：不显示，1：显示）';
+comment on column SMZJ.BUSI_COMPANY.ht_ec_contract
+  is '是否是恒天版电子合同（1：是）';
+comment on column SMZJ.BUSI_COMPANY.report_file_suffixs
+  is '不允许发送给投资人的报表类型';
+comment on column SMZJ.BUSI_COMPANY.ht_products_ld
+  is ' 是否显示恒天版多产品录单（1：是）';
+create index SMZJ.BUSI_JGBM on SMZJ.BUSI_COMPANY (INSTI_CODE)
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table SMZJ.BUSI_COMPANY
+  add constraint BUSI_COMPANY_PRIMARY_KEY primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table SMZJ.BUSI_COMPANY
+  add constraint CP_NAME_UNIQUE unique (INSTI_CODE)
+  disable;
+

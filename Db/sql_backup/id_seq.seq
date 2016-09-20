@@ -1,0 +1,8 @@
+create sequence SMZJ.ID_SEQ
+minvalue 1
+maxvalue 999999999999999
+start with 113811186101
+increment by 100
+cache 500
+cycle;
+

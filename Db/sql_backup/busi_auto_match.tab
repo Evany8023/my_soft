@@ -1,0 +1,84 @@
+create table SMZJ.BUSI_AUTO_MATCH
+(
+  id                 VARCHAR2(32) not null,
+  custom_name        VARCHAR2(128 CHAR),
+  credit_no          VARCHAR2(32),
+  borrow             NUMBER,
+  load               NUMBER,
+  feerate            NUMBER,
+  online_bank_amount NUMBER,
+  amount             NUMBER,
+  import_flag        CHAR(1),
+  compare_result     VARCHAR2(64),
+  batch_number       VARCHAR2(128),
+  create_date        DATE,
+  row_no             VARCHAR2(4),
+  remark             VARCHAR2(2048 CHAR),
+  state              CHAR(1),
+  trading_date       DATE,
+  identify_flag      CHAR(1),
+  sheet_no           VARCHAR2(32),
+  bank_no            VARCHAR2(100)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_AUTO_MATCH
+  is '数据自动匹配';
+comment on column SMZJ.BUSI_AUTO_MATCH.custom_name
+  is '客户姓名';
+comment on column SMZJ.BUSI_AUTO_MATCH.credit_no
+  is '证件号码';
+comment on column SMZJ.BUSI_AUTO_MATCH.borrow
+  is '借方金额';
+comment on column SMZJ.BUSI_AUTO_MATCH.load
+  is '贷方金额';
+comment on column SMZJ.BUSI_AUTO_MATCH.feerate
+  is '费率';
+comment on column SMZJ.BUSI_AUTO_MATCH.online_bank_amount
+  is '网银金额';
+comment on column SMZJ.BUSI_AUTO_MATCH.amount
+  is '金额';
+comment on column SMZJ.BUSI_AUTO_MATCH.import_flag
+  is '导入标识';
+comment on column SMZJ.BUSI_AUTO_MATCH.compare_result
+  is '比对结果';
+comment on column SMZJ.BUSI_AUTO_MATCH.batch_number
+  is '比对批次';
+comment on column SMZJ.BUSI_AUTO_MATCH.create_date
+  is '创建时间';
+comment on column SMZJ.BUSI_AUTO_MATCH.row_no
+  is '行号';
+comment on column SMZJ.BUSI_AUTO_MATCH.remark
+  is '备注';
+comment on column SMZJ.BUSI_AUTO_MATCH.trading_date
+  is '交易时间';
+comment on column SMZJ.BUSI_AUTO_MATCH.identify_flag
+  is '订单状态';
+comment on column SMZJ.BUSI_AUTO_MATCH.sheet_no
+  is '订单编号';
+comment on column SMZJ.BUSI_AUTO_MATCH.bank_no
+  is '银行账号，来自0103文件或者是网银流水';
+alter table SMZJ.BUSI_AUTO_MATCH
+  add constraint AUTO_MATCH_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

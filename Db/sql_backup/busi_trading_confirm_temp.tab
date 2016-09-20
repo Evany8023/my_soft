@@ -1,0 +1,50 @@
+create table SMZJ.BUSI_TRADING_CONFIRM_TEMP
+(
+  id               VARCHAR2(32) not null,
+  pt_no            VARCHAR2(32),
+  custom_name      VARCHAR2(128 CHAR),
+  phone            VARCHAR2(16),
+  apply_amount     NUMBER,
+  apply_share      NUMBER,
+  business_type    VARCHAR2(16),
+  confirm_amount   NUMBER,
+  confirm_share    NUMBER,
+  confirm_date     DATE,
+  unit_net_val     NUMBER,
+  fee              NUMBER,
+  reward           NUMBER,
+  regist_account   VARCHAR2(16),
+  credit_no        VARCHAR2(32),
+  apply_date       VARCHAR2(32),
+  apply_no         VARCHAR2(32 CHAR),
+  confirm_trans    VARCHAR2(32),
+  insti_code       VARCHAR2(16),
+  custom_no        VARCHAR2(20),
+  bonus_way        VARCHAR2(16),
+  bonus_rate       VARCHAR2(16),
+  transfer_date    DATE,
+  fund_fee         VARCHAR2(18 CHAR),
+  proxy_fee        VARCHAR2(18 CHAR),
+  printscript_rate VARCHAR2(18 CHAR),
+  return_code      VARCHAR2(18 CHAR),
+  return_msg       VARCHAR2(256),
+  orig_apply_no    VARCHAR2(32 CHAR),
+  confirm_time     VARCHAR2(8),
+  pt_name          VARCHAR2(128 CHAR),
+  zjlx             VARCHAR2(8),
+  insti_name       VARCHAR2(100 CHAR),
+  detailflag       VARCHAR2(8),
+  sourcetype       VARCHAR2(5)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

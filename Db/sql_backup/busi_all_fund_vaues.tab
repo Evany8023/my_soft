@@ -1,0 +1,26 @@
+create table SMZJ.BUSI_ALL_FUND_VAUES
+(
+  id              VARCHAR2(20) not null,
+  fundcode        VARCHAR2(40),
+  tradeday        VARCHAR2(10),
+  nav             VARCHAR2(20),
+  accumulativenav VARCHAR2(20),
+  wfsy            VARCHAR2(20),
+  qrljsy          VARCHAR2(20),
+  fundname        VARCHAR2(100 CHAR),
+  fundid          VARCHAR2(32 CHAR),
+  comid           VARCHAR2(32 CHAR),
+  create_date     DATE default sysdate
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

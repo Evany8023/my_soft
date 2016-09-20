@@ -1,0 +1,127 @@
+create table SMZJ.BUSI_QUICK_SHEET
+(
+  id                     VARCHAR2(32) not null,
+  sheet_no               VARCHAR2(32) not null,
+  pt_id                  VARCHAR2(32) not null,
+  pt_no                  VARCHAR2(16),
+  dt_id                  VARCHAR2(32),
+  sheet_create_time      DATE,
+  amount                 NUMBER,
+  create_by              VARCHAR2(128 CHAR),
+  create_date            DATE,
+  update_by              VARCHAR2(128 CHAR),
+  update_date            DATE,
+  is_delete              CHAR(1) default '0' not null,
+  business_type          VARCHAR2(4) default '024' not null,
+  company_id             VARCHAR2(32),
+  credit_id              VARCHAR2(32),
+  remark                 VARCHAR2(2048 CHAR),
+  apply_amount           VARCHAR2(16),
+  apply_share            VARCHAR2(16),
+  bonus_way              VARCHAR2(16),
+  bonus_rate             VARCHAR2(16),
+  procedure_fee          VARCHAR2(16),
+  design_redeem          VARCHAR2(16),
+  original_apply_no      VARCHAR2(16),
+  huge_sum_redeem        VARCHAR2(16),
+  original_apply_count   VARCHAR2(16),
+  confirm_date           DATE,
+  investor_identify_flag CHAR(1) default '1',
+  bank_card_id           VARCHAR2(32)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_QUICK_SHEET
+  is '快速赎回订单表，存储管投资人，投资产品等相关信息';
+comment on column SMZJ.BUSI_QUICK_SHEET.id
+  is 'ID';
+comment on column SMZJ.BUSI_QUICK_SHEET.sheet_no
+  is '订单编号';
+comment on column SMZJ.BUSI_QUICK_SHEET.pt_id
+  is '产品ID';
+comment on column SMZJ.BUSI_QUICK_SHEET.pt_no
+  is '产品编号';
+comment on column SMZJ.BUSI_QUICK_SHEET.dt_id
+  is '投资人详情ID';
+comment on column SMZJ.BUSI_QUICK_SHEET.sheet_create_time
+  is '下单时间(申请日期)';
+comment on column SMZJ.BUSI_QUICK_SHEET.amount
+  is '同步';
+comment on column SMZJ.BUSI_QUICK_SHEET.create_by
+  is '创建人';
+comment on column SMZJ.BUSI_QUICK_SHEET.create_date
+  is '创建日期';
+comment on column SMZJ.BUSI_QUICK_SHEET.update_by
+  is '更新人';
+comment on column SMZJ.BUSI_QUICK_SHEET.update_date
+  is '更新时间';
+comment on column SMZJ.BUSI_QUICK_SHEET.is_delete
+  is '是否删除（1：是，0：否）';
+comment on column SMZJ.BUSI_QUICK_SHEET.business_type
+  is '业务类型';
+comment on column SMZJ.BUSI_QUICK_SHEET.company_id
+  is '私募公司ID';
+comment on column SMZJ.BUSI_QUICK_SHEET.credit_id
+  is '证件ID';
+comment on column SMZJ.BUSI_QUICK_SHEET.remark
+  is '备注';
+comment on column SMZJ.BUSI_QUICK_SHEET.apply_amount
+  is '申请金额';
+comment on column SMZJ.BUSI_QUICK_SHEET.apply_share
+  is '申请份额';
+comment on column SMZJ.BUSI_QUICK_SHEET.bonus_way
+  is '分红方式';
+comment on column SMZJ.BUSI_QUICK_SHEET.bonus_rate
+  is '红利比例';
+comment on column SMZJ.BUSI_QUICK_SHEET.procedure_fee
+  is '手续费用';
+comment on column SMZJ.BUSI_QUICK_SHEET.design_redeem
+  is '指定赎回';
+comment on column SMZJ.BUSI_QUICK_SHEET.original_apply_no
+  is '原申请单号';
+comment on column SMZJ.BUSI_QUICK_SHEET.huge_sum_redeem
+  is '巨额赎回';
+comment on column SMZJ.BUSI_QUICK_SHEET.original_apply_count
+  is '原申请数';
+comment on column SMZJ.BUSI_QUICK_SHEET.confirm_date
+  is '确认日期（快速赎回需要）';
+comment on column SMZJ.BUSI_QUICK_SHEET.investor_identify_flag
+  is '定单状态，1：待身份验证；2：待预检，3：待提交TA； 4：TA已确认 ；5：废单 身份校验不通过 6:废单 与 7：废单（TA处理不通过）';
+comment on column SMZJ.BUSI_QUICK_SHEET.bank_card_id
+  is '银行卡ID';
+create unique index SMZJ.QUICK_IUX_SHEET_NO on SMZJ.BUSI_QUICK_SHEET (SHEET_NO)
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table SMZJ.BUSI_QUICK_SHEET
+  add constraint QUICK_SHEET_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

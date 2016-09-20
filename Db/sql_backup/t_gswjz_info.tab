@@ -1,0 +1,174 @@
+create table SMZJ.T_GSWJZ_INFO
+(
+  sqdh       VARCHAR2(24),
+  qrls       VARCHAR2(20),
+  khbh       VARCHAR2(18),
+  cpdm       VARCHAR2(6),
+  djzh       VARCHAR2(12),
+  qrrq       VARCHAR2(8),
+  gsws       NUMBER(16,2),
+  qmfe       NUMBER(16,2),
+  hbjx       NUMBER(16,2),
+  hczj       NUMBER(16,2),
+  jjfb       NUMBER(10,9),
+  lpfb       NUMBER(10,9),
+  yzyk       NUMBER(16,2),
+  fqzc       NUMBER(16,2),
+  tgfy       NUMBER(16,2),
+  glfy       NUMBER(16,2),
+  cwfy       NUMBER(16,2),
+  kzfy       NUMBER(16,2),
+  jqzj       NUMBER(16,2),
+  jxfy       NUMBER(16,2),
+  zcjz       NUMBER(16,2),
+  jdjz       NUMBER(7,4),
+  fzjz       NUMBER(7,4),
+  dwjz       NUMBER(7,4),
+  gzrq       VARCHAR2(8) not null,
+  cyjg       NUMBER(7,4),
+  jtbz       CHAR(1),
+  khsx       VARCHAR2(2),
+  gfbz       CHAR(1),
+  yfbz       CHAR(1),
+  lgsw       NUMBER(16,2),
+  lzcj       NUMBER(16,2),
+  lqmf       NUMBER(16,2),
+  jdje       NUMBER(16,2),
+  jqjz       NUMBER(7,4),
+  xsrm       VARCHAR2(6),
+  jsbz       CHAR(1),
+  ylsh       VARCHAR2(20),
+  khmc       VARCHAR2(60),
+  zjhm       VARCHAR2(30),
+  cp_id      VARCHAR2(32),
+  pro_name   VARCHAR2(100 CHAR),
+  pro_id     VARCHAR2(32),
+  yjbcjtr    VARCHAR2(8),
+  yshfe      NUMBER(16,2),
+  yshje      NUMBER(16,2),
+  qmfez      NUMBER(16,2),
+  qcfe       NUMBER(16,2),
+  insti_name VARCHAR2(100 CHAR),
+  zjlx       VARCHAR2(20 CHAR),
+  credit_no  VARCHAR2(100 CHAR),
+  sourcetype VARCHAR2(2)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.T_GSWJZ_INFO
+  is '高水位净值表';
+comment on column SMZJ.T_GSWJZ_INFO.sqdh
+  is '申请单号，合伙人参与的分笔明细申请单';
+comment on column SMZJ.T_GSWJZ_INFO.qrls
+  is 'TA确认流水号';
+comment on column SMZJ.T_GSWJZ_INFO.khbh
+  is '客户编号(资金账号)';
+comment on column SMZJ.T_GSWJZ_INFO.cpdm
+  is '产品代码';
+comment on column SMZJ.T_GSWJZ_INFO.djzh
+  is '登记账号(基金账号)';
+comment on column SMZJ.T_GSWJZ_INFO.qrrq
+  is '确认日期';
+comment on column SMZJ.T_GSWJZ_INFO.gsws
+  is '高水位数';
+comment on column SMZJ.T_GSWJZ_INFO.qmfe
+  is '估值份额';
+comment on column SMZJ.T_GSWJZ_INFO.hbjx
+  is '回拨上期绩效费';
+comment on column SMZJ.T_GSWJZ_INFO.hczj
+  is '调整后期初资金，本期初资金+申购-赎回+业绩报酬
+';
+comment on column SMZJ.T_GSWJZ_INFO.jjfb
+  is '基金份比';
+comment on column SMZJ.T_GSWJZ_INFO.lpfb
+  is 'LP分份比';
+comment on column SMZJ.T_GSWJZ_INFO.yzyk
+  is '应占盈亏';
+comment on column SMZJ.T_GSWJZ_INFO.fqzc
+  is '扣费前资产，指未扣除费用前的资产';
+comment on column SMZJ.T_GSWJZ_INFO.tgfy
+  is '托管费';
+comment on column SMZJ.T_GSWJZ_INFO.glfy
+  is '管理费';
+comment on column SMZJ.T_GSWJZ_INFO.cwfy
+  is '财务顾问费';
+comment on column SMZJ.T_GSWJZ_INFO.kzfy
+  is '开支费';
+comment on column SMZJ.T_GSWJZ_INFO.jqzj
+  is '计提绩效前资金';
+comment on column SMZJ.T_GSWJZ_INFO.jxfy
+  is '绩效费用';
+comment on column SMZJ.T_GSWJZ_INFO.zcjz
+  is '资产净值';
+comment on column SMZJ.T_GSWJZ_INFO.jdjz
+  is '均等净值';
+comment on column SMZJ.T_GSWJZ_INFO.fzjz
+  is '分组净值';
+comment on column SMZJ.T_GSWJZ_INFO.dwjz
+  is '个别净值';
+comment on column SMZJ.T_GSWJZ_INFO.gzrq
+  is '估值日期(工作日)';
+comment on column SMZJ.T_GSWJZ_INFO.cyjg
+  is '参与价格';
+comment on column SMZJ.T_GSWJZ_INFO.jtbz
+  is '绩效费计提标志 1 计提';
+comment on column SMZJ.T_GSWJZ_INFO.khsx
+  is '客户属性';
+comment on column SMZJ.T_GSWJZ_INFO.gfbz
+  is '是否收管理费';
+comment on column SMZJ.T_GSWJZ_INFO.yfbz
+  is '是否收业绩报酬';
+comment on column SMZJ.T_GSWJZ_INFO.lgsw
+  is '上期高水位数';
+comment on column SMZJ.T_GSWJZ_INFO.lzcj
+  is '上期资产净值';
+comment on column SMZJ.T_GSWJZ_INFO.lqmf
+  is '上期期初份额';
+comment on column SMZJ.T_GSWJZ_INFO.jdje
+  is '基点金额（初始高水位）';
+comment on column SMZJ.T_GSWJZ_INFO.jqjz
+  is '计提绩效前净值';
+comment on column SMZJ.T_GSWJZ_INFO.xsrm
+  is '销售机构';
+comment on column SMZJ.T_GSWJZ_INFO.jsbz
+  is '计算标志 1估值日 0非估值日';
+comment on column SMZJ.T_GSWJZ_INFO.ylsh
+  is 'TA原确认流水号';
+comment on column SMZJ.T_GSWJZ_INFO.khmc
+  is '客户名称';
+comment on column SMZJ.T_GSWJZ_INFO.zjhm
+  is '证件类型';
+comment on column SMZJ.T_GSWJZ_INFO.cp_id
+  is '公司iD';
+comment on column SMZJ.T_GSWJZ_INFO.pro_name
+  is '产品名称';
+comment on column SMZJ.T_GSWJZ_INFO.pro_id
+  is '产品id';
+comment on column SMZJ.T_GSWJZ_INFO.yjbcjtr
+  is '业绩报酬计提日';
+comment on column SMZJ.T_GSWJZ_INFO.yshfe
+  is '已赎回份额';
+comment on column SMZJ.T_GSWJZ_INFO.yshje
+  is '已赎回金额';
+comment on column SMZJ.T_GSWJZ_INFO.qmfez
+  is '期末份额';
+comment on column SMZJ.T_GSWJZ_INFO.qcfe
+  is '确认份额';
+comment on column SMZJ.T_GSWJZ_INFO.insti_name
+  is '公司名称';
+comment on column SMZJ.T_GSWJZ_INFO.zjlx
+  is '证件类型';
+comment on column SMZJ.T_GSWJZ_INFO.credit_no
+  is '证件号码';
+comment on column SMZJ.T_GSWJZ_INFO.sourcetype
+  is '0表示直销，1表示代销';
+

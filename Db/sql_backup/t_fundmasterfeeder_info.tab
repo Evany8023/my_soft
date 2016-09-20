@@ -1,0 +1,49 @@
+create table SMZJ.T_FUNDMASTERFEEDER_INFO
+(
+  fundcode        VARCHAR2(6) not null,
+  mfundcode       VARCHAR2(6) not null,
+  taaccountid     VARCHAR2(12),
+  distributorcode VARCHAR2(3) not null,
+  triggertype     VARCHAR2(1),
+  parstatus       VARCHAR2(1),
+  lrczy           VARCHAR2(16),
+  hdczy           VARCHAR2(16)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.T_FUNDMASTERFEEDER_INFO
+  is '计划Master/Feeder代理关系';
+comment on column SMZJ.T_FUNDMASTERFEEDER_INFO.fundcode
+  is 'Feeder基金代码';
+comment on column SMZJ.T_FUNDMASTERFEEDER_INFO.mfundcode
+  is 'Master基金代码';
+comment on column SMZJ.T_FUNDMASTERFEEDER_INFO.taaccountid
+  is 'Feeder基金账号';
+comment on column SMZJ.T_FUNDMASTERFEEDER_INFO.distributorcode
+  is 'Master代理人码';
+comment on column SMZJ.T_FUNDMASTERFEEDER_INFO.triggertype
+  is '触发类型 0-触发申购赎回 1-仅触发申购 2-仅触发赎回';
+alter table SMZJ.T_FUNDMASTERFEEDER_INFO
+  add constraint PK_T_FUNDMASTERFEEDER_INFO primary key (FUNDCODE, MFUNDCODE, DISTRIBUTORCODE)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

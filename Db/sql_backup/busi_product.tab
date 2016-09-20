@@ -1,0 +1,234 @@
+create table SMZJ.BUSI_PRODUCT
+(
+  id                          VARCHAR2(32) not null,
+  cp_id                       VARCHAR2(32),
+  cp_name                     VARCHAR2(128 CHAR),
+  name                        VARCHAR2(128 CHAR),
+  product_no                  VARCHAR2(16),
+  product_type                VARCHAR2(16 CHAR),
+  trusteeship_insti           VARCHAR2(128 CHAR),
+  regist_insti                VARCHAR2(128 CHAR),
+  publish_date                DATE,
+  exist_limit_time            VARCHAR2(64 CHAR),
+  mgr_net_period              VARCHAR2(16),
+  invest_net_period           VARCHAR2(16),
+  public_net_period           VARCHAR2(16),
+  publish_status              VARCHAR2(2),
+  is_master_code              CHAR(1),
+  parent_id                   VARCHAR2(32),
+  is_grade                    CHAR(1),
+  is_pre_sheet                CHAR(1) default 0,
+  is_display                  CHAR(1),
+  is_close_master_net         CHAR(1),
+  is_display_mgr              CHAR(1),
+  mgr_info                    VARCHAR2(2048 CHAR),
+  advisor_info                VARCHAR2(2048 CHAR),
+  summary                     VARCHAR2(2048 CHAR),
+  invest_scole                VARCHAR2(2048 CHAR),
+  agree_count                 NUMBER default 0,
+  is_examine                  CHAR(1) default 0,
+  examine_by                  VARCHAR2(128 CHAR),
+  examine_date                DATE,
+  create_by                   VARCHAR2(128 CHAR),
+  create_date                 DATE,
+  update_by                   VARCHAR2(128 CHAR),
+  update_date                 DATE,
+  is_delete                   CHAR(1) default 0,
+  is_gsw_fund                 CHAR(1) default 0,
+  start_price                 VARCHAR2(128 CHAR),
+  plus_start_price            VARCHAR2(128 CHAR),
+  is_validate                 CHAR(1) default 1,
+  is_temp_open                CHAR(1) default 0,
+  is_close_display_open_date  CHAR(1) default 0,
+  is_open_bonus_way           CHAR(1) default 0,
+  is_apply_temp_open          CHAR(1) default 0,
+  is_limit_buy                CHAR(1) default 1,
+  cost_rate                   NUMBER,
+  is_netval_curve             CHAR(1) default 1,
+  is_can_apply_open_date      CHAR(1) default 1,
+  wind_up_date                DATE,
+  wind_up_net_val             VARCHAR2(16),
+  wind_up_net_val_date        DATE,
+  quick_ransom                CHAR(1) default 1,
+  high_status                 CHAR(1) default 2,
+  is_manage                   CHAR(1) default 0,
+  is_show_invetstor           CHAR(1) default 1,
+  is_import_sales             CHAR(1) default 0,
+  show_report_statue          CHAR(1) default '1',
+  is_edit_current_quar_report CHAR(1) default '1',
+  is_current_quar_report      CHAR(1) default '0',
+  is_edit_current_year_report CHAR(1) default '1',
+  is_current_year_report      CHAR(1) default '0'
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_PRODUCT
+  is '私募产品表，存储私募产品信息';
+comment on column SMZJ.BUSI_PRODUCT.id
+  is '产品ID';
+comment on column SMZJ.BUSI_PRODUCT.cp_id
+  is '私募公司ID';
+comment on column SMZJ.BUSI_PRODUCT.cp_name
+  is '私募公司名称';
+comment on column SMZJ.BUSI_PRODUCT.name
+  is '产品名称';
+comment on column SMZJ.BUSI_PRODUCT.product_no
+  is '产品代码';
+comment on column SMZJ.BUSI_PRODUCT.product_type
+  is '产品类型';
+comment on column SMZJ.BUSI_PRODUCT.trusteeship_insti
+  is '基金托管人';
+comment on column SMZJ.BUSI_PRODUCT.regist_insti
+  is '基金注册机构';
+comment on column SMZJ.BUSI_PRODUCT.publish_date
+  is '基金成立日';
+comment on column SMZJ.BUSI_PRODUCT.exist_limit_time
+  is '产品期限';
+comment on column SMZJ.BUSI_PRODUCT.mgr_net_period
+  is '管理人净值同步周期';
+comment on column SMZJ.BUSI_PRODUCT.invest_net_period
+  is '投资人净值同步周期';
+comment on column SMZJ.BUSI_PRODUCT.public_net_period
+  is '公开净值同步周期';
+comment on column SMZJ.BUSI_PRODUCT.publish_status
+  is '产品状态';
+comment on column SMZJ.BUSI_PRODUCT.is_master_code
+  is '是否母代码';
+comment on column SMZJ.BUSI_PRODUCT.parent_id
+  is '母代码ID';
+comment on column SMZJ.BUSI_PRODUCT.is_grade
+  is '是否分级（1：是,0:否）';
+comment on column SMZJ.BUSI_PRODUCT.is_pre_sheet
+  is '是否压单（1：是,0:否）';
+comment on column SMZJ.BUSI_PRODUCT.is_display
+  is '是否披露';
+comment on column SMZJ.BUSI_PRODUCT.is_close_master_net
+  is '母代码是否关闭开放期净值披露';
+comment on column SMZJ.BUSI_PRODUCT.is_display_mgr
+  is '是否显示投顾、经理信息';
+comment on column SMZJ.BUSI_PRODUCT.mgr_info
+  is '投资经理信息';
+comment on column SMZJ.BUSI_PRODUCT.advisor_info
+  is '投顾信息';
+comment on column SMZJ.BUSI_PRODUCT.summary
+  is '概述';
+comment on column SMZJ.BUSI_PRODUCT.invest_scole
+  is '投资范围';
+comment on column SMZJ.BUSI_PRODUCT.agree_count
+  is '被赞次数';
+comment on column SMZJ.BUSI_PRODUCT.is_examine
+  is '是否审核(1:是，0：否)';
+comment on column SMZJ.BUSI_PRODUCT.examine_by
+  is '审核人';
+comment on column SMZJ.BUSI_PRODUCT.examine_date
+  is '审核日期';
+comment on column SMZJ.BUSI_PRODUCT.create_by
+  is '创建人';
+comment on column SMZJ.BUSI_PRODUCT.create_date
+  is '创建时间';
+comment on column SMZJ.BUSI_PRODUCT.update_by
+  is '更新人';
+comment on column SMZJ.BUSI_PRODUCT.update_date
+  is '更新时间';
+comment on column SMZJ.BUSI_PRODUCT.is_delete
+  is '是否删除（1：是，0：否）';
+comment on column SMZJ.BUSI_PRODUCT.is_gsw_fund
+  is '是否是高水位的产品';
+comment on column SMZJ.BUSI_PRODUCT.start_price
+  is '认申购起点';
+comment on column SMZJ.BUSI_PRODUCT.plus_start_price
+  is '追加申购起点';
+comment on column SMZJ.BUSI_PRODUCT.is_validate
+  is '是否有效（0：是，1：否）';
+comment on column SMZJ.BUSI_PRODUCT.is_temp_open
+  is '是否临时开放（1：是，0：否）';
+comment on column SMZJ.BUSI_PRODUCT.is_close_display_open_date
+  is '是否关闭开放期净值披露（1：是，0：否）';
+comment on column SMZJ.BUSI_PRODUCT.is_open_bonus_way
+  is '是否开放分红方式（1：是，0：否）';
+comment on column SMZJ.BUSI_PRODUCT.is_apply_temp_open
+  is '是否已申请临时开放（1：是，0：否）';
+comment on column SMZJ.BUSI_PRODUCT.is_limit_buy
+  is '申购认购额度是否做限制（1：是，0：否）';
+comment on column SMZJ.BUSI_PRODUCT.cost_rate
+  is '认申购费率';
+comment on column SMZJ.BUSI_PRODUCT.is_netval_curve
+  is '是否披露净值曲线（1：是，0：否）';
+comment on column SMZJ.BUSI_PRODUCT.is_can_apply_open_date
+  is '是否能申请临时开放日（1：是，0：否）';
+comment on column SMZJ.BUSI_PRODUCT.wind_up_date
+  is '清盘时间';
+comment on column SMZJ.BUSI_PRODUCT.wind_up_net_val
+  is '清盘净值';
+comment on column SMZJ.BUSI_PRODUCT.wind_up_net_val_date
+  is '清盘净值日期';
+comment on column SMZJ.BUSI_PRODUCT.quick_ransom
+  is '是否开启快速赎回，0开启，1关闭，默认1';
+comment on column SMZJ.BUSI_PRODUCT.high_status
+  is '高水位净值状态，0不披露，1每月披露，2全部披露';
+comment on column SMZJ.BUSI_PRODUCT.is_manage
+  is '高水位披露权限控制，1不允许编辑，1允许编辑';
+comment on column SMZJ.BUSI_PRODUCT.is_show_invetstor
+  is '是否显示给投资者 ，0 不显示，1 显示';
+comment on column SMZJ.BUSI_PRODUCT.is_import_sales
+  is '是否导入代销数据 ，0 不导入，1 导入';
+comment on column SMZJ.BUSI_PRODUCT.show_report_statue
+  is '发布报告规则，0：不发布（默认为0），1：当前持仓客户可见，2：当期持仓客户可见';
+comment on column SMZJ.BUSI_PRODUCT.is_edit_current_quar_report
+  is '是否可以编辑本期季报(1:是,0:否,默认1)';
+comment on column SMZJ.BUSI_PRODUCT.is_current_quar_report
+  is '是否是本期季报(1:是,0:否,默认0)';
+comment on column SMZJ.BUSI_PRODUCT.is_edit_current_year_report
+  is '是否可以编辑本期年报(1:是,0:否,默认1)';
+comment on column SMZJ.BUSI_PRODUCT.is_current_year_report
+  is '是否是本期年报(1:是,0:否,默认0)';
+create index SMZJ.BUSI_PRODUCT_OK_STATUS on SMZJ.BUSI_PRODUCT (PRODUCT_NO, IS_DELETE, IS_IMPORT_SALES)
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table SMZJ.BUSI_PRODUCT
+  add constraint BUSI_PRODUCT_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table SMZJ.BUSI_PRODUCT
+  add constraint BUSI_PRODUCT_CODE_PK unique (PRODUCT_NO)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

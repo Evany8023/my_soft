@@ -1,0 +1,79 @@
+create table SMZJ.BUSI_QUICKREDEEM_SUMMARY_SHEET
+(
+  id             VARCHAR2(32) not null,
+  sheet_no       VARCHAR2(32) not null,
+  pt_id          VARCHAR2(32) not null,
+  company_id     VARCHAR2(32),
+  pt_no          VARCHAR2(16),
+  pt_name        VARCHAR2(128 CHAR),
+  summary_amount NUMBER,
+  summary_share  NUMBER,
+  summary_fee    NUMBER,
+  confirm_date   DATE,
+  business_type  VARCHAR2(4) default '024' not null,
+  is_delete      CHAR(1) default '0' not null
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_QUICKREDEEM_SUMMARY_SHEET
+  is '快速赎回汇总表';
+comment on column SMZJ.BUSI_QUICKREDEEM_SUMMARY_SHEET.id
+  is '主键ID';
+comment on column SMZJ.BUSI_QUICKREDEEM_SUMMARY_SHEET.sheet_no
+  is '订单编号';
+comment on column SMZJ.BUSI_QUICKREDEEM_SUMMARY_SHEET.pt_id
+  is '产品ID';
+comment on column SMZJ.BUSI_QUICKREDEEM_SUMMARY_SHEET.company_id
+  is '公司ID';
+comment on column SMZJ.BUSI_QUICKREDEEM_SUMMARY_SHEET.pt_no
+  is '产品编号';
+comment on column SMZJ.BUSI_QUICKREDEEM_SUMMARY_SHEET.pt_name
+  is '产品名称';
+comment on column SMZJ.BUSI_QUICKREDEEM_SUMMARY_SHEET.summary_amount
+  is '汇总金额';
+comment on column SMZJ.BUSI_QUICKREDEEM_SUMMARY_SHEET.summary_share
+  is '汇总份额';
+comment on column SMZJ.BUSI_QUICKREDEEM_SUMMARY_SHEET.summary_fee
+  is '汇总费用';
+comment on column SMZJ.BUSI_QUICKREDEEM_SUMMARY_SHEET.confirm_date
+  is '确认日期';
+comment on column SMZJ.BUSI_QUICKREDEEM_SUMMARY_SHEET.business_type
+  is '业务类型';
+comment on column SMZJ.BUSI_QUICKREDEEM_SUMMARY_SHEET.is_delete
+  is '是否删除';
+create unique index SMZJ.INDEX_SHEET_NO on SMZJ.BUSI_QUICKREDEEM_SUMMARY_SHEET (SHEET_NO)
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table SMZJ.BUSI_QUICKREDEEM_SUMMARY_SHEET
+  add constraint QUICK_INDEX_PRIMARY primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

@@ -1,0 +1,18 @@
+create table SMZJ.BUSI_BANK_INFO
+(
+  id        VARCHAR2(32),
+  bank_no   VARCHAR2(32),
+  bank_name VARCHAR2(64)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

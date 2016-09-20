@@ -1,0 +1,24 @@
+create table SMZJ.DISTRIBUTOR_IMPORT_STATUS
+(
+  distributorcode VARCHAR2(20),
+  importdate      VARCHAR2(30),
+  importstatus    VARCHAR2(1)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on column SMZJ.DISTRIBUTOR_IMPORT_STATUS.distributorcode
+  is '销售机构代码';
+comment on column SMZJ.DISTRIBUTOR_IMPORT_STATUS.importdate
+  is '导入日期';
+comment on column SMZJ.DISTRIBUTOR_IMPORT_STATUS.importstatus
+  is '导入状态（0-未导入，1-导入成功，2-导入失败）';
+

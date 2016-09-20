@@ -1,0 +1,84 @@
+create table SMZJ.BUSI_NOTICE
+(
+  id             VARCHAR2(32) not null,
+  cp_id          VARCHAR2(32),
+  cp_name        VARCHAR2(128 CHAR),
+  notice_type    VARCHAR2(2),
+  title          VARCHAR2(128 CHAR),
+  summary        VARCHAR2(2048 CHAR),
+  is_examine     CHAR(1) default 0 not null,
+  examine_by     VARCHAR2(128 CHAR),
+  examine_date   DATE,
+  create_by      VARCHAR2(128 CHAR),
+  create_date    DATE,
+  update_by      VARCHAR2(128 CHAR),
+  update_date    DATE,
+  is_delete      CHAR(1) default 0 not null,
+  pt_id          VARCHAR2(32),
+  pt_name        VARCHAR2(128 CHAR),
+  accessory_url  VARCHAR2(128),
+  accessory_name VARCHAR2(128 CHAR),
+  content        LONG
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on column SMZJ.BUSI_NOTICE.cp_id
+  is '公司ID';
+comment on column SMZJ.BUSI_NOTICE.cp_name
+  is '公司名称';
+comment on column SMZJ.BUSI_NOTICE.notice_type
+  is '公告类型（1：公司公告，2：产品公告）';
+comment on column SMZJ.BUSI_NOTICE.title
+  is '标题';
+comment on column SMZJ.BUSI_NOTICE.summary
+  is '概述';
+comment on column SMZJ.BUSI_NOTICE.is_examine
+  is '是否审核（0：未审核，1：审核通过，2：审核未通过）';
+comment on column SMZJ.BUSI_NOTICE.examine_by
+  is '审核人';
+comment on column SMZJ.BUSI_NOTICE.examine_date
+  is '审核日期';
+comment on column SMZJ.BUSI_NOTICE.create_by
+  is '创建人';
+comment on column SMZJ.BUSI_NOTICE.create_date
+  is '创建日期';
+comment on column SMZJ.BUSI_NOTICE.update_by
+  is '更新人';
+comment on column SMZJ.BUSI_NOTICE.update_date
+  is '更新时间';
+comment on column SMZJ.BUSI_NOTICE.is_delete
+  is '是否删除（1：是，0：否）';
+comment on column SMZJ.BUSI_NOTICE.pt_id
+  is '产品ID';
+comment on column SMZJ.BUSI_NOTICE.pt_name
+  is '产品名称';
+comment on column SMZJ.BUSI_NOTICE.accessory_url
+  is '附件地址';
+comment on column SMZJ.BUSI_NOTICE.accessory_name
+  is '附件名称';
+comment on column SMZJ.BUSI_NOTICE.content
+  is '内容';
+alter table SMZJ.BUSI_NOTICE
+  add constraint NOTIC_KEY primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

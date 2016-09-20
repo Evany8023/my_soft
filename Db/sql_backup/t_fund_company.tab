@@ -1,0 +1,30 @@
+create table SMZJ.T_FUND_COMPANY
+(
+  id           NUMBER(19) not null,
+  audit_user   VARCHAR2(255 CHAR),
+  com_code     VARCHAR2(16 CHAR),
+  com_name     VARCHAR2(256 CHAR),
+  create_date  TIMESTAMP(6),
+  create_user  VARCHAR2(255 CHAR),
+  isvalid      NUMBER(1) default 1 not null,
+  update_date  TIMESTAMP(6),
+  issubmit     NUMBER(1) default 0,
+  isreview     NUMBER(1) default 0,
+  email        VARCHAR2(50 CHAR),
+  email_psword VARCHAR2(50 CHAR),
+  email_smtp   VARCHAR2(50 CHAR),
+  email_user   VARCHAR2(50 CHAR),
+  is_stop      VARCHAR2(2 CHAR) default 0
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255;
+alter table SMZJ.T_FUND_COMPANY
+  add constraint T_FUND_COMPANY_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255;
+

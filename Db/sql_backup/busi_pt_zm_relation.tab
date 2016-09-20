@@ -1,0 +1,88 @@
+create table SMZJ.BUSI_PT_ZM_RELATION
+(
+  id             VARCHAR2(32) not null,
+  parent_pt_id   VARCHAR2(32),
+  parent_pt_no   VARCHAR2(16),
+  parent_pt_name VARCHAR2(128 CHAR),
+  parent_cp_id   VARCHAR2(32),
+  parent_cp_no   VARCHAR2(16),
+  parent_cp_name VARCHAR2(128 CHAR),
+  son_pt_id      VARCHAR2(32),
+  son_pt_no      VARCHAR2(16),
+  son_pt_name    VARCHAR2(128 CHAR),
+  son_cp_id      VARCHAR2(32),
+  son_cp_no      VARCHAR2(16),
+  son_cp_name    VARCHAR2(128 CHAR),
+  trigger_no     VARCHAR2(4),
+  trigger_desc   VARCHAR2(2048),
+  son_regist_acc VARCHAR2(16),
+  cust_no        VARCHAR2(32),
+  delay_day      VARCHAR2(8),
+  update_date    DATE
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_PT_ZM_RELATION
+  is '子母关系表';
+comment on column SMZJ.BUSI_PT_ZM_RELATION.id
+  is '主键ID';
+comment on column SMZJ.BUSI_PT_ZM_RELATION.parent_pt_id
+  is '母产品ID(外键)';
+comment on column SMZJ.BUSI_PT_ZM_RELATION.parent_pt_no
+  is '母产品代码';
+comment on column SMZJ.BUSI_PT_ZM_RELATION.parent_pt_name
+  is '母产品名称';
+comment on column SMZJ.BUSI_PT_ZM_RELATION.parent_cp_id
+  is '母产品公司ID(外键)';
+comment on column SMZJ.BUSI_PT_ZM_RELATION.parent_cp_no
+  is '母产品公司机构代码';
+comment on column SMZJ.BUSI_PT_ZM_RELATION.parent_cp_name
+  is '母产品公司名称';
+comment on column SMZJ.BUSI_PT_ZM_RELATION.son_pt_id
+  is '子产品ID(外键)';
+comment on column SMZJ.BUSI_PT_ZM_RELATION.son_pt_no
+  is '子产品代码';
+comment on column SMZJ.BUSI_PT_ZM_RELATION.son_pt_name
+  is '子产品名称';
+comment on column SMZJ.BUSI_PT_ZM_RELATION.son_cp_id
+  is '子产品公司ID(外键)';
+comment on column SMZJ.BUSI_PT_ZM_RELATION.son_cp_no
+  is '子产品公司机构代码';
+comment on column SMZJ.BUSI_PT_ZM_RELATION.son_cp_name
+  is '子产品公司名称';
+comment on column SMZJ.BUSI_PT_ZM_RELATION.trigger_no
+  is '触发条件代码';
+comment on column SMZJ.BUSI_PT_ZM_RELATION.trigger_desc
+  is '触发条件描述';
+comment on column SMZJ.BUSI_PT_ZM_RELATION.son_regist_acc
+  is '字产品登记账号';
+comment on column SMZJ.BUSI_PT_ZM_RELATION.cust_no
+  is '子产品对应的客户编号';
+comment on column SMZJ.BUSI_PT_ZM_RELATION.delay_day
+  is '延迟导出天数';
+comment on column SMZJ.BUSI_PT_ZM_RELATION.update_date
+  is '更新时间';
+alter table SMZJ.BUSI_PT_ZM_RELATION
+  add constraint BUSI_PT_ZM_RELATION_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

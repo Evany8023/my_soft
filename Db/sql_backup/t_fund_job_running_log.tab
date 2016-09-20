@@ -1,0 +1,18 @@
+create table SMZJ.T_FUND_JOB_RUNNING_LOG
+(
+  job_name        VARCHAR2(200),
+  job_running_log VARCHAR2(2000 CHAR),
+  create_date     DATE default sysdate
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

@@ -1,0 +1,56 @@
+create table SMZJ.BUSI_MANAGER_FILE
+(
+  id           VARCHAR2(32) not null,
+  mgr_id       VARCHAR2(32) not null,
+  file_name    VARCHAR2(128 CHAR),
+  file_type    VARCHAR2(16),
+  file_url     VARCHAR2(128),
+  is_examine   CHAR(1) default 0 not null,
+  examine_by   VARCHAR2(128 CHAR),
+  examine_date DATE,
+  create_by    VARCHAR2(128 CHAR),
+  create_date  DATE,
+  update_by    VARCHAR2(128 CHAR),
+  update_date  DATE,
+  is_delete    CHAR(1)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255;
+comment on table SMZJ.BUSI_MANAGER_FILE
+  is '管理人文件表，存储管理人文件信息';
+comment on column SMZJ.BUSI_MANAGER_FILE.id
+  is 'ID';
+comment on column SMZJ.BUSI_MANAGER_FILE.mgr_id
+  is '管理人ID';
+comment on column SMZJ.BUSI_MANAGER_FILE.file_name
+  is '文件名';
+comment on column SMZJ.BUSI_MANAGER_FILE.file_type
+  is '文件类型';
+comment on column SMZJ.BUSI_MANAGER_FILE.file_url
+  is '文件地址';
+comment on column SMZJ.BUSI_MANAGER_FILE.is_examine
+  is '是否审核（0：未审核，1：审核）';
+comment on column SMZJ.BUSI_MANAGER_FILE.examine_by
+  is '审核人';
+comment on column SMZJ.BUSI_MANAGER_FILE.examine_date
+  is '审核日期';
+comment on column SMZJ.BUSI_MANAGER_FILE.create_by
+  is '创建人';
+comment on column SMZJ.BUSI_MANAGER_FILE.create_date
+  is '创建日期';
+comment on column SMZJ.BUSI_MANAGER_FILE.update_by
+  is '更新人';
+comment on column SMZJ.BUSI_MANAGER_FILE.update_date
+  is '更新时间';
+comment on column SMZJ.BUSI_MANAGER_FILE.is_delete
+  is '是否删除（1：是，0：否）';
+alter table SMZJ.BUSI_MANAGER_FILE
+  add constraint BUSI_MANAGER_FILE_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255;
+

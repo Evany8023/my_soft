@@ -1,0 +1,44 @@
+create table SMZJ.T_RLB_JJZT
+(
+  jjdm VARCHAR2(6) not null,
+  rq   VARCHAR2(8) not null,
+  xq   VARCHAR2(8),
+  gzr  VARCHAR2(1),
+  jjzt VARCHAR2(1),
+  syfp VARCHAR2(1),
+  syjz VARCHAR2(1),
+  yjbz VARCHAR2(1),
+  jtbz VARCHAR2(8)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on column SMZJ.T_RLB_JJZT.syfp
+  is '收益分配日标志 1';
+comment on column SMZJ.T_RLB_JJZT.syjz
+  is '收益结转日标志 1';
+comment on column SMZJ.T_RLB_JJZT.yjbz
+  is '业绩提取标志 1-通过份额调减提取';
+alter table SMZJ.T_RLB_JJZT
+  add constraint PK_RQZT primary key (JJDM, RQ)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

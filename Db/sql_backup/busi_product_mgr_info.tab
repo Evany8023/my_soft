@@ -1,0 +1,68 @@
+create table SMZJ.BUSI_PRODUCT_MGR_INFO
+(
+  id             VARCHAR2(32) not null,
+  product_id     VARCHAR2(32) not null,
+  product_no     VARCHAR2(16),
+  name           VARCHAR2(100 CHAR),
+  phone          VARCHAR2(22),
+  email          VARCHAR2(32),
+  fax            VARCHAR2(32),
+  regist_address VARCHAR2(300 CHAR),
+  office_address VARCHAR2(200 CHAR),
+  postcode       VARCHAR2(20),
+  legal_person   VARCHAR2(100 CHAR),
+  template_id    VARCHAR2(32),
+  status         VARCHAR2(1) default 0,
+  product_name   VARCHAR2(200 CHAR),
+  cp_id          VARCHAR2(32) not null,
+  create_by      VARCHAR2(200 CHAR),
+  create_date    DATE
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_PRODUCT_MGR_INFO
+  is '产品信息采集表';
+comment on column SMZJ.BUSI_PRODUCT_MGR_INFO.id
+  is '主键id';
+comment on column SMZJ.BUSI_PRODUCT_MGR_INFO.product_id
+  is '产品id';
+comment on column SMZJ.BUSI_PRODUCT_MGR_INFO.product_no
+  is '产品代码';
+comment on column SMZJ.BUSI_PRODUCT_MGR_INFO.name
+  is '信息披露负责人姓名';
+comment on column SMZJ.BUSI_PRODUCT_MGR_INFO.phone
+  is '信息披露负责人联系电话';
+comment on column SMZJ.BUSI_PRODUCT_MGR_INFO.email
+  is '信息披露负责人电子邮箱';
+comment on column SMZJ.BUSI_PRODUCT_MGR_INFO.fax
+  is '传真';
+comment on column SMZJ.BUSI_PRODUCT_MGR_INFO.regist_address
+  is '注册地址';
+comment on column SMZJ.BUSI_PRODUCT_MGR_INFO.office_address
+  is '办公地址';
+comment on column SMZJ.BUSI_PRODUCT_MGR_INFO.postcode
+  is '邮编';
+comment on column SMZJ.BUSI_PRODUCT_MGR_INFO.legal_person
+  is '法人代表';
+comment on column SMZJ.BUSI_PRODUCT_MGR_INFO.template_id
+  is '模板ID';
+comment on column SMZJ.BUSI_PRODUCT_MGR_INFO.status
+  is '是否使用模板状态，1：使用，0：未使用；默认0';
+comment on column SMZJ.BUSI_PRODUCT_MGR_INFO.product_name
+  is '产品名称';
+comment on column SMZJ.BUSI_PRODUCT_MGR_INFO.cp_id
+  is '公司ID';
+comment on column SMZJ.BUSI_PRODUCT_MGR_INFO.create_by
+  is '创建人';
+comment on column SMZJ.BUSI_PRODUCT_MGR_INFO.create_date
+  is '创建时间';
+

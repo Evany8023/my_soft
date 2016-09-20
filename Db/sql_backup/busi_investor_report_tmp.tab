@@ -1,0 +1,14 @@
+create global temporary table SMZJ.BUSI_INVESTOR_REPORT_TMP
+(
+  pt_id              VARCHAR2(32),
+  pt_name            VARCHAR2(100),
+  pt_no              VARCHAR2(32),
+  cp_id              VARCHAR2(32),
+  regist_account     VARCHAR2(16),
+  strat_date         DATE,
+  end_date           DATE,
+  show_flag          CHAR(1) default 0,
+  show_report_statue CHAR(1) default 2
+)
+on commit preserve rows;
+

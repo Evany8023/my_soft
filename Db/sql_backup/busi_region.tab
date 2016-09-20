@@ -1,0 +1,52 @@
+create table SMZJ.BUSI_REGION
+(
+  id        VARCHAR2(32) not null,
+  parent_id VARCHAR2(32),
+  name      VARCHAR2(128 CHAR),
+  code      VARCHAR2(16),
+  fullpy    VARCHAR2(32),
+  simplepy  VARCHAR2(32),
+  zip_code  VARCHAR2(8)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_REGION
+  is '地区表';
+comment on column SMZJ.BUSI_REGION.id
+  is '主键id';
+comment on column SMZJ.BUSI_REGION.parent_id
+  is '父ID';
+comment on column SMZJ.BUSI_REGION.name
+  is '地区名称';
+comment on column SMZJ.BUSI_REGION.code
+  is '代码';
+comment on column SMZJ.BUSI_REGION.fullpy
+  is '全拼';
+comment on column SMZJ.BUSI_REGION.simplepy
+  is '简拼';
+comment on column SMZJ.BUSI_REGION.zip_code
+  is '邮政编码';
+alter table SMZJ.BUSI_REGION
+  add constraint BUSI_REGION_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

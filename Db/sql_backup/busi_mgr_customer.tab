@@ -1,0 +1,60 @@
+create table SMZJ.BUSI_MGR_CUSTOMER
+(
+  id           VARCHAR2(32) not null,
+  company_id   VARCHAR2(32) not null,
+  credit_id    VARCHAR2(32) not null,
+  is_examine   CHAR(1) default 0 not null,
+  examine_by   VARCHAR2(128 CHAR),
+  examine_date DATE,
+  create_by    VARCHAR2(128 CHAR),
+  create_date  DATE,
+  update_by    VARCHAR2(128 CHAR),
+  update_date  DATE,
+  is_delete    CHAR(1) default 0
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on column SMZJ.BUSI_MGR_CUSTOMER.company_id
+  is '私募公司ID';
+comment on column SMZJ.BUSI_MGR_CUSTOMER.credit_id
+  is '证件id';
+comment on column SMZJ.BUSI_MGR_CUSTOMER.is_examine
+  is '是否审核（0：未审核，1：审核）';
+comment on column SMZJ.BUSI_MGR_CUSTOMER.examine_by
+  is '审核人';
+comment on column SMZJ.BUSI_MGR_CUSTOMER.examine_date
+  is '审核时间';
+comment on column SMZJ.BUSI_MGR_CUSTOMER.create_by
+  is '创建人';
+comment on column SMZJ.BUSI_MGR_CUSTOMER.create_date
+  is '创建时间';
+comment on column SMZJ.BUSI_MGR_CUSTOMER.update_by
+  is '修改人';
+comment on column SMZJ.BUSI_MGR_CUSTOMER.update_date
+  is '修改时间';
+comment on column SMZJ.BUSI_MGR_CUSTOMER.is_delete
+  is '是否删除（1：是，0：否）';
+alter table SMZJ.BUSI_MGR_CUSTOMER
+  add constraint BUSI_MGR_CUSTOMER_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

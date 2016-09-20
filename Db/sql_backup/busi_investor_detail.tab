@@ -1,0 +1,166 @@
+create table SMZJ.BUSI_INVESTOR_DETAIL
+(
+  id               VARCHAR2(32) not null,
+  company_id       VARCHAR2(32) not null,
+  credit_id        VARCHAR2(32) not null,
+  phone            VARCHAR2(22 CHAR),
+  telephone        VARCHAR2(24 CHAR),
+  email            VARCHAR2(40 CHAR),
+  zip_code         VARCHAR2(8),
+  address          VARCHAR2(128 CHAR),
+  name             VARCHAR2(128 CHAR),
+  remark           VARCHAR2(1000 CHAR),
+  create_by        VARCHAR2(128 CHAR),
+  create_date      DATE,
+  update_by        VARCHAR2(128 CHAR),
+  update_date      DATE,
+  is_delete        CHAR(1) default 0,
+  legal_person     VARCHAR2(128 CHAR),
+  handle_person    VARCHAR2(128 CHAR),
+  is_examine       CHAR(1) default 0,
+  examine_by       VARCHAR2(128 CHAR),
+  examine_date     DATE,
+  fax              VARCHAR2(24),
+  investor_type    VARCHAR2(10),
+  credit_type      VARCHAR2(10 CHAR) default 00,
+  credit_no        VARCHAR2(50 CHAR),
+  regist_account   VARCHAR2(16),
+  apply_no         VARCHAR2(32),
+  busi_type        VARCHAR2(4) default '001',
+  link_man         VARCHAR2(50 CHAR),
+  partner_attr     VARCHAR2(50 CHAR),
+  manage_fee_mark  VARCHAR2(16 CHAR),
+  achieve_fee_mark VARCHAR2(16 CHAR),
+  refrence         CHAR(1),
+  old_sys_id       VARCHAR2(16 CHAR),
+  pt_id            VARCHAR2(32),
+  export_status    CHAR(1) default '0',
+  ta_status        VARCHAR2(256) default '未导入TA',
+  ta_status_info   VARCHAR2(1024)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_INVESTOR_DETAIL
+  is '投资人对应私募公司详情信息表';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.id
+  is '主键ID';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.company_id
+  is '私募公司ID';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.credit_id
+  is '证件ID';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.phone
+  is '手机号';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.telephone
+  is '固定电话';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.email
+  is '邮箱';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.zip_code
+  is '邮政编码';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.address
+  is '地址';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.name
+  is '姓名';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.remark
+  is '备注';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.create_by
+  is '创建人';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.create_date
+  is '创建时间';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.update_by
+  is '修改人';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.update_date
+  is '修改时间';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.is_delete
+  is '是否删除（1：是，0：否）';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.legal_person
+  is '法人代表';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.handle_person
+  is '经办人';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.is_examine
+  is '是否审核（0：未审核，1：审核）';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.examine_by
+  is '审核人';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.examine_date
+  is '审核日期';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.fax
+  is '传真';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.investor_type
+  is '投资者类型';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.credit_type
+  is '证件类型';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.credit_no
+  is '证件号码';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.regist_account
+  is '登记账户';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.apply_no
+  is '申请单号';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.busi_type
+  is '业务类型（开户）';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.link_man
+  is '联系人姓名(对机构投资者)';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.partner_attr
+  is '合伙人属性';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.manage_fee_mark
+  is '管理费标识';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.achieve_fee_mark
+  is '业绩费标识';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.refrence
+  is '资料来源（1：投资人添加，2：管理人添加，3：客服添加，4：同步）';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.old_sys_id
+  is '老系统id';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.pt_id
+  is '产品id';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.export_status
+  is '导出状态（0：未导出，1：已导出，2：导出漏单）';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.ta_status
+  is 'TA状态';
+comment on column SMZJ.BUSI_INVESTOR_DETAIL.ta_status_info
+  is '当TA状态为数据不符时，记录详细信息';
+create index SMZJ.CUST_COM_INDEX on SMZJ.BUSI_INVESTOR_DETAIL (COMPANY_ID, CREDIT_ID)
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index SMZJ.OLD_SYS_KHSQ_ID_INDEX on SMZJ.BUSI_INVESTOR_DETAIL (OLD_SYS_ID)
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table SMZJ.BUSI_INVESTOR_DETAIL
+  add constraint BUSI_INVERTOR_DETAIL_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

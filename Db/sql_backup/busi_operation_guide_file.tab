@@ -1,0 +1,50 @@
+create table SMZJ.BUSI_OPERATION_GUIDE_FILE
+(
+  id            VARCHAR2(32) not null,
+  file_type     VARCHAR2(20),
+  file_name     VARCHAR2(100),
+  file_content  LONG,
+  file_describe VARCHAR2(1000),
+  create_by     VARCHAR2(16),
+  create_date   DATE,
+  is_delete     CHAR(1) default 0,
+  parent_id     VARCHAR2(100),
+  sort          NUMBER,
+  update_date   DATE
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_OPERATION_GUIDE_FILE
+  is '操作指南文件表(维护操作指南文件)';
+comment on column SMZJ.BUSI_OPERATION_GUIDE_FILE.id
+  is '主键';
+comment on column SMZJ.BUSI_OPERATION_GUIDE_FILE.file_type
+  is '文件类型';
+comment on column SMZJ.BUSI_OPERATION_GUIDE_FILE.file_name
+  is '文件名称';
+comment on column SMZJ.BUSI_OPERATION_GUIDE_FILE.file_content
+  is '文件内容';
+comment on column SMZJ.BUSI_OPERATION_GUIDE_FILE.file_describe
+  is '文件描述';
+comment on column SMZJ.BUSI_OPERATION_GUIDE_FILE.create_by
+  is '创建人';
+comment on column SMZJ.BUSI_OPERATION_GUIDE_FILE.create_date
+  is '创建时间';
+comment on column SMZJ.BUSI_OPERATION_GUIDE_FILE.is_delete
+  is '是否删除（1：已删除，0：未删除）';
+comment on column SMZJ.BUSI_OPERATION_GUIDE_FILE.parent_id
+  is '父级文件名称';
+comment on column SMZJ.BUSI_OPERATION_GUIDE_FILE.sort
+  is '排序';
+comment on column SMZJ.BUSI_OPERATION_GUIDE_FILE.update_date
+  is '更新时间';
+

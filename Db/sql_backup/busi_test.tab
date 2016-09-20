@@ -1,0 +1,22 @@
+create table SMZJ.BUSI_TEST
+(
+  sheet_no          VARCHAR2(50 CHAR),
+  apply_amount      VARCHAR2(50 CHAR),
+  sheet_create_time VARCHAR2(50 CHAR),
+  business_type     VARCHAR2(50 CHAR),
+  pt_no             VARCHAR2(50 CHAR),
+  insti_code        VARCHAR2(50 CHAR),
+  apply_share       VARCHAR2(50 CHAR)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

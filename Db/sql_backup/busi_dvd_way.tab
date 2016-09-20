@@ -1,0 +1,105 @@
+create table SMZJ.BUSI_DVD_WAY
+(
+  id                VARCHAR2(32 CHAR) not null,
+  pt_id             VARCHAR2(32 CHAR),
+  pt_no             VARCHAR2(16 CHAR),
+  pt_name           VARCHAR2(128 CHAR),
+  cp_id             VARCHAR2(32 CHAR),
+  cp_no             VARCHAR2(16 CHAR),
+  cp_name           VARCHAR2(128 CHAR),
+  cust_no           VARCHAR2(16 CHAR),
+  cust_name         VARCHAR2(128 CHAR),
+  credit_no         VARCHAR2(32 CHAR),
+  regist_account    VARCHAR2(16 CHAR),
+  dvd_status        CHAR(1),
+  apply_date        VARCHAR2(16 CHAR),
+  create_date       DATE,
+  update_date       DATE,
+  credit_id         VARCHAR2(32 CHAR),
+  credit_type       VARCHAR2(16 CHAR) default '00' not null,
+  sheet_no          VARCHAR2(32),
+  old_dvd_status    CHAR(1),
+  apply_change_date DATE
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_DVD_WAY
+  is '分红方式';
+comment on column SMZJ.BUSI_DVD_WAY.id
+  is '主键';
+comment on column SMZJ.BUSI_DVD_WAY.pt_id
+  is '产品ID（外键）';
+comment on column SMZJ.BUSI_DVD_WAY.pt_no
+  is '产品代码';
+comment on column SMZJ.BUSI_DVD_WAY.pt_name
+  is '产品名称';
+comment on column SMZJ.BUSI_DVD_WAY.cp_id
+  is '公司ID（外键）';
+comment on column SMZJ.BUSI_DVD_WAY.cp_no
+  is '公司机构代码';
+comment on column SMZJ.BUSI_DVD_WAY.cp_name
+  is '公司名称';
+comment on column SMZJ.BUSI_DVD_WAY.cust_no
+  is '客户编号';
+comment on column SMZJ.BUSI_DVD_WAY.cust_name
+  is '客户姓名';
+comment on column SMZJ.BUSI_DVD_WAY.credit_no
+  is '证件号码';
+comment on column SMZJ.BUSI_DVD_WAY.regist_account
+  is '登记账号';
+comment on column SMZJ.BUSI_DVD_WAY.dvd_status
+  is '分红状态（0:红利转投,1:现金分红,2:处理中）';
+comment on column SMZJ.BUSI_DVD_WAY.apply_date
+  is '申请日期';
+comment on column SMZJ.BUSI_DVD_WAY.create_date
+  is '创建时间';
+comment on column SMZJ.BUSI_DVD_WAY.update_date
+  is '更新时间';
+comment on column SMZJ.BUSI_DVD_WAY.credit_id
+  is '证件ID';
+comment on column SMZJ.BUSI_DVD_WAY.credit_type
+  is '证件类型';
+comment on column SMZJ.BUSI_DVD_WAY.sheet_no
+  is '订单编号,关联busi_sheet表';
+comment on column SMZJ.BUSI_DVD_WAY.old_dvd_status
+  is '变更之前的分红状态（0:红利转投,1:现金分红）';
+comment on column SMZJ.BUSI_DVD_WAY.apply_change_date
+  is '申请变更时间';
+alter table SMZJ.BUSI_DVD_WAY
+  add constraint TGYE_DVD_WAY_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table SMZJ.BUSI_DVD_WAY
+  add constraint TGYW_DVD_INDEX unique (PT_ID, CREDIT_ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

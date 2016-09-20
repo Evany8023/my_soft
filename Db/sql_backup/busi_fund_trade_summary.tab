@@ -1,0 +1,60 @@
+create table SMZJ.BUSI_FUND_TRADE_SUMMARY
+(
+  product_name          VARCHAR2(200 CHAR),
+  busi_type             VARCHAR2(4 CHAR),
+  apply_date            VARCHAR2(10 CHAR),
+  comfirm_date          VARCHAR2(10 CHAR),
+  apply_money_summary   VARCHAR2(20 CHAR),
+  confirm_money_summary VARCHAR2(20 CHAR),
+  confirm_share_summary VARCHAR2(20 CHAR),
+  apply_share_summary   VARCHAR2(20 CHAR),
+  netval                VARCHAR2(20 CHAR),
+  exchange_date         VARCHAR2(10 CHAR),
+  cp_id                 VARCHAR2(32 CHAR),
+  pt_id                 VARCHAR2(32 CHAR),
+  create_date           TIMESTAMP(6) default sysdate,
+  pt_no                 VARCHAR2(10 CHAR),
+  cp_no                 VARCHAR2(10 CHAR)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_FUND_TRADE_SUMMARY
+  is '直销交易汇总确认';
+comment on column SMZJ.BUSI_FUND_TRADE_SUMMARY.product_name
+  is '产品名称';
+comment on column SMZJ.BUSI_FUND_TRADE_SUMMARY.busi_type
+  is '交易类型（ta交易类型）';
+comment on column SMZJ.BUSI_FUND_TRADE_SUMMARY.apply_date
+  is '申请日期';
+comment on column SMZJ.BUSI_FUND_TRADE_SUMMARY.comfirm_date
+  is '确认日期';
+comment on column SMZJ.BUSI_FUND_TRADE_SUMMARY.apply_money_summary
+  is '申请金额汇总';
+comment on column SMZJ.BUSI_FUND_TRADE_SUMMARY.confirm_money_summary
+  is '确认金额汇总';
+comment on column SMZJ.BUSI_FUND_TRADE_SUMMARY.confirm_share_summary
+  is '确认份额汇总';
+comment on column SMZJ.BUSI_FUND_TRADE_SUMMARY.apply_share_summary
+  is '申请份额汇总';
+comment on column SMZJ.BUSI_FUND_TRADE_SUMMARY.netval
+  is '净值';
+comment on column SMZJ.BUSI_FUND_TRADE_SUMMARY.exchange_date
+  is '交收日期';
+comment on column SMZJ.BUSI_FUND_TRADE_SUMMARY.cp_id
+  is '公司id';
+comment on column SMZJ.BUSI_FUND_TRADE_SUMMARY.pt_id
+  is '产品id';
+comment on column SMZJ.BUSI_FUND_TRADE_SUMMARY.pt_no
+  is '产品代码';
+comment on column SMZJ.BUSI_FUND_TRADE_SUMMARY.cp_no
+  is '公司代码';
+

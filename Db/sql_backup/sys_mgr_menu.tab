@@ -1,0 +1,40 @@
+create table SMZJ.SYS_MGR_MENU
+(
+  cp_id   VARCHAR2(32) not null,
+  menu_id VARCHAR2(32) not null,
+  mgr_id  VARCHAR2(32) not null
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.SYS_MGR_MENU
+  is '管理人管理系统菜单中间表，存储管理人系统权限对应关系';
+comment on column SMZJ.SYS_MGR_MENU.cp_id
+  is '公司ID';
+comment on column SMZJ.SYS_MGR_MENU.menu_id
+  is '菜单ID';
+comment on column SMZJ.SYS_MGR_MENU.mgr_id
+  is '管理人ID';
+alter table SMZJ.SYS_MGR_MENU
+  add constraint SYS_MGR_MENU_PK primary key (CP_ID, MENU_ID, MGR_ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

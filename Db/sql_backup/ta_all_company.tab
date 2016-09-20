@@ -1,0 +1,45 @@
+create table SMZJ.TA_ALL_COMPANY
+(
+  name        VARCHAR2(100 CHAR),
+  code        VARCHAR2(20 CHAR) not null,
+  create_date TIMESTAMP(6) default sysdate,
+  source      VARCHAR2(20 CHAR)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index SMZJ.TA_COMPANY_CODE_INDEX on SMZJ.TA_ALL_COMPANY (CODE, SOURCE)
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table SMZJ.TA_ALL_COMPANY
+  add constraint CODE_COMPANY_INDEX primary key (CODE)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

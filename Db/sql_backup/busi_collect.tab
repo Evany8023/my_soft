@@ -1,0 +1,46 @@
+create table SMZJ.BUSI_COLLECT
+(
+  id        VARCHAR2(32) not null,
+  invest_id VARCHAR2(32) not null,
+  col_type  CHAR(1),
+  col_id    VARCHAR2(32),
+  col_date  DATE
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_COLLECT
+  is '投资人收藏表，存储投资人收藏的私募公司/私募产品等信息';
+comment on column SMZJ.BUSI_COLLECT.id
+  is 'ID';
+comment on column SMZJ.BUSI_COLLECT.invest_id
+  is '投资人ID';
+comment on column SMZJ.BUSI_COLLECT.col_type
+  is '收藏类型（1：公司，2：产品）';
+comment on column SMZJ.BUSI_COLLECT.col_id
+  is '私募公司/产品ID';
+comment on column SMZJ.BUSI_COLLECT.col_date
+  is '收藏日期';
+alter table SMZJ.BUSI_COLLECT
+  add constraint BUSI_COLLECT_PK primary key (ID)
+  using index 
+  tablespace SMZJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

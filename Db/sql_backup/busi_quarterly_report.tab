@@ -1,0 +1,77 @@
+create table SMZJ.BUSI_QUARTERLY_REPORT
+(
+  id             VARCHAR2(32),
+  product_no     VARCHAR2(50 CHAR),
+  goal           VARCHAR2(4000 CHAR),
+  strategy       VARCHAR2(4000 CHAR),
+  standard       VARCHAR2(4000 CHAR),
+  feature        VARCHAR2(4000 CHAR),
+  brief          VARCHAR2(4000 CHAR),
+  report_period  VARCHAR2(32),
+  introduction   CLOB,
+  product_name   VARCHAR2(200 CHAR),
+  cp_id          VARCHAR2(32),
+  create_by      VARCHAR2(200 CHAR),
+  create_date    DATE,
+  update_by      VARCHAR2(200 CHAR),
+  update_date    DATE,
+  is_delete      CHAR(1) default 0,
+  mgr_id         VARCHAR2(32),
+  status         CHAR(1),
+  mgr_info       VARCHAR2(4000),
+  history_status CHAR(1)
+)
+tablespace SMZJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table SMZJ.BUSI_QUARTERLY_REPORT
+  is '管理人季报信息采集表';
+comment on column SMZJ.BUSI_QUARTERLY_REPORT.id
+  is '季报信息id';
+comment on column SMZJ.BUSI_QUARTERLY_REPORT.product_no
+  is '产品代码';
+comment on column SMZJ.BUSI_QUARTERLY_REPORT.goal
+  is '投资目标';
+comment on column SMZJ.BUSI_QUARTERLY_REPORT.strategy
+  is '投资策略';
+comment on column SMZJ.BUSI_QUARTERLY_REPORT.standard
+  is '业绩比较基准';
+comment on column SMZJ.BUSI_QUARTERLY_REPORT.feature
+  is '风险收益特征';
+comment on column SMZJ.BUSI_QUARTERLY_REPORT.brief
+  is '基金经理（或基金经理小组）简介';
+comment on column SMZJ.BUSI_QUARTERLY_REPORT.report_period
+  is '报告期数';
+comment on column SMZJ.BUSI_QUARTERLY_REPORT.introduction
+  is '管理人对报告期基金投资策略和业绩表现的说明';
+comment on column SMZJ.BUSI_QUARTERLY_REPORT.product_name
+  is '产品名';
+comment on column SMZJ.BUSI_QUARTERLY_REPORT.cp_id
+  is '公司ID';
+comment on column SMZJ.BUSI_QUARTERLY_REPORT.create_by
+  is '创建人';
+comment on column SMZJ.BUSI_QUARTERLY_REPORT.create_date
+  is '创建时间';
+comment on column SMZJ.BUSI_QUARTERLY_REPORT.update_by
+  is '更新人';
+comment on column SMZJ.BUSI_QUARTERLY_REPORT.update_date
+  is '更新时间';
+comment on column SMZJ.BUSI_QUARTERLY_REPORT.is_delete
+  is '是否删除（1：是，0：否）';
+comment on column SMZJ.BUSI_QUARTERLY_REPORT.mgr_id
+  is '管理人id';
+comment on column SMZJ.BUSI_QUARTERLY_REPORT.status
+  is '季报状态(0带编辑,1:待确认,2:已确认)';
+comment on column SMZJ.BUSI_QUARTERLY_REPORT.mgr_info
+  is '管理人信息';
+comment on column SMZJ.BUSI_QUARTERLY_REPORT.history_status
+  is '历史季报标识(1是，0否)';
+
